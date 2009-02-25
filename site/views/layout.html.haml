@@ -1,0 +1,44 @@
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }
+    %title
+      Cooke's Auction Service, Inc.
+    %link{ :href => "/stylesheets/master.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+  %body
+    #wrapper
+      #header
+        %h1
+          Cooke&rsquo;s Auction Service, Inc.
+        %h2
+          It doesn&rsquo;t
+          %em
+            cost
+          to hire a good auctioneer; It
+          %strong
+            pays!
+        %ul#nav
+          %li
+            %a{ :href => "/" }
+              Home
+          %li
+            %a{ :href => "/hire-us" }
+              Hire Us
+          %li
+            %a{ :href => "/testimonials" }
+              Testimonials
+          %li
+            %a{ :href => "/past-sales" }
+              Past Sales
+          %li
+            %a{ :href => "/contact-us" }
+              Contact Us
+      #email_signup
+        %a{ :href => "/signup" }
+          Signup for our email list
+      #content
+        - #= message[:notice]
+        = catch_content :for_layout
+      #footer
+        \&reg; Cooke's Auction Service, Inc. &ndash;
+        = Time.now.strftime('%Y')
