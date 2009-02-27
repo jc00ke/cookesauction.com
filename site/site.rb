@@ -2,7 +2,7 @@
 
 ## CONFIGURATION
 configure :development do
-  DataMapper.setup(:default, "sqlite3:dev.db")
+  DataMapper.setup(:default, "sqlite3:dev.db") && DataMapper.auto_migrate!
   DataMapper::Logger.new(STDOUT, :debug)
 end
 
@@ -11,7 +11,7 @@ configure :production do
 end
 
 
-
+## MODELS
 class Listing
   include DataMapper::Resource
   
@@ -37,17 +37,21 @@ end
 
 
 
-
+## HOME PAGE
 get '/' do
 	haml :index
 end
 
+## STYLES
 get '/master.css' do
   content_type 'text/css', :charset => 'utf-8'
   sass :master  
 end
 
 
+
+
+## NORMAL PAGES
 get '/:page' do
   haml params[:page].intern
 end
