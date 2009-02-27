@@ -53,5 +53,18 @@ end
 
 ## NORMAL PAGES
 get '/:page' do
-  haml params[:page].intern
+  begin
+    haml params[:page].intern
+  rescue
+    not_found
+  end
+end
+
+## ERROR PAGES
+not_found do
+  haml :not_found
+end
+
+error do
+  haml :not_acceptable
 end
