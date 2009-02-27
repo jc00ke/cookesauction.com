@@ -1,5 +1,14 @@
-%w[rubygems sinatra dm-core dm-validations dm-timestamps].each { |r| require r }
+%w[rubygems sinatra dm-core dm-validations dm-timestamps dm-types logger].each { |r| require r }
 
+## CONFIGURATION
+configure :development do
+  DataMapper.setup(:default, "sqlite3:dev.db")
+  DataMapper::Logger.new(STDOUT, :debug)
+end
+
+configure :production do
+  DataMapper.setup(:default, "sqlite3:prod.db")
+end
 
 
 
