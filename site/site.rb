@@ -1,4 +1,4 @@
-%w[rubygems sinatra dm-core dm-validations dm-timestamps dm-types logger].each { |r| require r }
+%w[rubygems sinatra lib/partials dm-core dm-validations dm-timestamps dm-types logger].each { |r| require r }
 
 ## CONFIGURATION
 configure :development do
