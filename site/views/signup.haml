@@ -15,18 +15,21 @@
         NEVER
       give or sell your email to anyone else. We dislike spam just as much as you, maybe more.
       
-    %label
-      Name:
-    %input#name{ :type => 'text', :name => 'name' }
-    %br
-    %label
-      Email:
-    %input#email{ :type => 'text', :name => 'email' }
-    %input#your_email{ :type => 'text', :name => 'your_email' }
-    %br
+    .field
+      %label
+        Name:
+      %input#name{ :type => 'text', :name => 'name' }
+      
+    .field
+      %label
+        Email:
+      %input#email{ :type => 'text', :name => 'email' }
+      %input#your_email{ :type => 'text', :name => 'your_email' }
     
-    %label
-      Subscribe:
-    %input{ :type => 'checkbox', :checked => true }
-    
+    .field
+      %label
+        Subscribe:
+      %input{ :type => 'checkbox', :checked => true }
+      
+    #buttons
     %input{ :type => 'submit', :value => 'Signup' }

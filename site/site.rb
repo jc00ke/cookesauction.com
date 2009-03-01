@@ -39,14 +39,25 @@ class Submission
   
   property :id, Serial
   property :email, String, :format => :email_address, :nullable => false
-  property :comment, String, :length => (1..250), :nullable => false
+  property :comment, Text, :length => (1..250), :nullable => false
   
   
+end
+
+## HELPERS
+helpers do
+
+  def prep(page)
+    return page.gsub(/-/, ' ').capitalize, page.gsub(/-/, '_')
+  end
+
 end
 
 
 ## HOME PAGE
 get '/' do
+  @title = 'Welcome!'
+  @body_id = 'home'
 	haml :index
 end
 
@@ -56,23 +67,38 @@ get '/master.css' do
   sass :master  
 end
 
+get '/signup' do
+  @title, @body_id = prep 'signup'
+  haml :signup, :layout => !request.xhr?
+end
 
+post '/signup' do
+  @title, @body_id = prep 'signup'
+  haml :thanks, :layout => !request.xhr?
+end
 
 
 ## NORMAL PAGES
 get '/:page' do
   begin
+    @title, @body_id = prep params[:page]
     haml params[:page].intern
-  rescue
+  rescue Errno::ENOENT # haml can't find the view, which means the page isn't there. Throw a 404
     not_found
+  rescue
+    error
   end
 end
 
 ## ERROR PAGES
 not_found do
+  @title = 'Oops, it\'s not here!'
+  @body_id = 'not_found'
   haml :not_found
 end
 
 error do
+  @title = 'Hmm, something broke...'
+  @body_id = 'error'
   haml :not_acceptable
 end
