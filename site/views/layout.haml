@@ -4,7 +4,10 @@
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }
     %title
       Cooke's Auction Service, Inc.
-    %link{ :href => "/master.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+    
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css", :charset => "utf-8" }
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://yui.yahooapis.com/2.7.0/build/base/base-min.css", :charset => "utf-8" }
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/master.css", :charset => "utf-8" }
   %body
     #wrapper
       #header
@@ -39,6 +42,11 @@
       #content
         = yield
       #footer
+        .right
+          %a{ :href => "/privacy" }
+            Privacy
+          %a{ :href => "http://www.jessecooke.com" }
+            n-tier engineer
         \&reg; Cooke's Auction Service, Inc. &ndash;
         = Time.now.strftime('%Y')
     

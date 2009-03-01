@@ -1,2 +1,32 @@
-%strong
-  Sign up for our email list.
+
+
+%form{ :action => '/signup', :method => 'post' }
+  %fieldset
+    %legend
+      Cooke&rsquo;s Newsletter
+      
+    %p
+      Cooke&rsquo;s will send you an email when we update the site or have any other news to share.
+      Please read our
+      %a{ :href => "/privacy" }
+        privacy policy
+      for any concerns. We will
+      %strong
+        NEVER
+      give or sell your email to anyone else. We dislike spam just as much as you, maybe more.
+      
+    %label
+      Name:
+    %input#name{ :type => 'text', :name => 'name' }
+    %br
+    %label
+      Email:
+    %input#email{ :type => 'text', :name => 'email' }
+    %input#your_email{ :type => 'text', :name => 'your_email' }
+    %br
+    
+    %label
+      Subscribe:
+    %input{ :type => 'checkbox', :checked => true }
+    
+    %input{ :type => 'submit', :value => 'Signup' }

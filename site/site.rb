@@ -16,7 +16,6 @@ class Listing
   include DataMapper::Resource
   
   property :id, Serial
-
   property :city, String, :nullable => false
   property :result, String
   property :zip, String, :nullable => false
@@ -35,6 +34,15 @@ class Listing
 
 end
 
+class Submission
+  include DataMapper::Resource
+  
+  property :id, Serial
+  property :email, String, :format => :email_address, :nullable => false
+  property :comment, String, :length => (1..250), :nullable => false
+  
+  
+end
 
 
 ## HOME PAGE
