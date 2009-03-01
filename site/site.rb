@@ -1,6 +1,16 @@
-%w[rubygems sinatra lib/partials dm-core dm-validations dm-timestamps dm-types logger].each { |r| require r }
+require 'rubygems'
+$:.unshift File.dirname(__FILE__) + '/lib'
 
-## CONFIGURATION
+require 'sinatra'
+require 'partials'
+require 'testimonials'
+require 'dm-core'
+require 'dm-validations'
+require 'dm-timestamps'
+require 'dm-types'
+require 'logger'
+
+## CONFIGURATION ###########################
 configure :development do
   DataMapper.setup(:default, "sqlite3:dev.db") && DataMapper.auto_migrate!
   DataMapper::Logger.new(STDOUT, :debug)
@@ -11,7 +21,7 @@ configure :production do
 end
 
 
-## MODELS
+## MODELS ###########################
 class Listing
   include DataMapper::Resource
   
@@ -39,13 +49,14 @@ class Submission
   
   property :id, Serial
   property :email, String, :format => :email_address, :nullable => false
-  property :comment, Text, :length => (1..250), :nullable => false
-  
+  property :comment, Text, :length => (1..250), :nullable => false  
   
 end
 
-## HELPERS
+
+## HELPERS ###########################
 helpers do
+  include Sinatra::Partials
 
   def prep(page)
     return page.gsub(/-/, ' ').capitalize, page.gsub(/-/, '_')
@@ -54,20 +65,20 @@ helpers do
 end
 
 
-## HOME PAGE
+## HOME PAGE ###########################
 get '/' do
   @title = 'Welcome!'
   @body_id = 'home'
 	haml :index
 end
 
-## STYLES
+## STYLES ###########################
 get '/master.css' do
   content_type 'text/css', :charset => 'utf-8'
   sass :master  
 end
 
-## SUBSCRIBE
+## SUBSCRIBE ###########################
 get '/signup' do
   @title, @body_id = prep 'signup'
   haml :signup, :layout => !request.xhr?
@@ -78,7 +89,7 @@ post '/signup' do
   haml :thanks, :layout => !request.xhr?
 end
 
-## UNSUBSCRIBE
+## UNSUBSCRIBE ###########################
 get '/unsubscribe' do
   @title, @body_id = prep 'unsubscribe'
   haml :unsubscribe, :layout => !request.xhr?
@@ -90,19 +101,20 @@ post '/unsubscribe' do
 end
 
 
-## NORMAL PAGES
+## NORMAL PAGES ###########################
 get '/:page' do
   begin
     @title, @body_id = prep params[:page]
     haml params[:page].intern
   rescue Errno::ENOENT # haml can't find the view, which means the page isn't there. Throw a 404
     not_found
-  rescue
+  rescue Exception => e
+    puts e.inspect
     error
   end
 end
 
-## ERROR PAGES
+## ERROR PAGES ###########################
 not_found do
   @title = 'Oops, it\'s not here!'
   @body_id = 'not_found'

@@ -11,7 +11,7 @@ a
     :outline none
 
 #header
-  :background transparent url(/images/header.png) no-repeat 0 0
+  :background transparent url('/images/header.png') no-repeat 0 0
   :width 980px
   :height 266px
   :border-top 1px solid #666666
@@ -61,7 +61,7 @@ a
     :width 195px
     :height 36px
     :text-indent -9999px
-    :background transparent url(/images/signup_email_button.png) no-repeat 0 0
+    :background transparent url('/images/signup_email_button.png') no-repeat 0 0
 
     &:hover
       :background-position 0 -36px
@@ -70,6 +70,18 @@ a
 #content
   :padding 15px
   :margin-bottom 15px
+  
+  blockquote
+    :margin 22px 40px
+    :upadding 3px
+    :color #575757
+    :padding 0 50px
+    :background transparent url('/images/blockquote.gif') no-repeat 0 0
+  
+  .author
+    :position relative
+    :left 90px
+    :margin-bottom 60px
 
 
 .left
@@ -83,7 +95,7 @@ a
 
 #footer
   :clear both
-  :background url(/images/footer_background.png) repeat-x
+  :background url('/images/footer_background.png') repeat-x
   :height 53px
   :color #fff
   :font-family Georgia, "Times New Roman", Times, serif
@@ -130,7 +142,7 @@ fieldset
   #buttons
     :text-align center
   
-#signup
+#signup, #unsubscribe
   fieldset
     :width 350px
     
