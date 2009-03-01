@@ -1,5 +1,5 @@
-- @testimonials.each do |testimonial|
+- @@testimonials.each do |t|
   .testimonial
-    %blockquote= testimonial.body
+    %blockquote= t.body
     
-    .author= "- #{testimonial.author}"
+    .author= "- #{t.author}"
