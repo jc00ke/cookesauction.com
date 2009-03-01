@@ -3,7 +3,6 @@ $:.unshift File.dirname(__FILE__) + '/lib'
 
 require 'sinatra'
 require 'partials'
-require 'testimonials'
 require 'dm-core'
 require 'dm-validations'
 require 'dm-timestamps'

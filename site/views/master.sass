@@ -118,12 +118,12 @@ input#email
   
 fieldset
   :width 265px
-  :border 1px solid #ccc
   :padding 10px
   :margin 0 auto
   
   legend
     :padding 2px
+    :display none
   
   label
     :display block
@@ -141,10 +141,21 @@ fieldset
     
   #buttons
     :text-align center
+    :display none
   
 #signup, #unsubscribe
   fieldset
     :width 350px
+    :border 1px solid #ccc
+    
+    legend
+      :display inline
+    
+    #buttons
+      :display block
     
   #email_signup
     :display none
+
+#dialog
+  :display none
