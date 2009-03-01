@@ -1,0 +1,18 @@
+
+
+%form{ :action => '/unsubscribe', :method => 'post' }
+  %fieldset
+    %legend
+      Unsubscribe
+      
+    %p
+      We&rsquo;re sorry to see you go, and hope to see you at our next auction!
+      
+    .field
+      %label
+        Email:
+      %input#email{ :type => 'text', :name => 'email' }
+      %input#your_email{ :type => 'text', :name => 'your_email' }
+      
+    #buttons
+    %input{ :type => 'submit', :value => 'Unsubscribe' }

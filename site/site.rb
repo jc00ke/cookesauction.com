@@ -67,6 +67,7 @@ get '/master.css' do
   sass :master  
 end
 
+## SUBSCRIBE
 get '/signup' do
   @title, @body_id = prep 'signup'
   haml :signup, :layout => !request.xhr?
@@ -75,6 +76,17 @@ end
 post '/signup' do
   @title, @body_id = prep 'signup'
   haml :thanks, :layout => !request.xhr?
+end
+
+## UNSUBSCRIBE
+get '/unsubscribe' do
+  @title, @body_id = prep 'unsubscribe'
+  haml :unsubscribe, :layout => !request.xhr?
+end
+
+post '/unsubscribe' do
+  @title, @body_id = prep 'unsubscribe'
+  haml :bye, :layout => !request.xhr?
 end
 
 
