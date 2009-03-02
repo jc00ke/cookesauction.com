@@ -36,17 +36,37 @@ end
 class Submission
   include DataMapper::Resource
   
+  validates_length :comment, :max => 250
+  
   property :id, Serial
+  property :name, String, :nullable => false
   property :email, String, :format => :email_address, :nullable => false
-  property :comment, Text, :length => (1..250), :nullable => false  
+  property :comment, Text, :nullable => false
   
 end
 
 class Testimonial
-  attr_accessor :author, :body
-  def initialize(author, body) self.author, self.body = author, body end
+  include DataMapper::Resource
+  
+  property :id, Serial
+  property :name, String, :nullable => false
+  property :origin, String, :nullable => false
+  property :body, Text, :nullable => false
+  
 end
 
+class Email
+  include DataMapper::Resource
+  
+  validates_is_unique :email
+  
+  property :id, Serial
+  property :name, String, :nullable => false
+  property :email, String, :format => :email_address, :nullable => false
+  
+end
+
+=begin
 @@testimonials = []
 @@testimonials << Testimonial.new('Anonymous', "Your web site is great; it keeps me up to date with all the upcoming auctions. Your auctioneer team is one of the best I've seen so far. All the items I've acquired, I got at an unbeatable price and in excellent condition. My wife and I enjoy attending your auctions. Thanks, and keep up the good work!")
 @@testimonials << Testimonial.new('Anonymous', "Your web site is as fine as any I visit. I only get to the Midwest on rare occasion, but like to take in an auction when there. Thanks and keep up the good work.")
@@ -54,11 +74,13 @@ end
 @@testimonials << Testimonial.new('Tony Mier', "Cooke's is one of the most honest, professional and reputable auctions I have dealt with and I have been extremely pleased! I do long distance business with some of the finest and most prestigious auction houses in the US and have business accounts with many of them. I would urge all to have extreme confidence in all dealings with them!")
 @@testimonials << Testimonial.new('Anthony Santolino', "As a former worker for Cooke's, I must say he is one of the most professional businessmen I have met! He's a relentless worker and most of all cares about the buyers needs. In today's market you just don't get that kind of passion and caring anymore! Great job Rick for running an honest business!")
 @@testimonials << Testimonial.new('Steven Reinhart', "As a former employee and associate of Cooke's, I can honestly remark that the services provided to the public are top-drawer. Furthermore, Rick is one of the finest auctioneers in the area and has a reputation for putting the customer's best interest at the forefront of his operation and business dealings.")
+=end
 
 ## CONFIGURATION ###########################
 configure :development do
-  DataMapper.setup(:default, "sqlite3:dev.db") && DataMapper.auto_migrate!
+  DataMapper.setup(:default, "sqlite3:dev.db")
   DataMapper::Logger.new(STDOUT, :debug)
+  DataMapper.auto_migrate!
 end
 
 configure :production do
@@ -97,8 +119,19 @@ get '/signup' do
 end
 
 post '/signup' do
+  halt 500, 'Get out ye bot!' if params[:email]
+  
+  email = Email.new
+  email.name = params[:name]
+  email.email = params[:your_email]
+  
   @title, @body_id = prep 'signup'
-  haml :thanks, :layout => !request.xhr?
+  if email.save
+    haml :thanks, :layout => !request.xhr?
+  else
+    #Don't like this.
+    haml :not_acceptable, :layout => !request.xhr?
+  end
 end
 
 ## UNSUBSCRIBE ###########################
@@ -110,6 +143,13 @@ end
 post '/unsubscribe' do
   @title, @body_id = prep 'unsubscribe'
   haml :bye, :layout => !request.xhr?
+end
+
+## TESTIMONIALS ###########################
+get '/testimonials' do
+  @title, @body_id = prep 'testimonials'
+  @testimonials = Testimonial.all.reverse
+  haml :testimonials
 end
 
 
@@ -131,9 +171,9 @@ not_found do
   @body_id = 'not_found'
   haml :not_found
 end
-
+=begin
 error do
   @title = 'Hmm, something broke...'
   @body_id = 'error'
   haml :not_acceptable
-end
+=end

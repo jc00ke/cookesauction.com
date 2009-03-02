@@ -22,7 +22,18 @@ $(document).ready(function() {
       },
       buttons: {
         'Signup': function() {
-          alert('w00t');
+          $.ajax({
+            type: "POST",
+            url: "/signup",
+            data: { name: $('#name').val(), your_email: $('#your_email').val() },
+            success: function(thanks){
+              $('#dialog').html(thanks);
+              setTimeout(function() { destroyDialog() }, 1500 );
+            },
+            error: function(oops) {
+              $('#dialog').html(oops);
+            }
+          });
         },
         'Cancel': function() {
           destroyDialog();
