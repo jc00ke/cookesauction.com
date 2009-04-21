@@ -104,22 +104,22 @@ post '/signup' do
   
   @title, @body_id = prep 'signup'
   if email.save
-    haml :thanks, :layout => !request.xhr?
+    haml :thanks
   else
     #Don't like this.
-    haml :error, :layout => !request.xhr?
+    haml :error
   end
 end
 
 ## UNSUBSCRIBE ###########################
 get '/unsubscribe' do
   @title, @body_id = prep 'unsubscribe'
-  haml :unsubscribe, :layout => !request.xhr?
+  haml :unsubscribe
 end
 
 post '/unsubscribe' do
   @title, @body_id = prep 'unsubscribe'
-  haml :bye, :layout => !request.xhr?
+  haml :bye
 end
 
 

@@ -1,2 +1,23 @@
-%strong
-  You should hire us
+
+
+%form{ :action => '/hire-us', :method => 'post' }
+  %fieldset
+    %legend
+      Would you like to hire us?
+      
+    %p
+      We would like to work for you. We sincerely enjoy what we do, and hope to share that with you at a sale of your own.
+      
+    .field
+      %label
+        Name:
+      %input#name{ :type => 'text', :name => 'name' }
+      
+    .field
+      %label
+        Email:
+      %input#email{ :type => 'text', :name => 'email' }
+      %input#your_email{ :type => 'text', :name => 'your_email' }
+      
+    #buttons
+      %input{ :type => 'submit', :value => 'Submit' }
