@@ -128,6 +128,10 @@ post '/unsubscribe' do
   haml :bye
 end
 
+get '/admin/testimonials' do
+  
+end
+
 
 ## NORMAL PAGES ###########################
 get '/:page' do
@@ -152,12 +156,4 @@ error do
   @title = 'Hmm, something broke...'
   @body_id = 'error'
   haml :error
-end
-
-get '/admin/testimonials' do
-  
-end
-
-get '/about' do
-  "I'm running on Version " + Sinatra::VERSION
 end
