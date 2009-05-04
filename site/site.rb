@@ -1,5 +1,9 @@
 require 'rubygems'
+$:.unshift File.dirname(__FILE__) + '/sinatra/lib'
 require 'sinatra'
+require 'yaml'
+require 'haml'
+require 'sass'
 require 'lib/partials'
 require 'dm-core'
 require 'dm-validations'
@@ -39,6 +43,7 @@ class Submission
   property :name, String, :nullable => false
   property :email, String, :format => :email_address, :nullable => false
   property :comment, Text, :nullable => false
+  property :created_at, DateTime
   
 end
 
@@ -50,6 +55,7 @@ class Email
   property :id, Serial
   property :name, String, :nullable => false
   property :email, String, :format => :email_address, :nullable => false
+  property :created_at, DateTime
   
 end
 
@@ -150,4 +156,8 @@ end
 
 get '/admin/testimonials' do
   
+end
+
+get '/about' do
+  "I'm running on Version " + Sinatra::VERSION
 end
