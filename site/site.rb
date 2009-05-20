@@ -1,7 +1,5 @@
 require 'rubygems'
-#$:.unshift File.dirname(__FILE__) + '/sinatra/lib'
 require 'sinatra'
-#require 'yaml'
 require 'haml'
 require 'sass'
 require 'lib/partials'
@@ -10,6 +8,7 @@ require 'dm-validations'
 require 'dm-timestamps'
 require 'dm-types'
 require 'logger'
+require 'rack-flash'
 
 
 ## MODELS ###########################
@@ -77,8 +76,14 @@ class Email
   
 end
 
+
 ## CONFIGURATION ###########################
+set :sessions, true
+use Rack::Flash
+
 configure :development do
+  set :app_file, __FILE__
+  set :reload, true
   DataMapper.setup(:default, "sqlite3:dev.db")
   DataMapper::Logger.new(STDOUT, :debug)
   DataMapper.auto_migrate!
@@ -86,6 +91,14 @@ end
 
 configure :production do
   DataMapper.setup(:default, "sqlite3:prod.db")
+end
+
+
+## FILTERS ###########################
+before do
+  if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
+    redirect '/admin/login' unless session[:admin]
+  end
 end
 
 
@@ -104,6 +117,7 @@ end
 get '/' do
   @title = 'Welcome!'
   @body_id = 'home'
+  flash[:notice] = 'hello'
 	haml :index
 end
 
@@ -146,13 +160,25 @@ post '/unsubscribe' do
   haml :bye
 end
 
-get '/admin/testimonials' do
-  
-end
-
 ## ADMIN ###########################
 get '/admin' do
   haml :admin_index
+end
+
+get '/admin/login' do
+  haml :admin_login
+end
+
+post '/admin/login' do
+  if params[:password] == 'asdfzxcv'
+    session[:admin] = true
+    redirect '/admin'
+  end
+  halt 401, 'Get outa here!'
+end
+
+get '/admin/testimonials' do
+  
 end
 
 

@@ -41,6 +41,8 @@
         %a{ :href => "/signup", :title => 'Email List' }
           Signup for our email list
       #content
+        .flash
+          = flash[:notice]
         = yield
       #footer
         .right
