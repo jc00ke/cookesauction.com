@@ -13,24 +13,42 @@ require 'logger'
 
 
 ## MODELS ###########################
+
+class Page
+  include DataMapper::Resource
+  
+  belongs_to :listing
+  
+  property :id,         Serial
+  property :title,      String, :nullable => false
+  property :meta,       Text
+  property :content,    Text
+  property :visible,    Boolean, :default => true
+  property :created_at, DateTime
+  property :updated_at, DateTime
+
+end
+
 class Listing
   include DataMapper::Resource
   
-  property :id, Serial
-  property :city, String, :nullable => false
-  property :result, String
-  property :zip, String, :nullable => false
-  property :title, String, :nullable => false
-  property :number_photos, Integer, :default => 0
-  property :street_address, String, :nullable => false
-  property :type, Enum[:public_auction, :real_estate], :default => :public_auction
-  property :content, Text, :nullable => false
-  property :created_at, DateTime
-  property :updated_at, DateTime
-  property :starting_at, DateTime
-  property :visible, Boolean, :default => false
-  property :update, Text
-  property :state, String, :nullable => false
+  has 1, :page
+  
+  property :id,             Serial
+  property :city,           String,                               :nullable => false
+  property :result,         String
+  property :zip,            String,                               :nullable => false
+  property :sale_title,     String,                               :nullable => false
+  property :number_photos,  Integer,                              :default => 0
+  property :street_address, String,                               :nullable => false
+  property :type,           Enum[:public_auction, :real_estate],  :default => :public_auction
+  property :content,        Text,                                 :nullable => false
+  property :created_at,     DateTime
+  property :updated_at,     DateTime
+  property :starting_at,    DateTime
+  property :visible,        Boolean,                              :default => false
+  property :update,         Text
+  property :state,          String,                               :nullable => false
 
 end
 
@@ -39,10 +57,10 @@ class Submission
   
   validates_length :comment, :max => 250
   
-  property :id, Serial
-  property :name, String, :nullable => false
-  property :email, String, :format => :email_address, :nullable => false
-  property :comment, Text, :nullable => false
+  property :id,         Serial
+  property :name,       String, :nullable => false
+  property :email,      String, :nullable => false, :format => :email_address
+  property :comment,    Text,   :nullable => false
   property :created_at, DateTime
   
 end
@@ -52,9 +70,9 @@ class Email
   
   validates_is_unique :email
   
-  property :id, Serial
-  property :name, String, :nullable => false
-  property :email, String, :format => :email_address, :nullable => false
+  property :id,         Serial
+  property :name,       String, :nullable => false
+  property :email,      String, :nullable => false, :format => :email_address
   property :created_at, DateTime
   
 end
