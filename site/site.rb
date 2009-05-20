@@ -1,7 +1,7 @@
 require 'rubygems'
-$:.unshift File.dirname(__FILE__) + '/sinatra/lib'
+#$:.unshift File.dirname(__FILE__) + '/sinatra/lib'
 require 'sinatra'
-require 'yaml'
+#require 'yaml'
 require 'haml'
 require 'sass'
 require 'lib/partials'
@@ -148,6 +148,11 @@ end
 
 get '/admin/testimonials' do
   
+end
+
+## ADMIN ###########################
+get '/admin' do
+  haml :admin_index
 end
 
 
