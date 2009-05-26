@@ -10,7 +10,7 @@
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://yui.yahooapis.com/2.7.0/build/base/base-min.css", :charset => "utf-8" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/master.css", :charset => "utf-8" }
   %body{ :id => @body_id }
-    #wrapper
+    #custom-doc
       #header
         %h1
           Cooke&rsquo;s Auction Service, Inc.
@@ -41,8 +41,9 @@
         %a{ :href => "/signup", :title => 'Email List' }
           Signup for our email list
       #content
-        .flash
-          = flash[:notice]
+        - if flash[:notice]
+          .flash
+            = flash[:notice]
         = yield
       #footer
         .right

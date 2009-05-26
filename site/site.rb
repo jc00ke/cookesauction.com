@@ -104,7 +104,7 @@ end
 ## FILTERS ###########################
 before do
   if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
-    redirect '/admin/login' unless session[:admin]
+    #redirect '/admin/login' unless session[:admin]
   end
 end
 
@@ -124,7 +124,7 @@ end
 get '/' do
   @title = 'Welcome!'
   @body_id = 'home'
-  flash[:notice] = 'hello'
+  #flash[:notice] = 'hello'
 	haml :index
 end
 
