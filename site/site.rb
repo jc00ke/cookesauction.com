@@ -10,6 +10,13 @@ require 'dm-types'
 require 'logger'
 require 'rack-flash'
 
+#TODO
+# Get sales page looking nice so I can get this thing up on production
+# Delayed Job for image resizing and email list
+# Reverse PTR for slice
+# Vlad
+# nginx w/passenger
+
 
 ## MODELS ###########################
 
