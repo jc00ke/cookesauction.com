@@ -1,7 +1,4 @@
-*
-  :border 0 none
-  :margin 0
-  :padding 0
+
 
 
 .clearboth
@@ -102,16 +99,6 @@ th
   :font-size 100%
 
 
-var
-  :font-style normal
-  :font-weight 400
-
-
-b
-  :font-weight 700
-  :line-height 1
-
-
 body
   :margin 0
   :padding 0
@@ -139,8 +126,21 @@ ul, ol, li, pre, form
 
 fieldset
   :margin 0
-  :padding 0
-  :border 0
+  :padding 10px
+  :border 1px solid #ccc
+  
+  legend
+    :border 1px dashed #ccc
+    :margin-left 15px
+    :padding 2px
+    
+  .field label
+    :display block
+    :float left
+    :width 100px
+    
+#email
+  :display none
 
 
 input
@@ -149,9 +149,8 @@ input
 
 
 p
-  :margin 0
+  :margin 15px 0
   :padding 0
-  :margin-bottom 15px
 
 
 blockquote
@@ -256,13 +255,13 @@ tr
   :margin-bottom 15px
 
 
-  .left
-    :width 65%
+.left
+  :width 65%
 
 
-  .right
-    :float right
-    :width 30%
+.right
+  :float right
+  :width 30%
 
 
 #footer
@@ -278,11 +277,31 @@ tr
 
 .vevent
   :margin-bottom 15px
-
-.flash
-  :border 1px dashed red
+  
+.error, .notice
+  :margin 10px 0
   :padding 5px
+
+.error
+  :border 1px dashed red
+  :color red
+  
+  li
+    :color #000
+    :list-style-type circle
+    :margin-left 16px
+
+.notice
+  :border 1px dashed green
 
 .next-sale
   :border 1px dashed #ccc
   :padding 5px
+  
+.next-sale
+  &:hover
+    :background-color #FFFDD0
+    
+#message
+  :height 200px
+  :width 400px

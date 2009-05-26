@@ -83,10 +83,22 @@ class Email
   
 end
 
+class DataMapper::Validate::ValidationErrors
+  def to_html
+    output = "<ul>\n"
+    self.each do |error|
+      error.each do |e|
+        output << "<li>#{e}</li>"
+      end
+    end
+    output << "</ul>\n"
+  end
+end
+
 
 ## CONFIGURATION ###########################
 set :sessions, true
-use Rack::Flash
+use Rack::Flash, :accessorize => [:notice, :error]
 
 configure :development do
   set :app_file, __FILE__
@@ -124,7 +136,6 @@ end
 get '/' do
   @title = 'Welcome!'
   @body_id = 'home'
-  #flash[:notice] = 'hello'
 	haml :index
 end
 
@@ -149,7 +160,8 @@ post '/signup' do
   
   @title, @body_id = prep 'signup'
   if email.save
-    haml :thanks
+    flash[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
+    haml :signup
   else
     #Don't like this.
     haml :error
@@ -165,6 +177,32 @@ end
 post '/unsubscribe' do
   @title, @body_id = prep 'unsubscribe'
   haml :bye
+end
+
+## HIRE US ###########################
+get '/hire-us' do
+  @title, @body_id = prep 'hire-us'
+  haml 'hire-us'.to_sym
+end
+
+post '/hire-us' do
+  halt 500, 'Get out ye bot!' unless params[:email].empty?
+  
+  s = Submission.new
+  s.name = params[:name]
+  s.email = params[:your_email]
+  s.comment = params[:message]
+  
+  @title, @body_id = prep 'hire-us'
+  if s.save
+    flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
+  else
+    flash.now[:error] = "Something didn\'t go right. Can you try again?#{s.errors.to_html}"
+    @name = params[:name]
+    @email = params[:your_email]
+    @message = params[:message]
+  end
+  haml 'hire-us'.to_sym
 end
 
 ## ADMIN ###########################

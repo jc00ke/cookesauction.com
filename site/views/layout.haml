@@ -6,8 +6,8 @@
       = @title
       \:: Cooke's Auction Service, Inc.
     
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css", :charset => "utf-8" }
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://yui.yahooapis.com/2.7.0/build/base/base-min.css", :charset => "utf-8" }
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css", :charset => "utf-8" }
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/base/base-min.css", :charset => "utf-8" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/master.css", :charset => "utf-8" }
   %body{ :id => @body_id }
     #custom-doc
@@ -41,8 +41,11 @@
         %a{ :href => "/signup", :title => 'Email List' }
           Signup for our email list
       #content
+        - if flash[:error]
+          .error
+            = flash[:error]
         - if flash[:notice]
-          .flash
+          .notice
             = flash[:notice]
         = yield
       #footer
