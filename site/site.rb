@@ -55,6 +55,10 @@ class Listing
   property :visible,        Boolean,                              :default => false
   property :update,         Text
   property :state,          String,                               :nullable => false
+  
+  def nice_type
+    self.type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
+  end
 
 end
 
@@ -204,6 +208,14 @@ post '/hire-us' do
   end
   haml 'hire-us'.to_sym
 end
+
+## SALE ###########################
+get '/sale/:id' do
+  @listing = Listing.get(params[:id])
+  not_found unless @listing
+  haml :listing
+end
+
 
 ## ADMIN ###########################
 get '/admin' do
