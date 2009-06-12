@@ -1,0 +1,32 @@
+
+
+%form{ :action => '/contact-us', :method => 'post' }
+  %fieldset
+    %legend
+      Get a hold of us
+      
+    %p
+      You have a question, comment, concern?
+      %br
+      Just want to get a hold of us?
+      %br
+      Fill out the form below!
+      
+    .field
+      %label
+        Name:
+      %input#name{ :type => 'text', :name => 'name' }
+      
+    .field
+      %label
+        Email:
+      %input#email{ :type => 'text', :name => 'email' }
+      %input#your_email{ :type => 'text', :name => 'your_email' }
+      
+    .field#comment_field
+      %label
+        Comment:
+      %textarea#comment{ :name => 'comment' }
+      
+    #buttons
+      %input{ :type => 'submit', :value => 'Submit' }

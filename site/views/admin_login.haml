@@ -1,0 +1,14 @@
+
+
+%form{ :action => '/admin/login', :method => 'post' }
+  %fieldset
+    %legend
+      Login
+            
+    .field
+      %label
+        Password:
+      %input#password{ :type => 'password', :name => 'password' }
+      
+    #admin_buttons
+      %input{ :type => 'submit', :value => 'Login' }

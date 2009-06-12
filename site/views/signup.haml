@@ -1,0 +1,27 @@
+
+
+%form{ :action => '/signup', :method => 'post' }
+  %fieldset
+    %legend
+      Cooke&rsquo;s Newsletter
+      
+    %p
+      Cooke&rsquo;s will send you an email when we update the site or have any other news to share.
+      Please read our
+      %a{ :href => "/privacy" }
+        privacy policy
+      for any concerns. We dislike spam just as much as you, maybe more. Don&rsquo;t worry.
+      
+    .field
+      %label
+        Name:
+      %input#name{ :type => 'text', :name => 'name' }
+      
+    .field
+      %label
+        Email:
+      %input#email{ :type => 'text', :name => 'email' }
+      %input#your_email{ :type => 'text', :name => 'your_email' }
+      
+    #buttons
+      %input{ :type => 'submit', :value => 'Signup' }
