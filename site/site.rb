@@ -109,7 +109,7 @@ configure :development do
   set :reload, true
   DataMapper.setup(:default, "sqlite3:dev.db")
   DataMapper::Logger.new(STDOUT, :debug)
-  DataMapper.auto_migrate!
+  #DataMapper.auto_migrate!
 end
 
 configure :production do
@@ -119,8 +119,10 @@ end
 
 ## FILTERS ###########################
 before do
+  prep
+
   if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
-    #redirect '/admin/login' unless session[:admin]
+    redirect '/admin/login' unless session[:admin]
   end
 
   if request.post? && params[:email]
@@ -133,8 +135,14 @@ end
 helpers do
   include Sinatra::Partials
 
-  def prep(page)
-    return page.gsub(/-/, ' ').capitalize, page.gsub(/-/, '_')
+  def prep
+    page = request.path_info.to_s.sub('/','')
+    @title = page.gsub(/-/, ' ').capitalize
+    @body_id = page.gsub(/-/, '_')
+    if page == ''
+      @title = 'Welcome!' 
+      @body_d = 'home'
+    end
   end
 
 end
@@ -142,8 +150,6 @@ end
 
 ## HOME PAGE ###########################
 get '/' do
-  @title = 'Welcome!'
-  @body_id = 'home'
 	haml :index
 end
 
@@ -155,7 +161,6 @@ end
 
 ## SUBSCRIBE ###########################
 get '/signup' do
-  @title, @body_id = prep 'signup'
   haml :signup
 end
 
@@ -164,24 +169,21 @@ post '/signup' do
   email.name = params[:name]
   email.email = params[:your_email]
   
-  @title, @body_id = prep 'signup'
   if email.save
     flash[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
     haml :signup
   else
-    #Don't like this.
-    haml :error
+    flash[:error] = "Your information could not be saved. Please try again."
+    redirect '/signup'
   end
 end
 
 ## UNSUBSCRIBE ###########################
 get '/unsubscribe' do
-  @title, @body_id = prep 'unsubscribe'
   haml :unsubscribe
 end
 
 post '/unsubscribe' do
-  @title, @body_id = prep 'unsubscribe'
   email = Email.first(:email => params[:your_email])
   if email
     email.destroy
@@ -194,7 +196,6 @@ end
 
 ## HIRE US ###########################
 get '/hire-us' do
-  @title, @body_id = prep 'hire-us'
   haml 'hire-us'.to_sym
 end
 
@@ -205,7 +206,6 @@ post '/hire-us' do
   s.email = params[:your_email]
   s.comment = params[:message]
   
-  @title, @body_id = prep 'hire-us'
   if s.save
     flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
   else
@@ -227,6 +227,7 @@ end
 
 ## ADMIN ###########################
 get '/admin' do
+  @listings = Listing.all(:order => [:starting_at.desc])
   haml :admin_index
 end
 
@@ -242,11 +243,6 @@ post '/admin/login' do
   end
   flash[:error] = 'Sorry, that wasn\'t the right password.'
   redirect '/admin/login'          
-end
-
-get '/admin/listings' do
- @listings = Listing.all(:order => [:starting_at.desc])
- haml :admin_listings
 end
 
 get '/admin/listings/new' do
@@ -266,7 +262,6 @@ end
 ## NORMAL PAGES ###########################
 get '/:page' do
   begin
-    @title, @body_id = prep params[:page]
     haml params[:page].intern
   rescue Errno::ENOENT # haml can't find the view, which means the page isn't there. Throw a 404
     not_found
