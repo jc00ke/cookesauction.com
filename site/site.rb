@@ -136,13 +136,19 @@ helpers do
   include Sinatra::Partials
 
   def prep
-    page = request.path_info.to_s.sub('/','')
-    @title = page.gsub(/-/, ' ').capitalize
+    page = request.path_info.sub('/','').gsub(/\//,'_')
+    @title = page.gsub(/[-|_]/, ' ').capitalize
     @body_id = page.gsub(/-/, '_')
     if page == ''
       @title = 'Welcome!' 
       @body_d = 'home'
     end
+    @is_admin = !session[:admin].nil?
+  end
+
+  def display(view)
+   layout = (view.to_s.match(/admin/)) ? :layout_admin : :layout
+   haml view, { :layout => layout }
   end
 
 end
@@ -150,7 +156,7 @@ end
 
 ## HOME PAGE ###########################
 get '/' do
-	haml :index
+	display :index
 end
 
 ## STYLES ###########################
@@ -161,7 +167,7 @@ end
 
 ## SUBSCRIBE ###########################
 get '/signup' do
-  haml :signup
+  display :signup
 end
 
 post '/signup' do
@@ -171,7 +177,7 @@ post '/signup' do
   
   if email.save
     flash[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
-    haml :signup
+    display :signup
   else
     flash[:error] = "Your information could not be saved. Please try again."
     redirect '/signup'
@@ -180,14 +186,14 @@ end
 
 ## UNSUBSCRIBE ###########################
 get '/unsubscribe' do
-  haml :unsubscribe
+  display :unsubscribe
 end
 
 post '/unsubscribe' do
   email = Email.first(:email => params[:your_email])
   if email
     email.destroy
-    haml :bye
+    display :bye
   elsif
     flash[:error] = "#{params[:your_email]} could not be found. Please try again."
     redirect '/unsubscribe'
@@ -196,7 +202,7 @@ end
 
 ## HIRE US ###########################
 get '/hire-us' do
-  haml 'hire-us'.to_sym
+  display 'hire-us'.to_sym
 end
 
 post '/hire-us' do
@@ -214,26 +220,26 @@ post '/hire-us' do
     @email = params[:your_email]
     @message = params[:message]
   end
-  haml 'hire-us'.to_sym
+  display 'hire-us'.to_sym
 end
 
 ## SALE ###########################
 get '/sale/:id' do
   @listing = Listing.get(params[:id])
   not_found unless @listing
-  haml :listing
+  display :listing
 end
 
 
 ## ADMIN ###########################
 get '/admin' do
   @listings = Listing.all(:order => [:starting_at.desc])
-  haml :admin_index
+  display :admin_index
 end
 
 get '/admin/login' do
   session[:admin] = nil
-  haml :admin_login
+  display :admin_login
 end
 
 post '/admin/login' do
@@ -247,7 +253,7 @@ end
 
 get '/admin/listings/new' do
   @listing = Listing.new
-  haml :admin_listing_edit
+  display :admin_listing_edit
 end
 
 get '/admin/listings/:id' do
@@ -255,15 +261,15 @@ get '/admin/listings/:id' do
   unless @listing
     flash[:warning] = "Cannot find sale listing with id #{params[:id]}"
   end
-  haml :admin_listing
+  display :admin_listing
 end
 
 
 ## NORMAL PAGES ###########################
 get '/:page' do
   begin
-    haml params[:page].intern
-  rescue Errno::ENOENT # haml can't find the view, which means the page isn't there. Throw a 404
+    display params[:page].intern
+  rescue Errno::ENOENT # display can't find the view, which means the page isn't there. Throw a 404
     not_found
   rescue Exception => e
     error
@@ -274,11 +280,11 @@ end
 not_found do
   @title = 'Oops, it\'s not here!'
   @body_id = 'not_found'
-  haml :not_found
+  display :not_found
 end
 
 error do
   @title = 'Hmm, something broke...'
   @body_id = 'error'
-  haml :error
+  display :error
 end

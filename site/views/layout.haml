@@ -37,6 +37,10 @@
           %li
             %a{ :href => "/contact-us" }
               Contact us
+          - if @is_admin
+            %li
+              %a{ :href => "/admin" }
+                Admin 
       #email_signup
         %a{ :href => "/signup", :title => 'Email List' }
           Signup for our email list
