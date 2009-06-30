@@ -1,3 +1,8 @@
-
-%h3
-  Admin
+%h2
+  Listings
+- if @listings
+  - @listings.each do |l|
+    %a{ :href => "/admin/listings/#{l.id}" }= l.sale_title
+- else
+  %p
+    No listings.

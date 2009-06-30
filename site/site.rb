@@ -122,6 +122,10 @@ before do
   if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
     #redirect '/admin/login' unless session[:admin]
   end
+
+  if request.post? && params[:email]
+    halt 500, 'Get out ye bot!' unless params[:email].empty?
+  end
 end
 
 
@@ -152,12 +156,10 @@ end
 ## SUBSCRIBE ###########################
 get '/signup' do
   @title, @body_id = prep 'signup'
-  haml :signup, :layout => !request.xhr?
+  haml :signup
 end
 
 post '/signup' do
-  halt 500, 'Get out ye bot!' if params[:email]
-  
   email = Email.new
   email.name = params[:name]
   email.email = params[:your_email]
@@ -180,7 +182,14 @@ end
 
 post '/unsubscribe' do
   @title, @body_id = prep 'unsubscribe'
-  haml :bye
+  email = Email.first(:email => params[:your_email])
+  if email
+    email.destroy
+    haml :bye
+  elsif
+    flash[:error] = "#{params[:your_email]} could not be found. Please try again."
+    redirect '/unsubscribe'
+  end
 end
 
 ## HIRE US ###########################
@@ -190,7 +199,6 @@ get '/hire-us' do
 end
 
 post '/hire-us' do
-  halt 500, 'Get out ye bot!' unless params[:email].empty?
   
   s = Submission.new
   s.name = params[:name]
@@ -223,6 +231,7 @@ get '/admin' do
 end
 
 get '/admin/login' do
+  session[:admin] = nil
   haml :admin_login
 end
 
@@ -231,11 +240,26 @@ post '/admin/login' do
     session[:admin] = true
     redirect '/admin'
   end
-  halt 401, 'Get outa here!'
+  flash[:error] = 'Sorry, that wasn\'t the right password.'
+  redirect '/admin/login'          
 end
 
-get '/admin/testimonials' do
-  
+get '/admin/listings' do
+ @listings = Listing.all(:order => [:starting_at.desc])
+ haml :admin_listings
+end
+
+get '/admin/listings/new' do
+  @listing = Listing.new
+  haml :admin_listing_edit
+end
+
+get '/admin/listings/:id' do
+  @listing = Listing.first(params[:id])
+  unless @listing
+    flash[:warning] = "Cannot find sale listing with id #{params[:id]}"
+  end
+  haml :admin_listing
 end
 
 
