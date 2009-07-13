@@ -1,2 +1,19 @@
-%p
-  Edit a listing
+%form{ :action => "#{@action}", :method => 'post' }
+	%fieldset
+		%legend
+			Create/Edit a Sale Listing
+		%label
+			Title
+		%input{ :type => 'text', :name => 'page.title' }
+		%br/
+		%label
+			Visible
+		%input{ :type => 'checkbox', :name => 'page.visible' }
+		%br/
+		%label
+			Street Address
+		%input{ :type => 'text', :name => 'street_address' }
+		%br/
+		%label
+			City
+		%input{ :type => 'text', :name => 'city' }

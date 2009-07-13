@@ -28,7 +28,6 @@ class Page
   property :id,         Serial
   property :title,      String, :nullable => false
   property :meta,       Text
-  property :content,    Text
   property :visible,    Boolean, :default => true
   property :created_at, DateTime
   property :updated_at, DateTime
