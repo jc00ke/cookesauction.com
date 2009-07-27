@@ -25,12 +25,12 @@ class Page
   
   belongs_to :listing
   
-  property :id,         Serial
-  property :title,      String, :nullable => false
-  property :meta,       Text
-  property :visible,    Boolean, :default => true
-  property :created_at, DateTime
-  property :updated_at, DateTime
+  property :id,         						Serial
+  property :title,      						String, :nullable => false
+  property :keywords,								Text
+  property :description,						Text
+  property :content,								Text
+  property :visible,    						Boolean, :default => true
 
 end
 
@@ -47,11 +47,9 @@ class Listing
   property :number_photos,  Integer,                              :default => 0
   property :street_address, String,                               :nullable => false
   property :type,           Enum[:public_auction, :real_estate],  :default => :public_auction
-  property :content,        Text,                                 :nullable => false
   property :created_at,     DateTime
   property :updated_at,     DateTime
   property :starting_at,    DateTime
-  property :visible,        Boolean,                              :default => false
   property :update,         Text
   property :state,          String,                               :nullable => false
   
@@ -108,7 +106,7 @@ configure :development do
   set :reload, true
   DataMapper.setup(:default, "sqlite3:dev.db")
   DataMapper::Logger.new(STDOUT, :debug)
-  #DataMapper.auto_migrate!
+  DataMapper.auto_migrate!
 end
 
 configure :production do
@@ -121,6 +119,7 @@ before do
   prep
 
   if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
+		@action = request.path_info
     redirect '/admin/login' unless session[:admin]
   end
 
@@ -252,15 +251,48 @@ end
 
 get '/admin/listings/new' do
   @listing = Listing.new
+  @page = Page.new
   display :admin_listing_edit
 end
 
+post '/admin/listings/new' do
+  listing = Listing.new
+  page = Page.new
+	page.title = params[:page_title]
+	page.keywords = params[:page_keywords]
+	page.description = params[:page_description]
+	page.visible = params[:page_visible]
+	page.content = params[:page_content]
+	listing.page = page
+
+	listing.sale_title = params[:sale_title]
+	listing.starting_at = params[:starting_at]
+	listing.street_address = params[:street_address]
+	listing.city = params[:city]
+	listing.state = params[:state].upcase
+	listing.zip = params[:zip]
+	listing.number_photos = params[:number_photos]
+	listing.type = params[:type]
+	if listing.save
+		flash[:message] = "Sale saved."
+		redirect '/admin'
+	else
+		flash[:error] = listing.errors.to_html
+		display :admin_listing_edit
+	end
+end
+
 get '/admin/listings/:id' do
-  @listing = Listing.first(params[:id])
+  @listing = nil
+	begin
+		@listing = Listing.first(params[:id].to_i)
+	rescue
+		flash[:error] = "Something wrong with the id param."
+	end
   unless @listing
     flash[:warning] = "Cannot find sale listing with id #{params[:id]}"
   end
-  display :admin_listing
+  display :admin_listing_edit
 end
 
 

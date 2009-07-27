@@ -3,12 +3,32 @@
 		%legend
 			Create/Edit a Sale Listing
 		%label
-			Title
-		%input{ :type => 'text', :name => 'page.title' }
+			Page Title
+		%input{ :type => 'text', :name => 'page_title' }
 		%br/
 		%label
 			Visible
-		%input{ :type => 'checkbox', :name => 'page.visible' }
+		%input{ :type => 'checkbox', :name => 'page_visible' }
+		%br/
+		%label
+			Keywords
+		%textarea{ :name => 'page_keywords' }
+		%br/
+		%label
+			Description
+		%textarea{ :name => 'page_description' }
+		%br/
+		%label
+			Content
+		%textarea{ :name => 'page_content' }
+		%br/
+		%label
+			Sale Title
+		%input{ :type => 'text', :name => 'sale_title' }
+		%br/
+		%label
+			Starting At
+		%input{ :type => 'text', :name => 'starting_at' }
 		%br/
 		%label
 			Street Address
@@ -17,3 +37,27 @@
 		%label
 			City
 		%input{ :type => 'text', :name => 'city' }
+		%br/
+		%label
+			State
+		%input{ :type => 'text', :name => 'state' }
+		%br/
+		%label
+			Zip
+		%input{ :type => 'text', :name => 'zip' }
+		%br/
+		%label
+			Number Photos
+		%input{ :type => 'text', :name => 'number_photos' }
+		%br/
+		%label
+			Sale Type
+		%input{ :type => 'text', :name => 'type' }
+		%br/
+		%label
+			Update
+		%textarea{ :name => 'update' }
+		%br
+		%input{ :type => 'submit', :value => 'Submit' }
+		%a{ :href => '/admin' }
+			Cancel
