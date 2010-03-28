@@ -22,9 +22,9 @@ require 'rack-flash'
 
 class Page
   include DataMapper::Resource
-  
+
   belongs_to :listing
-  
+
   property :id,         						Serial
   property :title,      						String, :nullable => false
   property :keywords,								Text
@@ -36,9 +36,9 @@ end
 
 class Listing
   include DataMapper::Resource
-  
+
   has 1, :page
-  
+
   property :id,             Serial
   property :city,           String,                               :nullable => false
   property :result,         String
@@ -52,7 +52,7 @@ class Listing
   property :starting_at,    DateTime
   property :update,         Text
   property :state,          String,                               :nullable => false
-  
+
   def nice_type
     self.type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
   end
@@ -61,27 +61,27 @@ end
 
 class Submission
   include DataMapper::Resource
-  
+
   validates_length :comment, :max => 250
-  
+
   property :id,         Serial
   property :name,       String, :nullable => false
   property :email,      String, :nullable => false, :format => :email_address
   property :comment,    Text,   :nullable => false
   property :created_at, DateTime
-  
+
 end
 
 class Email
   include DataMapper::Resource
-  
+
   validates_is_unique :email
-  
+
   property :id,         Serial
   property :name,       String, :nullable => false
   property :email,      String, :nullable => false, :format => :email_address
   property :created_at, DateTime
-  
+
 end
 
 class DataMapper::Validate::ValidationErrors
@@ -138,7 +138,7 @@ helpers do
     @title = page.gsub(/[-|_]/, ' ').capitalize
     @body_id = page.gsub(/-/, '_')
     if page == ''
-      @title = 'Welcome!' 
+      @title = 'Welcome!'
       @body_d = 'home'
     end
     @is_admin = !session[:admin].nil?
@@ -160,7 +160,7 @@ end
 ## STYLES ###########################
 get '/master.css' do
   content_type 'text/css', :charset => 'utf-8'
-  sass :master  
+  sass :master
 end
 
 ## SUBSCRIBE ###########################
@@ -172,7 +172,7 @@ post '/signup' do
   email = Email.new
   email.name = params[:name]
   email.email = params[:your_email]
-  
+
   if email.save
     flash[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
     display :signup
@@ -204,16 +204,16 @@ get '/hire-us' do
 end
 
 post '/hire-us' do
-  
+
   s = Submission.new
   s.name = params[:name]
   s.email = params[:your_email]
   s.comment = params[:message]
-  
+
   if s.save
-    flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
+    flash.now[:notice] = "Thanks for signing up! You'll hear from us next time we post a sale."
   else
-    flash.now[:error] = "Something didn\'t go right. Can you try again?#{s.errors.to_html}"
+    flash.now[:error] = "Something didn't go right. Can you try again?#{s.errors.to_html}"
     @name = params[:name]
     @email = params[:your_email]
     @message = params[:message]
@@ -245,8 +245,8 @@ post '/admin/login' do
     session[:admin] = true
     redirect '/admin'
   end
-  flash[:error] = 'Sorry, that wasn\'t the right password.'
-  redirect '/admin/login'          
+  flash[:error] = "Sorry, that wasn't the right password."
+  redirect '/admin/login'
 end
 
 get '/admin/listings/new' do
@@ -309,7 +309,7 @@ end
 
 ## ERROR PAGES ###########################
 not_found do
-  @title = 'Oops, it\'s not here!'
+  @title = "Oops, it's not here!"
   @body_id = 'not_found'
   display :not_found
 end
