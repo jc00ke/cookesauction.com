@@ -66,9 +66,9 @@ class Submission
     validates_length :comment, :max => 250
 
     property :id,         Serial
-    property :name,       String, :nullable => false
-    property :email,      String, :nullable => false, :format => :email_address
-    property :comment,    Text,   :nullable => false
+    property :name,       String,   :nullable => false
+    property :email,      String,   :nullable => false, :format => :email_address
+    property :comment,    Text,     :nullable => false
     property :created_at, DateTime
 
 end
@@ -79,8 +79,8 @@ class Email
     validates_is_unique :email
 
     property :id,         Serial
-    property :name,       String, :nullable => false
-    property :email,      String, :nullable => false, :format => :email_address
+    property :name,       String,   :nullable => false
+    property :email,      String,   :nullable => false, :format => :email_address
     property :created_at, DateTime
 
 end
@@ -99,15 +99,19 @@ end
 
 
 ## CONFIGURATION ###########################
-set :sessions, true
-use Rack::Flash, :accessorize => [:notice, :error]
+configure do
+    set :sessions, true
+    use Rack::Flash, :accessorize => [:notice, :error]
+end
 
 configure :development do
-    set :app_file, __FILE__
-    set :reload, true
+    require 'pp'
+    #Sinatra::Application.reset!
+    use Rack::Reloader
     DataMapper.setup(:default, "sqlite3:dev.db")
     DataMapper::Logger.new(STDOUT, :debug)
     DataMapper.auto_migrate!
+    set :password,  'asdfzxcv'
 end
 
 configure :production do
@@ -243,7 +247,7 @@ get '/admin/login' do
 end
 
 post '/admin/login' do
-    if params[:password] == 'asdfzxcv'
+    if params[:password] == options.password
         session[:admin] = true
         redirect '/admin'
     end
