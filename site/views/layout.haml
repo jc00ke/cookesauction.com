@@ -5,7 +5,7 @@
     %title
       = @title
       \:: Cooke's Auction Service, Inc.
-    
+
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css", :charset => "utf-8" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/base/base-min.css", :charset => "utf-8" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/master.css", :charset => "utf-8" }
@@ -16,34 +16,25 @@
           Cooke&rsquo;s Auction Service, Inc.
         %h2
           It doesn&rsquo;t
-          %em
-            cost
+          %em cost
           to hire a good auctioneer; It
-          %strong
-            pays!
+          %strong pays!
         %ul#nav
           %li
-            %a{ :href => "/" }
-              Home
+            %a{ :href => "/" } Home
           %li
-            %a{ :href => "/hire-us" }
-              Hire us
+            %a{ :href => "/hire-us" } Hire us
           %li
-            %a{ :href => "/testimonials" }
-              Testimonials
+            %a{ :href => "/testimonials" } Testimonials
           %li
-            %a{ :href => "/past-sales" }
-              Past sales
+            %a{ :href => "/past-sales" } Past sales
           %li
-            %a{ :href => "/contact-us" }
-              Contact us
+            %a{ :href => "/contact-us" } Contact us
           - if @is_admin
             %li
-              %a{ :href => "/admin" }
-                Admin 
+              %a{ :href => "/admin" } Admin
       #email_signup
-        %a{ :href => "/signup", :title => 'Email List' }
-          Signup for our email list
+        %a{ :href => "/signup", :title => 'Email List' } Signup for our email list
       #content
         - if flash[:error]
           .error
@@ -54,16 +45,13 @@
         = yield
       #footer
         .right
-          %a{ :href => "/unsubscribe" }
-            Unsubscribe from mailing list
-          %a{ :href => "/privacy" }
-            Privacy 
-          %a{ :href => "http://jc00ke.com" }
-            By an n-tier engineer
+          %a{ :href => "/unsubscribe" } Unsubscribe from mailing list
+          %a{ :href => "/privacy" } Privacy
+          %a{ :href => "http://jc00ke.com" } By an n-tier engineer
         \&reg; Cooke's Auction Service, Inc. &ndash;
         = Time.now.strftime('%Y')
-      
+
       #dialog
-        
-    %script{ :type => "text/javascript", :src  => "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" }
+
+    %script{ :type => "text/javascript", :src  => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }
     %script{ :type => "text/javascript", :src  => "/javascripts/application.js" }
