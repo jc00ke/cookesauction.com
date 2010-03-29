@@ -1,0 +1,33 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:submissions, :index)
+      %li=link_to pat(:new), url(:submissions, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:submission)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:submission, :id)
+          %th=mat(:submission, :name)
+          %th=mat(:submission, :email)
+          %th=mat(:submission, :comment)
+          %th=mat(:submission, :created_at)
+          %th.last="&nbsp;"
+        -@submissions.each do |submission|
+          %tr
+            %td.first=submission.id
+            %td=submission.name
+            %td=submission.email
+            %td=submission.comment
+            %td=submission.created_at
+            %td.last
+              =button_to pat(:edit), url(:submissions, :edit, :id => submission.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:submissions, :destroy, :id => submission.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

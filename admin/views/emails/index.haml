@@ -1,0 +1,29 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:emails, :index)
+      %li=link_to pat(:new), url(:emails, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:email)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:email, :id)
+          %th=mat(:email, :name)
+          %th=mat(:email, :email)
+          %th.last="&nbsp;"
+        -@emails.each do |email|
+          %tr
+            %td.first=email.id
+            %td=email.name
+            %td=email.email
+            %td.last
+              =button_to pat(:edit), url(:emails, :edit, :id => email.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:emails, :destroy, :id => email.id), :method => :delete, :class => :button_to
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")
