@@ -3,6 +3,6 @@
 
 desc 'Migrates the database'
 task :migrate do
-  DataMapper.auto_migrate!
+    DataMapper.auto_migrate!
 end
 

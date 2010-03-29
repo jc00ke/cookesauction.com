@@ -168,6 +168,7 @@ end
 
 ## HOME PAGE ###########################
 get '/' do
+    @listings   = Listing.all(:starting_at.gt => Time.now)
     display :index
 end
 
