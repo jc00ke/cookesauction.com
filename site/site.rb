@@ -3,107 +3,11 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 require 'lib/partials'
-require 'dm-core'
-require 'dm-validations'
-require 'dm-timestamps'
-require 'dm-types'
+require 'lib/models'
 require 'logger'
 require 'rack-flash'
 
-#TODO
-# Get sales page looking nice so I can get this thing up on production
-# Delayed Job for image resizing and email list
-# Reverse PTR for slice
-# Vlad
-# nginx w/passenger
 
-
-## MODELS ###########################
-
-class Page
-    include DataMapper::Resource
-
-    belongs_to :listing
-
-    property :id,           Serial
-    property :title,        String,     :required => true
-    property :keywords,     Text
-    property :description,  Text
-    property :content,      Text
-    property :visible,      Boolean,    :default => true
-
-end
-
-class Listing
-    include DataMapper::Resource
-
-    has 1, :page
-
-    property :id,               Serial
-    property :city,             String,     :required => true
-    property :result,           String
-    property :zip,              String,     :required => true
-    property :sale_title,       String,     :required => true
-    property :number_photos,    Integer,    :default => 0
-    property :street_address,   String,     :required => true
-    property :type,             Enum[:public_auction, :real_estate],
-                                :default => :public_auction
-    property :created_at,       DateTime
-    property :updated_at,       DateTime
-    property :starting_at,      DateTime
-    property :update,           Text
-    property :state,            String,     :required => true
-
-    def nice_type
-        self.type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
-    end
-
-    def starting
-        starting_at.strftime("%B %d, %Y %I:%M %p")
-    end
-
-    def dtstart
-        starting_at.strftime("%Y-%m-%dT%H:%M-06:0000")
-    end
-
-end
-
-class Submission
-    include DataMapper::Resource
-
-    validates_length :comment, :max => 250
-
-    property :id,         Serial
-    property :name,       String,   :required => true
-    property :email,      String,   :required => true, :format => :email_address
-    property :comment,    Text,     :required => true
-    property :created_at, DateTime
-
-end
-
-class Email
-    include DataMapper::Resource
-
-    validates_is_unique :email
-
-    property :id,         Serial
-    property :name,       String,   :required => true
-    property :email,      String,   :required => true, :format => :email_address
-    property :created_at, DateTime
-
-end
-
-class DataMapper::Validate::ValidationErrors
-    def to_html
-        output  = []
-        output  << "<ul>"
-        self.each do |error|
-            error.each{ |e| output << "<li>#{e}</li>" }
-        end
-        output << "</ul>"
-        output.join("\n")
-    end
-end
 
 
 ## CONFIGURATION ###########################
