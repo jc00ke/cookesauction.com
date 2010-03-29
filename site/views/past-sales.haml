@@ -1,55 +1,15 @@
 
-%h4
-  Past Sales
-#hcalendar-Public-Auction.vevent
-  %span.summary
-    Public Auction
-  at
-  %br
-  %a.url{ :href => "#" }
-    %abbr.dtstart{ :title => "2009-02-08T09:45-06:0000" }
-      Feb 8, 2009  09:45am
-  %br
-  %span.location
-    227 12th Street, Chesterton IN
-  .description
-    This is the desc
-#hcalendar-Public-Auction.vevent
-  %span.summary
-    Public Auction
-  at
-  %br
-  %a.url{ :href => "#" }
-    %abbr.dtstart{ :title => "2009-02-08T09:45-06:0000" }
-      Feb 8, 2009  09:45am
-  %br
-  %span.location
-    227 12th Street, Chesterton IN
-  .description
-    This is the desc
-#hcalendar-Public-Auction.vevent
-  %span.summary
-    Public Auction
-  at
-  %br
-  %a.url{ :href => "#" }
-    %abbr.dtstart{ :title => "2009-02-08T09:45-06:0000" }
-      Feb 8, 2009  09:45am
-  %br
-  %span.location
-    227 12th Street, Chesterton IN
-  .description
-    This is the desc
-#hcalendar-Public-Auction.vevent
-  %span.summary
-    Public Auction
-  at
-  %br
-  %a.url{ :href => "#" }
-    %abbr.dtstart{ :title => "2009-02-08T09:45-06:0000" }
-      Feb 8, 2009  09:45am
-  %br
-  %span.location
-    227 12th Street, Chesterton IN
-  .description
-    This is the desc
+%h4 Past Sales
+
+- @listings.each do |listing|
+
+    #hcalendar-Public-Auction.vevent
+        %span.summary= listing.sale_title
+        %br
+        %a.url{ :href => "/sale/#{listing.id}" }
+            %abbr.dtstart{ :title => listing.dtstart }= listing.starting
+        %br
+        %span.location== #{listing.street_address}, #{listing.city} #{listing.state}
+        .description= listing.page.description
+
+    %hr

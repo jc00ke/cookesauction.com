@@ -26,7 +26,7 @@ class Page
     belongs_to :listing
 
     property :id,           Serial
-    property :title,        String,     :nullable => false
+    property :title,        String,     :required => true
     property :keywords,     Text
     property :description,  Text
     property :content,      Text
@@ -40,22 +40,30 @@ class Listing
     has 1, :page
 
     property :id,               Serial
-    property :city,             String,     :nullable => false
+    property :city,             String,     :required => true
     property :result,           String
-    property :zip,              String,     :nullable => false
-    property :sale_title,       String,     :nullable => false
+    property :zip,              String,     :required => true
+    property :sale_title,       String,     :required => true
     property :number_photos,    Integer,    :default => 0
-    property :street_address,   String,     :nullable => false
+    property :street_address,   String,     :required => true
     property :type,             Enum[:public_auction, :real_estate],
                                 :default => :public_auction
     property :created_at,       DateTime
     property :updated_at,       DateTime
     property :starting_at,      DateTime
     property :update,           Text
-    property :state,            String,     :nullable => false
+    property :state,            String,     :required => true
 
     def nice_type
         self.type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
+    end
+
+    def starting
+        starting_at.strftime("%B %d, %Y %I:%M %p")
+    end
+
+    def dtstart
+        starting_at.strftime("%Y-%m-%dT%H:%M-06:0000")
     end
 
 end
@@ -66,9 +74,9 @@ class Submission
     validates_length :comment, :max => 250
 
     property :id,         Serial
-    property :name,       String,   :nullable => false
-    property :email,      String,   :nullable => false, :format => :email_address
-    property :comment,    Text,     :nullable => false
+    property :name,       String,   :required => true
+    property :email,      String,   :required => true, :format => :email_address
+    property :comment,    Text,     :required => true
     property :created_at, DateTime
 
 end
@@ -79,8 +87,8 @@ class Email
     validates_is_unique :email
 
     property :id,         Serial
-    property :name,       String,   :nullable => false
-    property :email,      String,   :nullable => false, :format => :email_address
+    property :name,       String,   :required => true
+    property :email,      String,   :required => true, :format => :email_address
     property :created_at, DateTime
 
 end
@@ -110,7 +118,7 @@ configure :development do
     use Rack::Reloader
     DataMapper.setup(:default, "sqlite3:dev.db")
     DataMapper::Logger.new(STDOUT, :debug)
-    DataMapper.auto_migrate!
+    DataMapper.auto_upgrade!
     set :password,  'asdfzxcv'
 end
 
@@ -161,6 +169,12 @@ end
 ## HOME PAGE ###########################
 get '/' do
     display :index
+end
+
+## HOME PAGE ###########################
+get '/past-sales' do
+    @listings   = Listing.all
+    display :"past-sales"
 end
 
 ## STYLES ###########################
