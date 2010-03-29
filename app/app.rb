@@ -1,5 +1,7 @@
 class Cooke < Padrino::Application
   configure do
+    register SassInitializer
+
     ##
     # Application-specific configuration options
     #

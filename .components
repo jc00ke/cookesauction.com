@@ -2,6 +2,6 @@
 :mock: none
 :renderer: haml
 :script: jquery
-:stylesheet: none
+:stylesheet: sass
 :test: rspec
 :orm: datamapper
