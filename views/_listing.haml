@@ -1,0 +1,9 @@
+
+#hcalendar-Public-Auction.vevent
+    %span.summary= listing.nice_type
+    %br
+    %a.url{ :href => "/sale/#{listing.id}" }
+        %abbr.dtstart{ :title => listing.dtstart }= listing.starting
+    %br
+    %span.location== #{listing.street_address}, #{listing.city} #{listing.state}
+    .description= listing.page.description

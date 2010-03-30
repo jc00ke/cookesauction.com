@@ -15,7 +15,7 @@ class Listing
     property :created_at,       DateTime
     property :updated_at,       DateTime
     property :starting_at,      DateTime
-    property :update,           Text
+    property :update_text,      Text
     property :state,            String,     :required => true
 
     def nice_type
