@@ -3,6 +3,7 @@ require 'dm-validations'
 require 'dm-timestamps'
 require 'dm-types'
 require 'dm-migrations'
+require 'dm-is-remixable'
 
 $:.unshift File.join(File.dirname(__FILE__), 'models')
 

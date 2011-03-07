@@ -1,7 +1,6 @@
 class Listing
     include DataMapper::Resource
-
-    has 1, :page
+    remix 1, :page
 
     property :id,               Serial
     property :city,             String,     :required => true

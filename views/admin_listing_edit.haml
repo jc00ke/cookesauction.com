@@ -8,51 +8,51 @@
     %br/
     %label
       Visible
-    %input{ :type => 'checkbox', :name => 'page_visible', :checked => @page_visible }
+    %input{ :type => 'checkbox', :name => 'page_visible', :checked => @listing.page.visible }
     %br/
     %label
       Keywords
-    %textarea{ :name => 'page_keywords' }= @page_keywords
+    %textarea{ :name => 'page_keywords' }= @listing.page.keywords
     %br/
     %label
       Description
-    %textarea{ :name => 'page_description' }= @page_description
+    %textarea{ :name => 'page_description' }= @listing.page.description
     %br/
     %label
       Content
-    %textarea{ :name => 'page_content' }= @page_content
+    %textarea{ :name => 'page_content' }= @listing.page.content
     %br/
     %label
       Sale Title
-    %input{ :type => 'text', :name => 'sale_title', :value => @sale_title }
+    %input{ :type => 'text', :name => 'sale_title', :value => @listing.sale_title }
     %br/
     %label
       Starting At
-    %input{ :type => 'text', :name => 'starting_at', :value => @starting_at }
+    %input{ :type => 'text', :name => 'starting_at', :value => @listing.starting_at }
     %br/
     %label
       Street Address
-    %input{ :type => 'text', :name => 'street_address', :value => @street_address }
+    %input{ :type => 'text', :name => 'street_address', :value => @listing.street_address }
     %br/
     %label
       City
-    %input{ :type => 'text', :name => 'city', :value => @city }
+    %input{ :type => 'text', :name => 'city', :value => @listing.city }
     %br/
     %label
       State
-    %input{ :type => 'text', :name => 'state', :value => @state }
+    %input{ :type => 'text', :name => 'state', :value => @listing.state }
     %br/
     %label
       Zip
-    %input{ :type => 'text', :name => 'zip', :value => @zip }
+    %input{ :type => 'text', :name => 'zip', :value => @listing.zip }
     %br/
     %label
       Number Photos
-    %input{ :type => 'text', :name => 'number_photos', :value => @number_photos }
+    %input{ :type => 'text', :name => 'number_photos', :value => @listing.number_photos }
     %br/
     %label
       Sale Type
-    %input{ :type => 'text', :name => 'sale_type', :value => @sale_type }
+    %input{ :type => 'text', :name => 'sale_type', :value => @listing.sale_type }
     %br/
     %label
       Update

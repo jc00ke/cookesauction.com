@@ -14,6 +14,7 @@ gem "dm-validations"
 gem "dm-timestamps"
 gem "dm-types"
 gem "dm-migrations"
+gem "dm-is-remixable"
 
 group :development do
   #gem "heroku"

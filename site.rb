@@ -255,43 +255,27 @@ get '/admin/listings/new' do
 end
 
 post '/admin/listings/new' do
-    listing = Listing.new
-    page = Page.new
-    page.title = params[:page_title]
-    page.keywords = params[:page_keywords]
-    page.description = params[:page_description]
-    page.visible = params[:page_visible]
-    page.content = params[:page_content]
-    listing.page = page
+    @listing = Listing.new
+    @listing.page_title = params[:page_title]
+    @listing.page_keywords = params[:page_keywords]
+    @listing.page_description = params[:page_description]
+    @listing.page_visible = params[:page_visible]
+    @listing.page_content = params[:page_content]
 
-    listing.sale_title = params[:sale_title]
-    listing.starting_at = params[:starting_at]
-    listing.street_address = params[:street_address]
-    listing.city = params[:city]
-    listing.state = params[:state].upcase
-    listing.zip = params[:zip]
-    listing.number_photos = params[:number_photos]
-    listing.sale_type = params[:sale_type].intern
-    if listing.save
+    @listing.sale_title = params[:sale_title]
+    @listing.starting_at = params[:starting_at]
+    @listing.street_address = params[:street_address]
+    @listing.city = params[:city]
+    @listing.state = params[:state].upcase
+    @listing.zip = params[:zip]
+    @listing.number_photos = params[:number_photos]
+    @listing.sale_type = params[:sale_type].intern
+    if @listing.save
         flash.now[:message] = "Sale saved."
         redirect '/admin'
     else
-      @page_title = params[:page_title]
-      @page_keywords = params[:page_keywords]
-      @page_description = params[:page_description]
-      @page_visible = params[:page_visible]
-      @page_content = params[:page_content]
-
-      @sale_title = params[:sale_title]
-      @starting_at = params[:starting_at]
-      @street_address = params[:street_address]
-      @city = params[:city]
-      @state = params[:state].upcase
-      @zip = params[:zip]
-      @number_photos = params[:number_photos]
-      @sale_type = params[:sale_type].intern
-        flash.now[:error] = listing.errors.to_html
-        display :admin_listing_edit
+      flash.now[:error] = listing.errors.to_html
+      display :admin_listing_edit
     end
 end
 
