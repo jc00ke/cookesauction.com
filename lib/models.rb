@@ -2,13 +2,14 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-timestamps'
 require 'dm-types'
+require 'dm-migrations'
 
-models_dir = File.join(File.dirname(__FILE__), 'models')
+$:.unshift File.join(File.dirname(__FILE__), 'models')
 
-require File.join(models_dir, 'page')
-require File.join(models_dir, 'listing')
-require File.join(models_dir, 'email')
-require File.join(models_dir, 'submission')
+require 'page'
+require 'listing'
+require 'email'
+require 'submission'
 
 
 class DataMapper::Validate::ValidationErrors
@@ -22,3 +23,5 @@ class DataMapper::Validate::ValidationErrors
         output.join("\n")
     end
 end
+
+DataMapper.finalize

@@ -6,28 +6,50 @@ require 'lib/partials'
 require 'lib/models'
 require 'logger'
 require 'rack-flash'
-
+require 'pony'
 
 
 
 ## CONFIGURATION ###########################
 configure do
-    set :sessions, true
-    use Rack::Flash, :accessorize => [:notice, :error]
+  set :sessions, true
+  use Rack::Flash, :accessorize => [:notice, :error]
+  set :email_regexp,  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  set :haml,          { :format => :html5 }
+
 end
 
 configure :development do
-    require 'pp'
-    #Sinatra::Application.reset!
-    use Rack::Reloader
-    DataMapper.setup(:default, "sqlite3:dev.db")
-    DataMapper::Logger.new(STDOUT, :debug)
-    DataMapper.auto_upgrade!
-    set :password,  'asdfzxcv'
+  require 'pp'
+  #Sinatra::Application.reset!
+  use Rack::Reloader
+  DataMapper.setup(:default, "sqlite3:dev.db")
+  DataMapper::Logger.new(STDOUT, :debug)
+  DataMapper.auto_upgrade!
+  set :password,  'asdfzxcv'
+
+  set :image_prefix, "/images"
+  set :send_to,       "jesse@jc00ke.com"
+  set :smtp,          { :address => "localhost",
+                        :port     => 25,
+                        :authentication   => :plain,
+                        :user_name        => 'foo',
+                        :password         => 'bar',
+                        :domain           => 'baz'
+                      }
 end
 
 configure :production do
-    DataMapper.setup(:default, "sqlite3:prod.db")
+  DataMapper.setup(:default, "sqlite3:prod.db")
+  set :image_prefix, "http://assets.cookesauction.com/sales"
+  set :send_to,       "jesse@cookesauction.com"
+  set :smtp,          { :address => "smtp.sendgrid.net",
+                        :port     => 25,
+                        :authentication   => :plain,
+                        :user_name        => ENV['SENDGRID_USERNAME'],
+                        :password         => ENV['SENDGRID_PASSWORD'],
+                        :domain           => ENV['SENDGRID_DOMAIN']
+                      }
 end
 
 
@@ -57,7 +79,7 @@ helpers do
         @body_id = page.gsub(/-/, '_')
         if page == ''
             @title = 'Welcome!'
-            @body_d = 'home'
+            @body_id = 'home'
         end
         @is_admin = !session[:admin].nil?
     end
@@ -65,6 +87,37 @@ helpers do
     def display(view)
         layout = (view.to_s.match(/admin/)) ? :layout_admin : :layout
         haml view, { :layout => layout }
+    end
+
+    def valid_email_params?(params)
+      present = [:name, :your_email, :message].all?{ |p| params[p].length > 0 }
+      email_format = params[:your_email].to_s =~ settings.email_regexp
+
+      present && email_format
+    end
+
+    def email_body(params)
+      %Q|
+        Name: #{params[:name]}
+
+        Message
+        ------------------------
+        #{params[:message]}
+      |
+    end
+
+    def send_email(params)
+      if settings.production?
+        Pony.mail(  :to => settings.send_to,
+                    :from         => params[:your_email],
+                    :subject      => "Message from Cooke's",
+                    :body         => email_body(params),
+                    :via          => :smtp,
+                    :via_options  => settings.smtp
+                 )
+      else
+        puts email_body(params)
+      end
     end
 
 end
@@ -88,6 +141,26 @@ get '/master.css' do
     sass :master
 end
 
+## CONTACT US ###########################
+post '/contact-us' do
+  @title = "Contact Us"
+  if valid_email_params?(params)
+    begin
+      send_email(params)
+      flash.now[:notice] = "Your email was successfully sent."
+    rescue Exception => e
+      status 500
+      flash.now[:error] = "An error occured when trying to send the email. Please try again:\n\n#{e.message}"
+      @name, @email, @message = params[:name], params[:your_email], params[:message]
+    end
+  else
+    status 400
+    flash.now[:error] = "Please double check your entries" 
+    @name, @email, @message = params[:name], params[:your_email], params[:message]
+  end
+  display :"contact-us"
+end
+
 ## SUBSCRIBE ###########################
 get '/signup' do
     display :signup
@@ -99,12 +172,12 @@ post '/signup' do
     email.email = params[:your_email]
 
     if email.save
-        flash[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
-        display :signup
+        flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
     else
-        flash[:error] = "Your information could not be saved. Please try again."
-        redirect '/signup'
+        flash.now[:error] = "Your information could not be saved. Please try again. #{email.errors.to_html}"
+        @name, @email = params[:name], params[:your_email]
     end
+    display :signup
 end
 
 ## UNSUBSCRIBE ###########################
@@ -118,9 +191,10 @@ post '/unsubscribe' do
         email.destroy
         display :bye
     elsif
-        flash[:error] = "#{params[:your_email]} could not be found. Please try again."
-        redirect '/unsubscribe'
+        flash.now[:error] = "#{params[:your_email]} could not be found. Please try again."
+        @email = params[:your_email]
     end
+    display :unsubscribe
 end
 
 ## HIRE US ###########################
@@ -135,8 +209,8 @@ post '/hire-us' do
     s.email = params[:your_email]
     s.comment = params[:message]
 
-    if s.save
-        flash.now[:notice] = "Thanks for signing up! You'll hear from us next time we post a sale."
+    if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
+        flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
     else
         flash.now[:error] = "Something didn't go right. Can you try again?#{s.errors.to_html}"
         @name = params[:name]
@@ -170,7 +244,7 @@ post '/admin/login' do
         session[:admin] = true
         redirect '/admin'
     end
-    flash[:error] = "Sorry, that wasn't the right password."
+    flash.now[:error] = "Sorry, that wasn't the right password."
     redirect '/admin/login'
 end
 
@@ -197,12 +271,26 @@ post '/admin/listings/new' do
     listing.state = params[:state].upcase
     listing.zip = params[:zip]
     listing.number_photos = params[:number_photos]
-    listing.type = params[:type]
+    listing.sale_type = params[:sale_type].intern
     if listing.save
-        flash[:message] = "Sale saved."
+        flash.now[:message] = "Sale saved."
         redirect '/admin'
     else
-        flash[:error] = listing.errors.to_html
+      @page_title = params[:page_title]
+      @page_keywords = params[:page_keywords]
+      @page_description = params[:page_description]
+      @page_visible = params[:page_visible]
+      @page_content = params[:page_content]
+
+      @sale_title = params[:sale_title]
+      @starting_at = params[:starting_at]
+      @street_address = params[:street_address]
+      @city = params[:city]
+      @state = params[:state].upcase
+      @zip = params[:zip]
+      @number_photos = params[:number_photos]
+      @sale_type = params[:sale_type].intern
+        flash.now[:error] = listing.errors.to_html
         display :admin_listing_edit
     end
 end
@@ -212,10 +300,10 @@ get '/admin/listings/:id' do
     begin
         @listing = Listing.first(params[:id].to_i)
     rescue
-        flash[:error] = "Something wrong with the id param."
+        flash.now[:error] = "Something wrong with the id param."
     end
     unless @listing
-        flash[:warning] = "Cannot find sale listing with id #{params[:id]}"
+        flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
     end
     display :admin_listing_edit
 end

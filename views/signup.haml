@@ -15,13 +15,13 @@
     .field
       %label
         Name:
-      %input#name{ :type => 'text', :name => 'name' }
+      %input#name{ :type => 'text', :name => 'name', :value => @name }
       
     .field
       %label
         Email:
       %input#email{ :type => 'text', :name => 'email' }
-      %input#your_email{ :type => 'text', :name => 'your_email' }
+      %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
       
     #buttons
       %input{ :type => 'submit', :value => 'Signup' }

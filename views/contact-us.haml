@@ -15,18 +15,18 @@
     .field
       %label
         Name:
-      %input#name{ :type => 'text', :name => 'name' }
+      %input#name{ :type => 'text', :name => 'name', :value => @name }
       
     .field
       %label
         Email:
       %input#email{ :type => 'text', :name => 'email' }
-      %input#your_email{ :type => 'text', :name => 'your_email' }
+      %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
       
     .field#comment_field
       %label
         Comment:
-      %textarea#comment{ :name => 'comment' }
+      %textarea#message{ :name => 'message' }= @message
       
     #buttons
       %input{ :type => 'submit', :value => 'Submit' }

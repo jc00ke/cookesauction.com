@@ -1,7 +1,7 @@
 class Email
     include DataMapper::Resource
 
-    validates_is_unique :email
+    validates_uniqueness_of :email
 
     property :id,         Serial
     property :name,       String,   :required => true

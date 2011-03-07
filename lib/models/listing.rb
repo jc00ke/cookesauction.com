@@ -10,7 +10,7 @@ class Listing
     property :sale_title,       String,     :required => true
     property :number_photos,    Integer,    :default => 0
     property :street_address,   String,     :required => true
-    property :type,             Enum[:public_auction, :real_estate],
+    property :sale_type,        Enum[:public_auction, :real_estate],
                                 :default => :public_auction
     property :created_at,       DateTime
     property :updated_at,       DateTime

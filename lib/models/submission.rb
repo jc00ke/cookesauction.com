@@ -1,7 +1,7 @@
 class Submission
     include DataMapper::Resource
 
-    validates_length :comment, :max => 250
+    validates_length_of :comment, :max => 250
 
     property :id,         Serial
     property :name,       String,   :required => true
