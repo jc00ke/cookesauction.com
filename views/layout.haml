@@ -37,11 +37,9 @@
         %a{ :href => "/signup", :title => 'Email List' } Signup for our email list
       #content
         - if flash[:error]
-          .error
-            = flash[:error]
+          .error= flash[:error]
         - if flash[:notice]
-          .notice
-            = flash[:notice]
+          .notice= flash[:notice]
         = yield
       #footer
         .right

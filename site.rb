@@ -1,30 +1,28 @@
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/flash'
 require 'haml'
 require 'sass'
 $LOAD_PATH << File.expand_path('lib')
 require 'partials'
 require 'models'
 require 'logger'
-require 'rack-flash'
 require 'pony'
 
+DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3:dev.db")
+enable :sessions
 
 
 ## CONFIGURATION ###########################
 configure do
-  set :sessions, true
-  use Rack::Flash, :accessorize => [:notice, :error]
   set :email_regexp,  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
   set :haml,          { :format => :html5 }
-
 end
 
 configure :development do
-  require 'pp'
-  #Sinatra::Application.reset!
+  require 'ap'
+  Sinatra::Application.reset!
   use Rack::Reloader
-  DataMapper.setup(:default, "sqlite3:dev.db")
   DataMapper::Logger.new(STDOUT, :debug)
   DataMapper.auto_upgrade!
   set :password,  'asdfzxcv'
@@ -41,7 +39,6 @@ configure :development do
 end
 
 configure :production do
-  DataMapper.setup(:default, "sqlite3:prod.db")
   set :image_prefix, "http://assets.cookesauction.com/sales"
   set :send_to,       "jesse@cookesauction.com"
   set :smtp,          { :address => "smtp.sendgrid.net",
@@ -132,7 +129,7 @@ end
 
 ## HOME PAGE ###########################
 get '/past-sales' do
-    @listings   = Listing.all
+    @listings   = Listing.all(:starting_at.lt => Time.now)
     display :"past-sales"
 end
 
@@ -251,69 +248,91 @@ end
 
 get '/admin/listings/new' do
     @listing = Listing.new
-    @page = Page.new
+    @listing.page = ListingPage.new
     display :admin_listing_edit
 end
 
 post '/admin/listings/new' do
-    @listing = Listing.new
-    @listing.page_title = params[:page_title]
-    @listing.page_keywords = params[:page_keywords]
-    @listing.page_description = params[:page_description]
-    @listing.page_visible = params[:page_visible]
-    @listing.page_content = params[:page_content]
+  @listing = Listing.new
+  @listing.page = ListingPage.new
+  @listing.page.title = params[:page_title]
+  @listing.page.keywords = params[:page_keywords]
+  @listing.page.description = params[:page_description]
+  @listing.page.visible = params[:page_visible]
+  @listing.page.content = params[:page_content]
 
-    @listing.sale_title = params[:sale_title]
-    @listing.starting_at = params[:starting_at]
-    @listing.street_address = params[:street_address]
-    @listing.city = params[:city]
-    @listing.state = params[:state].upcase
-    @listing.zip = params[:zip]
-    @listing.number_photos = params[:number_photos]
-    @listing.sale_type = params[:sale_type].intern
-    if @listing.save
-        flash.now[:message] = "Sale saved."
-        redirect '/admin'
-    else
-      flash.now[:error] = listing.errors.to_html
-      display :admin_listing_edit
-    end
+  @listing.sale_title = params[:sale_title]
+  @listing.starting_at = params[:starting_at]
+  @listing.street_address = params[:street_address]
+  @listing.city = params[:city]
+  @listing.state = params[:state].upcase
+  @listing.zip = params[:zip]
+  @listing.number_photos = params[:number_photos]
+  @listing.sale_type = params[:sale_type].intern
+  if @listing.save
+    flash.now[:message] = "Sale saved."
+    redirect '/admin'
+  else
+    flash.now[:error] = @listing.errors.to_html
+    display :admin_listing_edit
+  end
 end
 
 get '/admin/listings/:id' do
-    @listing = nil
-    begin
-        @listing = Listing.first(params[:id].to_i)
-    rescue
-        flash.now[:error] = "Something wrong with the id param."
-    end
-    unless @listing
-        flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
-    end
+  @listing = Listing.get(params[:id])
+  unless @listing
+    flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
+    redirect "/admin"
+  end
+  display :admin_listing_edit
+end
+
+post '/admin/listings/:id' do
+  @listing = Listing.get(params[:id])
+  @listing.page.title = params[:page_title]
+  @listing.page.keywords = params[:page_keywords]
+  @listing.page.description = params[:page_description]
+  @listing.page.visible = params[:page_visible]
+  @listing.page.content = params[:page_content]
+
+  @listing.sale_title = params[:sale_title]
+  @listing.starting_at = params[:starting_at]
+  @listing.street_address = params[:street_address]
+  @listing.city = params[:city]
+  @listing.state = params[:state].upcase
+  @listing.zip = params[:zip]
+  @listing.number_photos = params[:number_photos]
+  @listing.sale_type = params[:sale_type].intern
+  if @listing.save
+    flash[:message] = "Sale saved."
+    redirect '/admin'
+  else
+    flash[:error] = @listing.errors.to_html
     display :admin_listing_edit
+  end
 end
 
 
 ## NORMAL PAGES ###########################
 get '/:page' do
-    begin
-        display params[:page].intern
-    rescue Errno::ENOENT # display can't find the view, which means the page isn't there. Throw a 404
-        not_found
-    rescue Exception => e
-        error
-    end
+  begin
+    display params[:page].intern
+  rescue Errno::ENOENT # display can't find the view, which means the page isn't there. Throw a 404
+    not_found
+  rescue Exception => e
+    error
+  end
 end
 
 ## ERROR PAGES ###########################
 not_found do
-    @title = "Oops, it's not here!"
-    @body_id = 'not_found'
-    display :not_found
+  @title = "Oops, it's not here!"
+  @body_id = 'not_found'
+  display :not_found
 end
 
 error do
-    @title = 'Hmm, something broke...'
-    @body_id = 'error'
-    display :error
+  @title = 'Hmm, something broke...'
+  @body_id = 'error'
+  display :error
 end

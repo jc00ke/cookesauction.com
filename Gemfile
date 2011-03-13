@@ -1,7 +1,7 @@
 source :rubygems
 
-gem "rack-flash"
 gem "sinatra"
+gem "sinatra-flash"
 gem "sinatra-outputbuffer"
 gem "tilt"
 gem "haml"
@@ -17,10 +17,15 @@ gem "dm-migrations"
 gem "dm-is-remixable"
 
 group :development do
-  #gem "heroku"
-  #gem "ruby-debug19"
+  gem "ruby-debug19"
   gem "dm-cli"
   gem "heroku"
+  gem "interactive_editor"
+  gem "awesome_print", :require => 'ap'
+  gem "wirble"
+  gem "boson"
+  gem "hirb"
+  gem "bond"
 end
 
 group :test do
