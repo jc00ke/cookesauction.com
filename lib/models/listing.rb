@@ -28,5 +28,12 @@ class Listing
     def dtstart
         starting_at.strftime("%Y-%m-%dT%H:%M-06:0000")
     end
-
+     
+    def self.upcoming
+      all({ :starting_at.gt => Time.now, :page => { :visible => true } })
+    end
+     
+    def self.past
+      all(:visible => true, :starting_at.lt => Time.now)
+    end
 end

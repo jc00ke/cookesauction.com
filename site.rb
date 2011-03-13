@@ -53,83 +53,83 @@ end
 
 ## FILTERS ###########################
 before do
-    prep
+  prep
 
-    if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
-        @action = request.path_info
-        redirect '/admin/login' unless session[:admin]
-    end
+  if request.path_info =~ /\/admin/ && request.path_info != '/admin/login'
+    @action = request.path_info
+    redirect '/admin/login' unless session[:admin]
+  end
 
-    # catch bots in the honeypot
-    if request.post? && params[:email]
-        halt 500, 'Get out ye bot!' unless params[:email].empty?
-    end
+  # catch bots in the honeypot
+  if request.post? && params[:email]
+    halt 500, 'Get out ye bot!' unless params[:email].empty?
+  end
 end
 
 
 ## HELPERS ###########################
 helpers do
-    include Sinatra::Partials
+  include Sinatra::Partials
 
-    def prep
-        page = request.path_info.sub('/','').gsub(/\//,'_')
-        @title = page.gsub(/[-|_]/, ' ').capitalize
-        @body_id = page.gsub(/-/, '_')
-        if page == ''
-            @title = 'Welcome!'
-            @body_id = 'home'
-        end
-        @is_admin = !session[:admin].nil?
+  def prep
+    page = request.path_info.sub('/','').gsub(/\//,'_')
+    @title = page.gsub(/[-|_]/, ' ').capitalize
+    @body_id = page.gsub(/-/, '_')
+    if page == ''
+      @title = 'Welcome!'
+      @body_id = 'home'
     end
+    @is_admin = !session[:admin].nil?
+  end
 
-    def display(view)
-        layout = (view.to_s.match(/admin/)) ? :layout_admin : :layout
-        haml view, { :layout => layout }
+  def display(view)
+    layout = (view.to_s.match(/admin/)) ? :layout_admin : :layout
+    haml view, { :layout => layout }
+  end
+
+  def valid_email_params?(params)
+    present = [:name, :your_email, :message].all?{ |p| params[p].length > 0 }
+    email_format = params[:your_email].to_s =~ settings.email_regexp
+
+    present && email_format
+  end
+
+  def email_body(params)
+    %Q|
+      Name: #{params[:name]}
+
+      Message
+      ------------------------
+      #{params[:message]}
+    |
+  end
+
+  def send_email(params)
+    if settings.production?
+      Pony.mail(  :to => settings.send_to,
+                  :from         => params[:your_email],
+                  :subject      => "Message from Cooke's",
+                  :body         => email_body(params),
+                  :via          => :smtp,
+                  :via_options  => settings.smtp
+               )
+    else
+      puts email_body(params)
     end
-
-    def valid_email_params?(params)
-      present = [:name, :your_email, :message].all?{ |p| params[p].length > 0 }
-      email_format = params[:your_email].to_s =~ settings.email_regexp
-
-      present && email_format
-    end
-
-    def email_body(params)
-      %Q|
-        Name: #{params[:name]}
-
-        Message
-        ------------------------
-        #{params[:message]}
-      |
-    end
-
-    def send_email(params)
-      if settings.production?
-        Pony.mail(  :to => settings.send_to,
-                    :from         => params[:your_email],
-                    :subject      => "Message from Cooke's",
-                    :body         => email_body(params),
-                    :via          => :smtp,
-                    :via_options  => settings.smtp
-                 )
-      else
-        puts email_body(params)
-      end
-    end
+  end
 
 end
 
 
 ## HOME PAGE ###########################
 get '/' do
-    @listings   = Listing.all(:starting_at.gt => Time.now)
+    @listings   = Listing.upcoming
     display :index
 end
 
 ## HOME PAGE ###########################
 get '/past-sales' do
-    @listings   = Listing.all(:starting_at.lt => Time.now)
+    @listings   = Listing.past
     display :"past-sales"
 end
 
