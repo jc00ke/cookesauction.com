@@ -1,12 +1,11 @@
 class Submission
-    include DataMapper::Resource
+    include Mongoid::Document
 
     validates_length_of :comment, :max => 250
 
-    property :id,         Serial
-    property :name,       String,   :required => true
-    property :email,      String,   :required => true, :format => :email_address
-    property :comment,    Text,     :required => true
-    property :created_at, DateTime
+    property :name,         :required => true
+    property :email,        :required => true, :format => :email_address
+    property :comment,      :required => true
+    property :created_at,   DateTime
 
 end

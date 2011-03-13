@@ -1,21 +1,20 @@
 class Listing
-    include DataMapper::Resource
-    remix 1, :page, :as => "page"
+    include Mongoid::Document
+    embeds_one :page
 
-    property :id,               Serial
-    property :city,             String,     :required => true
-    property :result,           String
-    property :zip,              String,     :required => true
-    property :sale_title,       String,     :required => true
-    property :number_photos,    Integer,    :default => 0
-    property :street_address,   String,     :required => true
-    property :sale_type,        Enum[:public_auction, :real_estate],
-                                :default => :public_auction
-    property :created_at,       DateTime
-    property :updated_at,       DateTime
-    property :starting_at,      DateTime
-    property :update_text,      Text
-    property :state,            String,     :required => true
+    field :city,                         :required => true
+    field :result,                 
+    field :zip,                          :required => true
+    field :sale_title,                   :required => true
+    field :number_photos,    Integer,    :default => 0
+    field :street_address,               :required => true
+    field :sale_type,        Enum[:public_auction, :real_estate],
+                             :default => :public_auction
+    field :created_at,       DateTime
+    field :updated_at,       DateTime
+    field :starting_at,      DateTime
+    field :update_text,          
+    field :state,                        :required => true
 
     def nice_type
         self.type.to_s.split('_').each { |t| t.capitalize! }.join(' ')

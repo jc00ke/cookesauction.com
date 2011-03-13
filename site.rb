@@ -3,18 +3,27 @@ require 'sinatra'
 require 'sinatra/flash'
 require 'haml'
 require 'sass'
-$LOAD_PATH << File.expand_path('lib')
+$LOAD_PATH.unshift File.expand_path('lib')
 require 'partials'
 require 'models'
 require 'logger'
 require 'pony'
 
-DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3:dev.db")
-enable :sessions
+# MongoDB configuration
+Mongoid.configure do |config|
+  if ENV['MONGOHQ_URL']
+    conn = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+    uri = URI.parse(ENV['MONGOHQ_URL'])
+    config.master = conn.db(uri.path.gsub(/^\//, ''))
+  else
+    config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('cookes')
+  end
+end
 
 
 ## CONFIGURATION ###########################
 configure do
+  set :sessions, true
   set :email_regexp,  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
   set :haml,          { :format => :html5 }
 end
@@ -23,8 +32,6 @@ configure :development do
   require 'ap'
   Sinatra::Application.reset!
   use Rack::Reloader
-  DataMapper::Logger.new(STDOUT, :debug)
-  DataMapper.auto_upgrade!
   set :password,  'asdfzxcv'
 
   set :image_prefix, "/images"

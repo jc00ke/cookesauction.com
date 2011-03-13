@@ -8,21 +8,10 @@ gem "haml"
 gem "rdiscount"
 gem "rack-rewrite"
 gem "pony"
-gem "dm-core"
-gem "dm-sqlite-adapter"
-gem "dm-validations"
-gem "dm-timestamps"
-gem "dm-types"
-gem "dm-migrations"
-gem "dm-is-remixable"
-
-group :production do
-  gem "pg"
-end
+gem "mongoid", ">= 2.0.0.rc.7"
 
 group :development do
   gem "ruby-debug19"
-  gem "dm-cli"
   gem "heroku"
   gem "interactive_editor"
   gem "awesome_print", :require => 'ap'
