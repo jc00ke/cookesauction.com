@@ -17,5 +17,5 @@ use Rack::Rewrite do
   r301 '/brochure11.pdf', 'http://assets.art4kidsnw.com/2011-brochure.pdf'
 end
 
-require 'site'
+require_relative 'site'
 run Sinatra::Application
