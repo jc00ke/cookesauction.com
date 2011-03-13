@@ -1,4 +1,4 @@
-source :rubygems
+source :gemcutter
 
 gem "sinatra"
 gem "sinatra-flash"
@@ -17,7 +17,7 @@ gem "dm-migrations"
 gem "dm-is-remixable"
 
 group :production do
-  gem "dm-postgres-adapter"
+  gem "pg"
 end
 
 group :development do
