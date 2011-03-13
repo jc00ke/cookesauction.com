@@ -19,6 +19,8 @@ gem "dm-is-remixable"
 group :development do
   #gem "heroku"
   #gem "ruby-debug19"
+  gem "dm-cli"
+  gem "heroku"
 end
 
 group :test do
