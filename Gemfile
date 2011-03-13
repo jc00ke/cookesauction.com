@@ -16,6 +16,10 @@ gem "dm-types"
 gem "dm-migrations"
 gem "dm-is-remixable"
 
+group :production do
+  gem "dm-postgres-adapter"
+end
+
 group :development do
   gem "ruby-debug19"
   gem "dm-cli"
