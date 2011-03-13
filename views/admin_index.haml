@@ -3,6 +3,10 @@
 - if @listings
   - @listings.each do |l|
     %a{ :href => "/admin/listings/#{l.id}" }= l.sale_title
+    %br
+    %span.visible= "visible: #{l.page.visible}"
+    %br
+    %span.sale-date= l.starting
 - else
   %p
     No listings.

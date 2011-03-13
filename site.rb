@@ -258,7 +258,7 @@ post '/admin/listings/new' do
   @listing.page.title = params[:page_title]
   @listing.page.keywords = params[:page_keywords]
   @listing.page.description = params[:page_description]
-  @listing.page.visible = params[:page_visible]
+  @listing.page.visible = !!params[:page_visible]
   @listing.page.content = params[:page_content]
 
   @listing.sale_title = params[:sale_title]
@@ -292,7 +292,7 @@ post '/admin/listings/:id' do
   @listing.page.title = params[:page_title]
   @listing.page.keywords = params[:page_keywords]
   @listing.page.description = params[:page_description]
-  @listing.page.visible = params[:page_visible]
+  @listing.page.visible = !!params[:page_visible]
   @listing.page.content = params[:page_content]
 
   @listing.sale_title = params[:sale_title]
