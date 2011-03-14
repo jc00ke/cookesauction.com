@@ -9,6 +9,7 @@ gem "rdiscount"
 gem "rack-rewrite"
 gem "pony"
 gem "mongoid", ">= 2.0.0.rc.7"
+gem "bson_ext"
 
 group :development do
   gem "ruby-debug19"
