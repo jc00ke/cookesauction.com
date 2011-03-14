@@ -130,6 +130,10 @@ helpers do
     end
   end
 
+  def listing_link_href(listing)
+    "/sale/#{listing.slug}"
+  end
+
 end
 
 
@@ -232,6 +236,14 @@ post '/hire-us' do
 end
 
 ## SALE ###########################
+
+# /sale/2010-9-28-0/some-sale-on-my-bday
+get "/sale/:year-:month-:day-:previous_id" do |year, month, day, previous_id|
+  @listing = Listing.find_by_slug(year, month, day, previous_id)
+  not_found unless @listing
+  display :listing
+end
+
 get '/sale/:id' do
   @listing = Listing.first( :conditions => { :id => params[:id] })
   not_found unless @listing
