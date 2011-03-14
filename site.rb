@@ -94,6 +94,11 @@ helpers do
     haml view, { :layout => layout }
   end
 
+  def display_errors(model)
+    errors = model.errors.full_messages.inject([]) { |memo, m| memo << m }.join("</li><li>")
+    "<ul><li>#{errors}</li></ul>"
+  end
+
   def valid_email_params?(params)
     present = [:name, :your_email, :message].all?{ |p| params[p].length > 0 }
     email_format = params[:your_email].to_s =~ settings.email_regexp
@@ -179,7 +184,7 @@ post '/signup' do
     if email.save
         flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
     else
-        flash.now[:error] = "Your information could not be saved. Please try again. #{email.errors.to_html}"
+        flash.now[:error] = "Your information could not be saved. Please try again. #{email.errors.full_messages.join("<br />")}"
         @name, @email = params[:name], params[:your_email]
     end
     display :signup
@@ -217,7 +222,7 @@ post '/hire-us' do
     if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
         flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
     else
-        flash.now[:error] = "Something didn't go right. Can you try again?#{s.errors.to_html}"
+        flash.now[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
         @name = params[:name]
         @email = params[:your_email]
         @message = params[:message]
