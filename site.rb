@@ -135,20 +135,22 @@ end
 
 ## HOME PAGE ###########################
 get '/' do
-    @listings   = Listing.upcoming
-    display :index
+  listings   = Listing.upcoming
+  @next_listing = listings.first
+  @listings = listings.from(1)
+  display :index
 end
 
 ## HOME PAGE ###########################
 get '/past-sales' do
-    @listings   = Listing.past
-    display :"past-sales"
+  @listings   = Listing.past
+  display :"past-sales"
 end
 
 ## STYLES ###########################
 get '/master.css' do
-    content_type 'text/css', :charset => 'utf-8'
-    sass :master
+  content_type 'text/css', :charset => 'utf-8'
+  sass :master
 end
 
 ## CONTACT US ###########################
@@ -184,7 +186,7 @@ post '/signup' do
     if email.save
         flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
     else
-        flash.now[:error] = "Your information could not be saved. Please try again. #{email.errors.full_messages.join("<br />")}"
+        flash.now[:error] = "Your information could not be saved. Please try again. #{display_errors(email)}"
         @name, @email = params[:name], params[:your_email]
     end
     display :signup
@@ -219,9 +221,9 @@ post '/hire-us' do
   s.comment = params[:message]
 
   if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
-      flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
+      flash[:notice] = "Thanks for contacting us! We will get back to you shortly."
   else
-      flash.now[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
+      flash[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
       @name = params[:name]
       @email = params[:your_email]
       @message = params[:message]
@@ -231,7 +233,7 @@ end
 
 ## SALE ###########################
 get '/sale/:id' do
-  @listing = Listing.get(params[:id])
+  @listing = Listing.first( :conditions => { :id => params[:id] })
   not_found unless @listing
   display :listing
 end

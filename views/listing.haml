@@ -1,8 +1,7 @@
 
 %div{:id => "listing_#{@listing.id}"}
   #hcalendar-Public-Auction.vevent
-    %span.summary
-      = @listing.nice_type
+    %span.summary= @listing.nice_type
     at
     %br
     %a.url{ :href => "#" }
