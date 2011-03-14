@@ -51,6 +51,9 @@ GEM
     rack-rewrite (1.0.2)
     rack-test (0.5.7)
       rack (>= 1.0)
+    racksh (0.9.8)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
     rake (0.8.7)
     rdiscount (1.6.8)
     rest-client (1.6.1)
@@ -96,6 +99,7 @@ DEPENDENCIES
   pony
   rack-rewrite
   rack-test
+  racksh
   rdiscount
   ruby-debug19
   sinatra

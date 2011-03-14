@@ -12,6 +12,7 @@ gem "mongoid", ">= 2.0.0.rc.7"
 gem "bson_ext"
 
 group :development do
+  gem "racksh"
   gem "ruby-debug19"
   gem "heroku"
   gem "interactive_editor"
