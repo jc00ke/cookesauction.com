@@ -213,60 +213,59 @@ get '/hire-us' do
 end
 
 post '/hire-us' do
+  s = Submission.new
+  s.name = params[:name]
+  s.email = params[:your_email]
+  s.comment = params[:message]
 
-    s = Submission.new
-    s.name = params[:name]
-    s.email = params[:your_email]
-    s.comment = params[:message]
-
-    if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
-        flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
-    else
-        flash.now[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
-        @name = params[:name]
-        @email = params[:your_email]
-        @message = params[:message]
-    end
-    display 'hire-us'.to_sym
+  if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
+      flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
+  else
+      flash.now[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
+      @name = params[:name]
+      @email = params[:your_email]
+      @message = params[:message]
+  end
+  display 'hire-us'.to_sym
 end
 
 ## SALE ###########################
 get '/sale/:id' do
-    @listing = Listing.get(params[:id])
-    not_found unless @listing
-    display :listing
+  @listing = Listing.get(params[:id])
+  not_found unless @listing
+  display :listing
 end
 
 
 ## ADMIN ###########################
 get '/admin' do
-    @listings = Listing.all(:order => [:starting_at.desc])
-    display :admin_index
+  @listings = Listing.desc(:starting_at)
+  display :admin_index
 end
 
 get '/admin/login' do
-    session[:admin] = nil
-    display :admin_login
+  session[:admin] = nil
+  display :admin_login
 end
 
 post '/admin/login' do
-    if params[:password] == options.password
-        session[:admin] = true
-        redirect '/admin'
-    end
-    flash.now[:error] = "Sorry, that wasn't the right password."
-    redirect '/admin/login'
+  if params[:password] == options.password
+    session[:admin] = true
+    redirect '/admin'
+  end
+  flash.now[:error] = "Sorry, that wasn't the right password."
+  redirect '/admin/login'
 end
 
 get '/admin/listings/new' do
-    @listing = Listing.new
-    @listing.page = ListingPage.new
-    display :admin_listing_edit
+  @listing = Listing.new
+  @listing.build_page
+  display :admin_listing_edit
 end
 
 post '/admin/listings/new' do
   @listing = Listing.new
-  @listing.page = ListingPage.new
+  @listing.build_page
   @listing.page.title = params[:page_title]
   @listing.page.keywords = params[:page_keywords]
   @listing.page.description = params[:page_description]
@@ -282,10 +281,10 @@ post '/admin/listings/new' do
   @listing.number_photos = params[:number_photos]
   @listing.sale_type = params[:sale_type].intern
   if @listing.save
-    flash.now[:message] = "Sale saved."
+    flash[:notice] = "Sale saved"
     redirect '/admin'
   else
-    flash.now[:error] = @listing.errors.to_html
+    flash[:error] = display_errors(@listing)
     display :admin_listing_edit
   end
 end
@@ -316,10 +315,10 @@ post '/admin/listings/:id' do
   @listing.number_photos = params[:number_photos]
   @listing.sale_type = params[:sale_type].intern
   if @listing.save
-    flash[:message] = "Sale saved."
+    flash[:notice] = "Sale saved."
     redirect '/admin'
   else
-    flash[:error] = @listing.errors.to_html
+    flash[:error] = display_errors(@listing)
     display :admin_listing_edit
   end
 end
