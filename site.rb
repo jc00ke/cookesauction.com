@@ -24,7 +24,7 @@ end
 ## CONFIGURATION ###########################
 configure do
   set :sessions, true
-  set :email_regexp,  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  set :email_regexp,  EMAIL_REGEXP
   set :haml,          { :format => :html5 }
 end
 

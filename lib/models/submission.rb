@@ -1,11 +1,12 @@
 class Submission
     include Mongoid::Document
+    include Mongoid::Timestamps
 
-    validates_length_of :comment, :max => 250
+    field :name
+    field :email
+    field :comment
 
-    property :name,         :required => true
-    property :email,        :required => true, :format => :email_address
-    property :comment,      :required => true
-    property :created_at,   DateTime
-
+    validates_presence_of :name, :email, :comment
+    validates_length_of :comment, :maximum => 250
+    validates_format_of :email, :with => EMAIL_REGEXP
 end

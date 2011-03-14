@@ -1,9 +1,15 @@
 class Page
   include Mongoid::Document
+  include Mongoid::Timestamps
   embedded_in :listing
-  field :title,         String,     :required => true
+
+  field :title
   field :keywords
   field :description
   field :content
-  field :visible,       Boolean,    :default => true
+  field :visible,
+        :type => Boolean,
+        :default => true
+
+  validates_presence_of   :title, :description
 end

@@ -2,19 +2,29 @@ class Listing
     include Mongoid::Document
     embeds_one :page
 
-    field :city,                         :required => true
-    field :result,                 
-    field :zip,                          :required => true
-    field :sale_title,                   :required => true
-    field :number_photos,    Integer,    :default => 0
-    field :street_address,               :required => true
-    field :sale_type,        Enum[:public_auction, :real_estate],
-                             :default => :public_auction
-    field :created_at,       DateTime
-    field :updated_at,       DateTime
-    field :starting_at,      DateTime
-    field :update_text,          
-    field :state,                        :required => true
+    field :sale_title
+    field :street_address
+    field :city
+    field :state
+    field :zip
+    field :result                 
+    field :number_photos,
+          :type => Integer,
+          :default => 0
+    field :sale_type,
+          :type => Symbol,
+          :default => :public_auction
+    field :created_at,
+          :type => DateTime
+    field :updated_at,
+          :type => DateTime
+    field :starting_at,
+          :type => DateTime
+    field :update_text          
+
+    validates_presence_of :sale_title, :street_address,
+                          :city, :state, :zip
+    validates_inclusion_of :sale_type, :in => [:public_auction, :real_estate]
 
     def nice_type
         self.type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
@@ -29,10 +39,10 @@ class Listing
     end
      
     def self.upcoming
-      all({ :starting_at.gt => Time.now, :page => { :visible => true } })
+      where(:starting_at.gt => Time.now, "page.visible" => true)
     end
      
     def self.past
-      all(:visible => true, :starting_at.lt => Time.now)
+      where(:starting_at.lt => Time.now, "page.visible" => true)
     end
 end
