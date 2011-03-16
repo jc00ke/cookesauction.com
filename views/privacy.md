@@ -25,7 +25,7 @@ Cooke's collects testimonials which may contain personal information. This infor
 Any changes to this privacy policy will be posted here and nowhere else on the site.
 
 ### Disputes
-Cooke's takes pride in resolving any conflicts professionally and quickly. Should a user have a problem, contact by first email, then phone, is preferred.
+Cooke's takes pride in resolving any conflicts professionally and quickly. Should a user have a problem, contact first by email, then phone, is preferred.
 
 ### Contact Information
 Any questions, comments, or suggestions about this privacy policy may be directed to Cooke's via our [online form](/contact-us).
