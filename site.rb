@@ -268,6 +268,11 @@ get '/sale/:id' do
   display :listing
 end
 
+get "/sale" do
+  @id = params[:previous_id]
+  markdown :previous_sale
+end
+
 ## PRIVACY ###########################
 get '/privacy' do
   markdown :privacy
@@ -358,6 +363,10 @@ post '/admin/listings/:id' do
     flash.now[:error] = display_errors(@listing)
     display :admin_listing_edit
   end
+end
+
+get "/Sale.cfm" do
+  redirect to("/sale?previous_id=#{params[:qSale]}"), 302
 end
 
 ## NORMAL PAGES ###########################
