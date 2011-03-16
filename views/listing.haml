@@ -1,21 +1,28 @@
+- address = escaped_address(@listing)
+- params = {  :center => address,
+              :size => "300x270",
+              :markers => "color:blue|label:A|#{address}",
+              :sensor => false}.inject([]){ |m,s| m << "#{s.first}=#{s.last}" }.join('&')
+
+- map_src = "http://maps.google.com/maps/api/staticmap?#{address}&#{params}"
+- directions_link = "http://maps.google.com/maps?f=d&source=s_d&hl=en&mra=ls&ie=UTF8&z=15&daddr=#{address}"
 
 %div{:id => "listing_#{@listing.id}"}
   #hcalendar-Public-Auction.vevent
-    %span.summary= @listing.nice_type
-    at
+    %h3.summary= @listing.nice_type
+    %abbr.dtstart{ :title => @listing.dtstart }= @listing.starting
     %br
-    %a.url{ :href => "#" }
-      %abbr.dtstart{ :title => @listing.dtstart }= @listing.starting
-    %br
-    %span.location
-      227 12th Street, Chesterton IN
-    .description= markdown(@listing.page.content)
+    .location
+      %h4= @listing.full_address
+      %h5 Click on map for directions
+      %a{ :href => directions_link }
+        %img{ :src => map_src }
+
+    .content= @listing.page.content_html
 
   - if @listing.has_photos?
     #listing_photos
-      - @listing.photosish.each_slice(4) do |slice|
-        -#%div
-        - slice.each do |idx|
-          = image_tag(@listing.slug, idx)
+      - @listing.photosish.each do |idx|
+        = image_tag(@listing.slug, idx)
 
       

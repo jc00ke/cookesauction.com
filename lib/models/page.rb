@@ -1,3 +1,5 @@
+require 'rdiscount'
+
 class Page
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -12,4 +14,8 @@ class Page
         :default => true
 
   validates_presence_of   :title, :description
+
+  def content_html
+    RDiscount.new(content).to_html
+  end
 end

@@ -49,6 +49,10 @@ class Listing
     has_photos? ? (0...number_photos).to_a : []
   end
 
+  def full_address
+    "#{street_address}, #{city}, #{state} #{zip}"   
+  end
+
   def self.upcoming
     where(:starting_at.gt => Time.now, "page.visible" => true).asc(:starting_at)
   end

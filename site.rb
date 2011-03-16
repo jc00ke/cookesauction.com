@@ -87,6 +87,10 @@ helpers do
     |
   end
 
+  def escaped_address(l)
+    l.full_address.gsub(/, /, ',').gsub(/ /, "+")
+  end
+
   def prep
     page = request.path_info.sub('/','').gsub(/\//,'_')
     @title = page.gsub(/[-|_]/, ' ').capitalize
