@@ -21,8 +21,11 @@
     .content= @listing.page.content_html
 
   - if @listing.has_photos?
+    %h3 Click on a photo below for a larger version
     #listing_photos
       - @listing.photosish.each do |idx|
         = image_tag(@listing.slug, idx)
 
       
+%p.disclaimer
+  All items are sold as is. All information contained herein was derived from sources believed to be correct but are not guaranteed. All statements made day of sale take precedence over printed material.

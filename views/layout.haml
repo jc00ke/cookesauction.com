@@ -2,9 +2,7 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }
-    %title
-      = @title
-      \:: Cooke's Auction Service, Inc.
+    %title= "#{@title} :: Cooke's Auction Service"
 
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css", :charset => "utf-8" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/base/base-min.css", :charset => "utf-8" }
@@ -37,10 +35,7 @@
       #email_signup
         %a{ :href => "/signup", :title => 'Email List' } Signup for our email list
       #content
-        - if flash[:error]
-          .error= flash[:error]
-        - if flash[:notice]
-          .notice= flash[:notice]
+        = styled_flash
         = yield
       #footer
         .right
@@ -48,9 +43,7 @@
           %a{ :href => "/privacy" } Privacy
           %a{ :href => "http://jc00ke.com" } By an n-tier engineer
         \&reg; Cooke's Auction Service, Inc. &ndash;
-        = Time.now.strftime('%Y')
-
-      #dialog
+        = Time.now.year
 
     %script{ :type => "text/javascript", :src  => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" }
     %script{ :type => "text/javascript", :src  => "/fancybox/jquery.mousewheel-3.0.4.pack.js" }

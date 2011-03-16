@@ -1,0 +1,31 @@
+### Introduction
+This Privacy Statement is to convey the intentions of Cooke’s Auction Service, Inc. (Cooke’s) when collecting and using personal information from our users.
+
+### Administration of this website
+
+Cooke's Auction Service, Inc.
+
+364 Oak Dr., La Porte, IN 46350
+
+### Collection & Use of Information
+Cooke’s believes in the fair use and protection of private/personal information. The information collected on this website is used only as described in this policy, which pertains solely to this website. 
+No information is collected until the user submits it. Cooke's collects information to:
+
+1) Update the content of the site to better suit our users
+
+2) Notify users of updates
+
+Cooke's does not require any registration to the site unless a user would like to receive email updates.
+
+Cooke's sends out emails regarding new updates, and the email addresses are never shared or sold.
+
+Cooke's collects testimonials which may contain personal information. This information is not shared with anyone. Cooke's will not post the name of the user submitting testimonial unless expressly given consent to do so when the user completes the online form. The name of the user submitting a testimonial may be posted only if the user gives permission via the form. By default Cooke's will not post the name.
+
+###Changes
+Any changes to this privacy policy will be posted here and nowhere else on the site.
+
+### Disputes
+Cooke's takes pride in resolving any conflicts professionally and quickly. Should a user have a problem, contact by first email, then phone, is preferred.
+
+### Contact Information
+Any questions, comments, or suggestions about this privacy policy may be directed to Cooke's via our [online form](/contact-us).

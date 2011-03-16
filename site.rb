@@ -20,12 +20,13 @@ Mongoid.configure do |config|
   end
 end
 
+enable :sessions
 
 ## CONFIGURATION ###########################
 configure do
-  set :sessions, true
   set :email_regexp,  EMAIL_REGEXP
   set :haml,          { :format => :html5 }
+  set :markdown,  :layout_engine => :haml
 end
 
 configure :development do
@@ -192,38 +193,42 @@ end
 
 ## SUBSCRIBE ###########################
 get '/signup' do
-    display :signup
+  display :signup
 end
 
 post '/signup' do
-    email = Email.new
-    email.name = params[:name]
-    email.email = params[:your_email]
+  if valid_email_params?(params.merge(:message => 'asdf'))
+    email = Email.new( :name => params[:name], :email => params[:your_email])
 
     if email.save
-        flash.now[:notice] = 'Thanks for signing up! You\'ll hear from us next time we post a sale.'
+      flash.now[:notice] = "Thanks for signing up! You'll hear from us next time we post a sale."
     else
-        flash.now[:error] = "Your information could not be saved. Please try again. #{display_errors(email)}"
-        @name, @email = params[:name], params[:your_email]
+      flash.now[:error] = "Your information could not be saved. Please try again. #{display_errors(email)}"
+      @name, @email = params[:name], params[:your_email]
     end
-    display :signup
+  else
+    status 400
+    flash.now[:error] = "Please double check your entries" 
+    @name, @email = params[:name], params[:your_email]
+  end
+  display :signup
 end
 
 ## UNSUBSCRIBE ###########################
 get '/unsubscribe' do
-    display :unsubscribe
+  display :unsubscribe
 end
 
 post '/unsubscribe' do
-    email = Email.first(:email => params[:your_email])
-    if email
-        email.destroy
-        display :bye
-    elsif
-        flash.now[:error] = "#{params[:your_email]} could not be found. Please try again."
-        @email = params[:your_email]
-    end
-    display :unsubscribe
+  email = Email.first(:conditions => { :email => params[:your_email] })
+  if email
+    email.destroy
+    flash.now[:notice] = "Bye! We hope you come back soon!"
+  elsif
+    flash.now[:error] = "#{params[:your_email]} could not be found. Please try again."
+    @email = params[:your_email]
+  end
+  display :unsubscribe
 end
 
 ## HIRE US ###########################
@@ -238,12 +243,12 @@ post '/hire-us' do
   s.comment = params[:message]
 
   if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
-      flash[:notice] = "Thanks for contacting us! We will get back to you shortly."
+    flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
   else
-      flash[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
-      @name = params[:name]
-      @email = params[:your_email]
-      @message = params[:message]
+    flash.now[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
+    @name = params[:name]
+    @email = params[:your_email]
+    @message = params[:message]
   end
   display 'hire-us'.to_sym
 end
@@ -263,6 +268,11 @@ get '/sale/:id' do
   display :listing
 end
 
+## PRIVACY ###########################
+get '/privacy' do
+  markdown :privacy
+end
+
 
 ## ADMIN ###########################
 get '/admin' do
@@ -280,7 +290,7 @@ post '/admin/login' do
     session[:admin] = true
     redirect '/admin'
   end
-  flash.now[:error] = "Sorry, that wasn't the right password."
+  flash[:error] = "Sorry, that wasn't the right password."
   redirect '/admin/login'
 end
 
@@ -308,10 +318,10 @@ post '/admin/listings/new' do
   @listing.number_photos = params[:number_photos]
   @listing.sale_type = params[:sale_type].intern
   if @listing.save
-    flash[:notice] = "Sale saved"
+    flash.now[:notice] = "Sale saved"
     redirect '/admin'
   else
-    flash[:error] = display_errors(@listing)
+    flash.now[:error] = display_errors(@listing)
     display :admin_listing_edit
   end
 end
@@ -342,14 +352,13 @@ post '/admin/listings/:id' do
   @listing.number_photos = params[:number_photos]
   @listing.sale_type = params[:sale_type].intern
   if @listing.save
-    flash[:notice] = "Sale saved."
+    flash.now[:notice] = "Sale saved."
     redirect '/admin'
   else
-    flash[:error] = display_errors(@listing)
+    flash.now[:error] = display_errors(@listing)
     display :admin_listing_edit
   end
 end
-
 
 ## NORMAL PAGES ###########################
 get '/:page' do
