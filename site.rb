@@ -46,7 +46,8 @@ configure :development do
 end
 
 configure :production do
-  set :image_prefix, "http://assets.cookesauction.com/images/sales"
+  set :password,      ENV["ADMIN_PASSWORD"]
+  set :image_prefix,  "http://assets.cookesauction.com/images/sales"
   set :send_to,       "jesse@cookesauction.com"
   set :smtp,          { :address => "smtp.sendgrid.net",
                         :port     => 25,
