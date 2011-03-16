@@ -21,6 +21,8 @@ group :development do
   gem "boson"
   gem "hirb"
   gem "bond"
+  gem "mini_magick"
+  gem "thor"
 end
 
 group :test do

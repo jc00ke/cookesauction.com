@@ -5,10 +5,17 @@
     at
     %br
     %a.url{ :href => "#" }
-      %abbr.dtstart{ :title => "2009-02-08T09:45-06:0000" }
-        Feb 8, 2009  09:45am
+      %abbr.dtstart{ :title => @listing.dtstart }= @listing.starting
     %br
     %span.location
       227 12th Street, Chesterton IN
-    .description
-      This is the desc
+    .description= markdown(@listing.page.content)
+
+  - if @listing.has_photos?
+    #listing_photos
+      - @listing.photosish.each_slice(4) do |slice|
+        -#%div
+        - slice.each do |idx|
+          = image_tag(@listing.slug, idx)
+
+      

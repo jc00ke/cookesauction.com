@@ -41,6 +41,14 @@ class Listing
     starting_at.strftime("%Y-%m-%dT%H:%M-06:0000")
   end
 
+  def has_photos?
+    number_photos > 0
+  end
+
+  def photosish
+    has_photos? ? (0...number_photos).to_a : []
+  end
+
   def self.upcoming
     where(:starting_at.gt => Time.now, "page.visible" => true).asc(:starting_at)
   end

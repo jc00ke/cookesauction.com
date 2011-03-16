@@ -34,7 +34,7 @@ configure :development do
   use Rack::Reloader
   set :password,  'asdfzxcv'
 
-  set :image_prefix, "/images"
+  set :image_prefix, "/images/sales"
   set :send_to,       "jesse@jc00ke.com"
   set :smtp,          { :address => "localhost",
                         :port     => 25,
@@ -46,7 +46,7 @@ configure :development do
 end
 
 configure :production do
-  set :image_prefix, "http://assets.cookesauction.com/sales"
+  set :image_prefix, "http://assets.cookesauction.com/images/sales"
   set :send_to,       "jesse@cookesauction.com"
   set :smtp,          { :address => "smtp.sendgrid.net",
                         :port     => 25,
@@ -77,6 +77,14 @@ end
 ## HELPERS ###########################
 helpers do
   include Sinatra::Partials
+
+  def image_tag(listing_slug, idx)
+    %Q|
+      <a href="#{settings.image_prefix}/#{listing_slug}/#{idx}.jpg" rel="photos">
+        <img src="#{settings.image_prefix}/#{listing_slug}/#{idx}_small.jpg" alt="listing image #{idx}" />
+      </a>
+    |
+  end
 
   def prep
     page = request.path_info.sub('/','').gsub(/\//,'_')
@@ -304,7 +312,7 @@ post '/admin/listings/new' do
 end
 
 get '/admin/listings/:id' do
-  @listing = Listing.get(params[:id])
+  @listing = Listing.first(:conditions => { :id => params[:id] })
   unless @listing
     flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
     redirect "/admin"
@@ -313,7 +321,7 @@ get '/admin/listings/:id' do
 end
 
 post '/admin/listings/:id' do
-  @listing = Listing.get(params[:id])
+  @listing = Listing.first(:conditions => { :id => params[:id] })
   @listing.page.title = params[:page_title]
   @listing.page.keywords = params[:page_keywords]
   @listing.page.description = params[:page_description]
