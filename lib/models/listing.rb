@@ -1,6 +1,7 @@
 class Listing
   include Mongoid::Document
   include Mongoid::Timestamps
+
   embeds_one :page
 
   field :sale_title
@@ -21,10 +22,16 @@ class Listing
   field :previous_id,
         :type => Integer
   field :slug
+  field :location,
+        :type => Array
+  
+  index :slug, :unique => true
 
   validates_presence_of :sale_title, :street_address,
                         :city, :state, :zip
-  validates_inclusion_of :sale_type, :in => [:public_auction, :real_estate]
+
+  validates_inclusion_of  :sale_type, :in => [:public_auction, :real_estate]
+
   validates_uniqueness_of :slug
 
   before_create :gen_slug
@@ -49,6 +56,18 @@ class Listing
     has_photos? ? (0...number_photos).to_a : []
   end
 
+  def map_location
+    location ? location.join(',') : full_address
+  end
+
+  def latitude
+    location.first
+  end
+
+  def longitude
+    location.last
+  end
+
   def full_address
     "#{street_address}, #{city}, #{state} #{zip}"   
   end
@@ -66,7 +85,7 @@ class Listing
   end
 
   def self.slug_format(year, month, day, p_id)
-    "#{year}-#{month}-#{day}-#{p_id || rand(100) + 200}"
+    "#{year}-#{month}-#{day}-#{p_id || rand(10000) + 200}"
   end
 
   def self.find_by_slug(year, month, day, previous_id)

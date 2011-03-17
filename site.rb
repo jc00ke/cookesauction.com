@@ -89,7 +89,7 @@ helpers do
   end
 
   def escaped_address(l)
-    l.full_address.gsub(/, /, ',').gsub(/ /, "+")
+    l.map_location.gsub(/, /, ',').gsub(/ /, "+")
   end
 
   def prep
@@ -314,6 +314,10 @@ post '/admin/listings/new' do
   @listing.page.visible = !!params[:page_visible]
   @listing.page.content = params[:page_content]
 
+  if params[:latitude] && params[:longitude]
+    @listing.location = [params[:latitude], params[:longitude]]
+  end
+
   @listing.sale_title = params[:sale_title]
   @listing.starting_at = params[:starting_at]
   @listing.street_address = params[:street_address]
@@ -333,6 +337,7 @@ end
 
 get '/admin/listings/:id' do
   @listing = Listing.first(:conditions => { :id => params[:id] })
+  debugger
   unless @listing
     flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
     redirect "/admin"
@@ -347,6 +352,10 @@ post '/admin/listings/:id' do
   @listing.page.description = params[:page_description]
   @listing.page.visible = !!params[:page_visible]
   @listing.page.content = params[:page_content]
+
+  if params[:latitude] && params[:longitude]
+    @listing.location = [params[:latitude], params[:longitude]]
+  end
 
   @listing.sale_title = params[:sale_title]
   @listing.starting_at = params[:starting_at]
