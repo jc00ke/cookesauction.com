@@ -61,11 +61,11 @@ class Listing
   end
 
   def latitude
-    location.first
+    location.first if location
   end
 
   def longitude
-    location.last
+    location.last if location
   end
 
   def full_address
