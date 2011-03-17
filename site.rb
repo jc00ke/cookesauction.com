@@ -337,7 +337,6 @@ end
 
 get '/admin/listings/:id' do
   @listing = Listing.first(:conditions => { :id => params[:id] })
-  debugger
   unless @listing
     flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
     redirect "/admin"
