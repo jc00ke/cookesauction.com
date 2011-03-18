@@ -20,8 +20,9 @@ class ProcessImages < Thor
     Dir.chdir src
     F.mkdir dest unless File.exists?(dest)
 
-    Dir.glob("*.{jpg,JPG}").sort.each_with_index do |photo, idx|
-      say "processing: #{photo} -> #{dest}/#{idx}.jpg", :green
+    entries = Dir.glob("*.{jpg,JPG}").sort
+    entries.each_with_index do |photo, idx|
+      #say "processing: #{photo} -> #{dest}/#{idx}.jpg", :green
       image = MiniMagick::Image.open(photo)
       image.quality 75
       
@@ -33,6 +34,7 @@ class ProcessImages < Thor
       image.resize "x150"
       image.write "#{dest}/#{idx}_small.jpg"
     end
+    say "processed #{entries.size} photos"
   end
 end
 
