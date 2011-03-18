@@ -28,7 +28,7 @@ class Listing
   index :slug, :unique => true
 
   validates_presence_of :sale_title, :street_address,
-                        :city, :state, :zip
+                        :city, :state
 
   validates_inclusion_of  :sale_type, :in => [:public_auction, :real_estate]
 
@@ -77,7 +77,7 @@ class Listing
   end
    
   def self.past
-    where(:starting_at.lt => Time.now, "page.visible" => true).asc(:starting_at)
+    where(:starting_at.lt => Time.now, "page.visible" => true).desc(:starting_at)
   end
 
   def gen_slug
