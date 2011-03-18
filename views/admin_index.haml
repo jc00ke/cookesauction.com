@@ -3,11 +3,12 @@
 - if @listings
   - @listings.each do |l|
     .listing
-      %a{ :href => "/admin/listings/#{l.id}" }= l.sale_title
+      %a{ :href => "/admin/listings/#{l.id}" }= l.starting_at.strftime("%Y-%m-%d")
       %br
       %span.visible= "visible: #{l.page.visible}"
       %br
-      %span.sale-date= l.starting
+      %br
+      %br
 - else
   %p
     No listings.

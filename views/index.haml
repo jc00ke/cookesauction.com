@@ -27,9 +27,10 @@
       buying and selling public of Northwest Indiana.
         
   .yui-u
-    .next-sale
-      %h3 Next Sale:
-      = partial :"_listing", :locals => { :listing => @next_listing }
+    - if @next_listing
+      .next-sale
+        %h3 Next Sale:
+        = partial :"_listing", :locals => { :listing => @next_listing }
         
     - if @listings.present?
       .future-sales

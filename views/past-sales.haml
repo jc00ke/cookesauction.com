@@ -1,4 +1,5 @@
 
 %h4 Past Sales
 
-= partial '_listing', { :collection => @listings }
+- @listings.each do |listing|
+  = partial :'_listing', :locals => { :listing => listing }
