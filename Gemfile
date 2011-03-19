@@ -10,6 +10,7 @@ gem "rack-rewrite"
 gem "pony"
 gem "mongoid", ">= 2.0.0.rc.7"
 gem "bson_ext"
+gem "rack-no-www"
 
 group :development do
   gem "racksh"

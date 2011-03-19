@@ -3,6 +3,8 @@ require 'bundler'
 Bundler.require
 
 require 'rack/rewrite'
+require 'rack/no-www'
+use Rack::NoWWW
 
 use Rack::Rewrite do
   r301 '/AboutUs.cfm', '/'
