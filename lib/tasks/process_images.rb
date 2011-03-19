@@ -31,7 +31,11 @@ class ProcessImages < Thor
       image.write "#{dest}/#{idx}.jpg"
       
       # small image
-      image.resize "x150"
+      #image.crop      "500x500"
+      image.size    "125x125"
+      image.thumbnail    "125x125^"
+      image.gravity "center"
+      image.extent "125x125"
       image.write "#{dest}/#{idx}_small.jpg"
     end
     say "processed #{entries.size} photos"
