@@ -374,7 +374,8 @@ post '/admin/listings/:id' do
 end
 
 get "/Sale.cfm" do
-  redirect to("/sale?previous_id=#{params[:qSale]}"), 302
+  listing = Listing.first(:conditions => { :previous_id => params[:qSale] })
+  redirect to("/sale/#{listing.slug}"), 301
 end
 
 ## NORMAL PAGES ###########################
