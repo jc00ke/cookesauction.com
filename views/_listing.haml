@@ -1,9 +1,9 @@
 
 - if listing
-  #hcalendar-Public-Auction.vevent
+  .hcalendar-Public-Auction.vevent
+    %span.summary= listing.nice_type
     %a.url{ :href => listing_link_href(listing) }
-      %span.summary= listing.nice_type
       %br
-      %abbr.dtstart{ :title => listing.dtstart }= listing.starting
-      %br
-      %span.location== #{listing.street_address}, #{listing.city} #{listing.state}
+      %span.dtstart{ :title => listing.dtstart }= listing.starting
+    %br
+    %span.location== #{listing.street_address}, #{listing.city} #{listing.state}

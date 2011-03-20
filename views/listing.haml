@@ -11,20 +11,20 @@
 
 %div{:id => "listing_#{@listing.id}"}
   #hcalendar-Public-Auction.vevent
-    %h3.summary= @listing.nice_type
-    %abbr.dtstart{ :title => @listing.dtstart }= @listing.starting
-    %br
+    .content
+      %h3.summary= @listing.nice_type
+      %abbr.dtstart{ :title => @listing.dtstart }= @listing.starting
+      = @listing.page.content_html
     .location
       %h4= @listing.full_address
       %h5 Click on map for directions
       %a{ :href => directions_link }
         %img{ :src => map_src }
 
-    .content= @listing.page.content_html
 
   - if @listing.has_photos?
-    %h3 Click on a photo below for a larger version
     #listing_photos
+      %h3 Click on a photo below for a larger version
       - @listing.photosish.each do |idx|
         = image_tag(@listing.slug, idx)
 

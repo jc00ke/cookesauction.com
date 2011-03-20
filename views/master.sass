@@ -1,6 +1,3 @@
-
-
-
 .clearboth
   :clear both
 
@@ -345,6 +342,8 @@ body[id^='admin']
 
 #listing_photos
 
+  clear: both
+
   a
     display: block
     float: left
@@ -355,3 +354,30 @@ body[id^='admin']
 
 p.disclaimer
   clear: both
+
+#hcalendar-Public-Auction
+  .location
+    float: right
+    width: 300px
+
+  .content
+    float: left
+    width: 615px
+
+#past_sales
+  .vevent
+    border: 1px dashed #D3E6D4
+    float: left
+    margin: 0 10px 20px 0
+    padding: 5px
+    width: 290px
+
+    &:nth-child(even)
+      border:
+        color: #546e49
+      background:
+        color: #E4E4E4
+
+    &:hover
+      background:
+        color: #DF8E26
