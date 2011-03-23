@@ -22,7 +22,6 @@ class ProcessImages < Thor
 
     entries = Dir.glob("*.{jpg,JPG}").sort
     entries.each_with_index do |photo, idx|
-      #say "processing: #{photo} -> #{dest}/#{idx}.jpg", :green
       image = MiniMagick::Image.open(photo)
       image.quality 75
       
@@ -31,7 +30,6 @@ class ProcessImages < Thor
       image.write "#{dest}/#{idx}.jpg"
       
       # small image
-      #image.crop      "500x500"
       image.size    "125x125"
       image.thumbnail    "125x125^"
       image.gravity "center"
