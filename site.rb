@@ -35,6 +35,7 @@ configure :development do
   use Rack::Reloader
   set :password,  'asdfzxcv'
 
+  set :cdn,           ""
   set :image_prefix, "/images/sales"
   set :send_to,       "jesse@jc00ke.com"
   set :smtp,          { :address => "localhost",
@@ -48,7 +49,8 @@ end
 
 configure :production do
   set :password,      ENV["ADMIN_PASSWORD"]
-  set :image_prefix,  "http://assets.cookesauction.com/images/sales"
+  set :cdn,           "http://assets.cookesauction.com"
+  set :image_prefix,  "#{settings.cdn}/images/sales"
   set :send_to,       "jesse@cookesauction.com"
   set :smtp,          { :address => "smtp.sendgrid.net",
                         :port     => 25,
