@@ -35,7 +35,7 @@ configure :development do
   use Rack::Reloader
   set :password,  'asdfzxcv'
 
-  set :cdn,           ""
+  set :cdn,          ""
   set :image_prefix, "/images/sales"
   set :send_to,       "jesse@jc00ke.com"
   set :smtp,          { :address => "localhost",
@@ -170,6 +170,7 @@ end
 ## STYLES ###########################
 get '/master.css' do
   content_type 'text/css', :charset => 'utf-8'
+  expires 600, :public, :must_revalidate
   sass :master
 end
 
