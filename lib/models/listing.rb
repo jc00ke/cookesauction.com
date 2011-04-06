@@ -57,7 +57,7 @@ class Listing
   end
 
   def map_location
-    location ? location.join(',') : full_address
+    location.all?(&:present?) ? location.join(',') : full_address
   end
 
   def latitude
