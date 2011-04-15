@@ -13,7 +13,7 @@
   #hcalendar-Public-Auction.vevent
     .content
       %h3.summary= @listing.nice_type
-      %abbr.dtstart{ :title => @listing.dtstart }= @listing.starting
+      %p.dtstart{ :title => @listing.dtstart }= @listing.starting
       = @listing.page.content_html
     .location
       %h4= @listing.full_address
