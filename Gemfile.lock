@@ -18,6 +18,8 @@ GEM
     builder (2.1.2)
     columnize (0.3.2)
     configuration (1.2.0)
+    fssm (0.2.7)
+    girl_friday (0.9.1)
     haml (3.0.25)
     heroku (1.18.3)
       launchy (~> 0.3.2)
@@ -36,6 +38,13 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    maildir (1.0.1)
+    mailman (0.4.0)
+      activesupport (>= 2.3.4)
+      fssm (>= 0.1.4)
+      i18n (>= 0.4.1)
+      mail (>= 2.0.3)
+      maildir (>= 0.5.0)
     mime-types (1.16)
     mini_magick (3.2)
       subexec (~> 0.0.4)
@@ -96,10 +105,12 @@ DEPENDENCIES
   bond
   boson
   bson_ext
+  girl_friday
   haml
   heroku
   hirb
   interactive_editor
+  mailman
   mini_magick
   mongoid (>= 2.0.0.rc.7)
   pony

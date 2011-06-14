@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/flash'
 require 'haml'
 require 'sass'
+require 'girl_friday'
 $LOAD_PATH.unshift File.expand_path('lib')
 require 'partials'
 require 'models'
@@ -52,13 +53,7 @@ configure :production do
   set :cdn,           "http://assets.cookesauction.com"
   set :image_prefix,  "#{settings.cdn}/images/sales"
   set :send_to,       "jesse@cookesauction.com"
-  set :smtp,          { :address => "smtp.sendgrid.net",
-                        :port     => 25,
-                        :authentication   => :plain,
-                        :user_name        => ENV['SENDGRID_USERNAME'],
-                        :password         => ENV['SENDGRID_PASSWORD'],
-                        :domain           => ENV['SENDGRID_DOMAIN']
-                      }
+  set :smtp,          Email.smtp
 end
 
 
@@ -374,6 +369,11 @@ post '/admin/listings/:id' do
     flash.now[:error] = display_errors(@listing)
     display :admin_listing_edit
   end
+end
+
+get '/admin/send_listings' do
+  Email.queue
+  redirect '/admin'
 end
 
 get "/Sale.cfm" do

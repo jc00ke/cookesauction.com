@@ -11,6 +11,7 @@ gem "pony"
 gem "mongoid", ">= 2.0.0.rc.7"
 gem "bson_ext"
 gem "rack-no-www"
+gem "girl_friday"
 
 group :development do
   gem "racksh"
@@ -24,6 +25,7 @@ group :development do
   gem "bond"
   gem "mini_magick"
   gem "thor"
+  gem "mailman"
 end
 
 group :test do
