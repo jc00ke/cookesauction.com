@@ -12,6 +12,7 @@ gem "mongoid", ">= 2.0.0.rc.7"
 gem "bson_ext"
 gem "rack-no-www"
 gem "girl_friday"
+gem "unicorn"
 
 group :development do
   gem "racksh"
@@ -26,6 +27,7 @@ group :development do
   gem "mini_magick"
   gem "thor"
   gem "mailman"
+  gem "foreman"
 end
 
 group :test do
