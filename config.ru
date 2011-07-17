@@ -20,4 +20,7 @@ use Rack::Rewrite do
 end
 
 require './site'
-run Sinatra::Application
+require 'girl_friday/server'
+run Rack::URLMap.new \
+  "/" => Sinatra::Application,
+  "/girl_friday" => GirlFriday::Server.new
