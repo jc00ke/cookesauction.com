@@ -75,7 +75,7 @@ class Listing
   end
 
   def self.upcoming
-    where(:starting_at.gt => Time.now, "page.visible" => true).asc(:starting_at)
+    where(:starting_at.gt => Time.now.midnight, "page.visible" => true).asc(:starting_at)
   end
    
   def self.past
