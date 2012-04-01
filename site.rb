@@ -231,24 +231,7 @@ end
 
 ## HIRE US ###########################
 get '/hire-us' do
-    display 'hire-us'.to_sym
-end
-
-post '/hire-us' do
-  s = Submission.new
-  s.name = params[:name]
-  s.email = params[:your_email]
-  s.comment = params[:message]
-
-  if s.save && send_email(params.merge(:message => "Hire Us: #{params[:message]}"))
-    flash.now[:notice] = "Thanks for contacting us! We will get back to you shortly."
-  else
-    flash.now[:error] = "Something didn't go right. Can you try again?#{display_errors(s)}"
-    @name = params[:name]
-    @email = params[:your_email]
-    @message = params[:message]
-  end
-  display 'hire-us'.to_sym
+    redirect to('/contact-us')
 end
 
 ## SALE ###########################
