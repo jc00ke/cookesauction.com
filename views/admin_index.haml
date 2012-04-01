@@ -2,13 +2,15 @@
   Listings
 - if @listings
   - @listings.each do |l|
-    .listing
+    %p.listing
       %a{ :href => "/admin/listings/#{l.id}" }= l.starting_at.strftime("%Y-%m-%d")
       %br
       %span.visible= "visible: #{l.page.visible}"
       %br
+      %span= l.street_address
       %br
-      %br
+      %span= "#{l.city}, #{l.state} #{l.zip}"
+    %hr
 - else
   %p
     No listings.

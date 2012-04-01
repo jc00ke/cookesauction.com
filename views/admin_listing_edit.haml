@@ -12,15 +12,15 @@
     %br/
     %label
       Keywords
-    %textarea{ :name => 'page_keywords' }= @listing.page.keywords
+    %textarea{ :name => 'page_keywords', :cols => 100, :rows => 5 }= @listing.page.keywords
     %br/
     %label
       Description
-    %textarea{ :name => 'page_description' }= @listing.page.description
+    %textarea{ :name => 'page_description', :cols => 100, :rows => 5 }= @listing.page.description
     %br/
     %label
       Content
-    %textarea{ :name => 'page_content' }= @listing.page.content
+    %textarea{ :name => 'page_content', :cols => 100, :rows => 20 }= @listing.page.content
     %br/
     %label
       Sale Title
@@ -28,7 +28,7 @@
     %br/
     %label
       Starting At
-    %input{ :type => 'text', :name => 'starting_at', :value => @listing.starting_at }
+    %input#starting_at{ :type => 'text', :name => 'starting_at', :value => @listing.starting_at }
     %br/
     %label
       Latitude
@@ -64,8 +64,10 @@
     %br/
     %label
       Update
-    %textarea{ :name => 'update_text' }
+    %textarea{ :name => 'update_text', :cols => 100, :rows => 5 }
     %br
     %input{ :type => 'submit', :value => 'Submit' }
     %a{ :href => '/admin' }
       Cancel
+
+:javascript
