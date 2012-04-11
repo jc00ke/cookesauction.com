@@ -5,6 +5,8 @@
     %p.listing
       %a{ :href => "/admin/listings/#{l.id}" }= l.starting_at.strftime("%Y-%m-%d")
       %br
+      %span= "slug: #{l.slug}"
+      %br
       %span.visible= "visible: #{l.page.visible}"
       %br
       %span= l.street_address
