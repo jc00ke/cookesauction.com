@@ -13,9 +13,9 @@ gem "bson_ext"
 gem "rack-no-www"
 gem "girl_friday"
 gem "unicorn"
+gem "racksh"
 
 group :development do
-  gem "racksh"
   gem "ruby-debug19"
   gem "heroku"
   gem "interactive_editor"
