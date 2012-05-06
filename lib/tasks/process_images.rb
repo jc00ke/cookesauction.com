@@ -2,10 +2,20 @@
 
 require "thor"
 require "mini_magick"
+require "fog"
 
-class ProcessImages < Thor
+class Images < Thor
 
   F = FileUtils::Verbose
+
+  no_tasks do
+    def check_dir(src)
+      unless File.exists?(src)
+        say "#{src} doesn't exist", :red
+        exit
+      end
+    end
+  end
 
   desc "process", "process the images in SOURCE & save them to DESTINATION"
   method_option :src,   :type => :string,   :required => true
@@ -15,10 +25,7 @@ class ProcessImages < Thor
     src = options[:src]
     dest = options[:dest]
     start = options[:start] || 0
-    unless File.exists?(src)
-      say "#{src} doesn't exist", :red
-      exit
-    end
+    check_dir(src)
     Dir.chdir src
     F.mkdir dest unless File.exists?(dest)
 
@@ -42,6 +49,36 @@ class ProcessImages < Thor
     end
     say "processed #{entries.size} photos"
   end
+
+  desc "upload", "upload images from SOURCE to DIR"
+  method_option :src,  :type => :string, :required => true
+  method_option :dir, :type => :string, :required => true
+  def upload
+
+    dir = options[:dir]
+    src = options[:src]
+    check_dir(src)
+
+    connection = Fog::Storage.new({
+      :provider => 'AWS',
+      :aws_access_key_id => ENV['S3_ACCESS_KEY_ID'],
+      :aws_secret_access_key => ENV['S3_SECRET_ACCESS_KEY']
+    })
+
+    directory = connection.directories.create(
+      :key => "cookes-auction-service/images/sales/#{dir}",
+      :public => true
+    )
+    Dir.chdir src
+    Dir.glob("*.jpg").sort.each do |image|
+      directory.files.create({
+        :key => image,
+        :body => File.open(image),
+        :public => true
+      })
+    end
+    
+  end
 end
 
-ProcessImages.start
+Images.start

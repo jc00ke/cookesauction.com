@@ -28,6 +28,7 @@ group :development do
   gem "thor"
   gem "mailman"
   gem "foreman"
+  gem "fog"
 end
 
 group :test do
