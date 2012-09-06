@@ -54,6 +54,7 @@ class Images < Thor
   method_option :src,  :type => :string, :required => true
   method_option :dest, :type => :string, :required => true
   def upload
+    Fog::Logger[:warning] = nil
     dest = options[:dest]
     src = options[:src]
     check_dir(src)
@@ -77,7 +78,7 @@ class Images < Thor
         :public => true
       })
     end
-    
+    Fog::Logger[:warning] = STDOUT
   end
 end
 
