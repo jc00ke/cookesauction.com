@@ -50,12 +50,11 @@ class Images < Thor
     say "processed #{entries.size} photos"
   end
 
-  desc "upload", "upload images from SOURCE to DIR"
+  desc "upload", "upload images from SOURCE to DEST"
   method_option :src,  :type => :string, :required => true
-  method_option :dir, :type => :string, :required => true
+  method_option :dest, :type => :string, :required => true
   def upload
-
-    dir = options[:dir]
+    dest = options[:dest]
     src = options[:src]
     check_dir(src)
 
@@ -67,7 +66,7 @@ class Images < Thor
     })
 
     directory = connection.directories.create(
-      :key => "cookes-auction-service/images/sales/#{dir}",
+      :key => "cookes-auction-service/images/sales/#{dest}",
       :public => true
     )
     Dir.chdir src
