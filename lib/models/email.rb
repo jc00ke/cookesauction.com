@@ -13,7 +13,7 @@ class Email
       return if listingz.count == 0
       body = Email.build_body(listingz)
       all.each do |e|
-        SALE_EMAIL_QUEUE.push(:to => e.email, :body => body)
+        SALE_EMAIL_QUEUE.push(:to => e.email, :body => body, :id => e.id.to_s)
       end
     end
 
@@ -32,18 +32,24 @@ class Email
         <ul>#{listings.join("\n")}</ul>
 
         <p>Hope to see you at the next auction!</p>
-        <p>Click to <a href="http://cookesauction.com/unsubscribe">unsubscribe</a></p>
+        <p>Click to automatically <a href="http://cookesauction.com/unsubscribe/##email_id##">unsubscribe</a></p>
       |
     end
 
     def send_listings(msg)
-      Pony.mail(  :to => msg[:to],
+      params = {  :to => msg[:to],
                   :from => "Cooke's Auction <info@cookesauction.com>",
                   :reply_to => 'info@cookesauction.com',
                   :subject => "Upcoming Sales at Cooke's Auction Service",
-                  :html_body => msg[:body],
+                  :html_body => msg[:body].sub('##email_id##', msg[:id]),
                   :via => :smtp,
-                  :via_options => Email.smtp)
+                  :via_options => Email.smtp}
+      if ENV['RACK_ENV'] == 'production'
+        Pony.mail params
+      else
+        require 'pp'
+        pp params
+      end
     end
 
     def smtp

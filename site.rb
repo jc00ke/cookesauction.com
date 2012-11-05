@@ -183,7 +183,7 @@ post '/contact-us' do
     end
   else
     status 400
-    flash.now[:error] = "Please double check your entries" 
+    flash.now[:error] = "Please double check your entries"
     @name, @email, @message = params[:name], params[:your_email], params[:message]
   end
   display :"contact-us"
@@ -206,13 +206,26 @@ post '/signup' do
     end
   else
     status 400
-    flash.now[:error] = "Please double check your entries" 
+    flash.now[:error] = "Please double check your entries"
     @name, @email = params[:name], params[:your_email]
   end
   display :signup
 end
 
 ## UNSUBSCRIBE ###########################
+get '/unsubscribe/:id' do
+  begin
+    email = Email.find(params[:id])
+    email.destroy
+    flash.now[:notice] = "Bye! We hope you come back soon!"
+  rescue Mongoid::Errors::DocumentNotFound
+    flash.now[:error] = "Your email could not be found. Try the form below or <a href='/contact-us'>contact us</a> directly."
+    @email = params[:your_email]
+  end
+  @title = "Bye!"
+  display :unsubscribe
+end
+
 get '/unsubscribe' do
   display :unsubscribe
 end
