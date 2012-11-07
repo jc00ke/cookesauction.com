@@ -314,14 +314,14 @@ tr
 .notice
   :border 1px dashed green
 
-.next-sale, .future-sales
+.next-sale, .future-sales, #contact_us_accordian h3
   :border 1px dashed #ccc
   :padding 5px
 
 .future-sales
   border-color: transparent
 
-.next-sale
+.next-sale, #contact_us_accordian h3
   &:hover
     :background-color #FFFDD0
 
@@ -395,3 +395,10 @@ p.disclaimer
     &:hover
       background:
         color: #DF8E26
+
+#contact_us_accordian h3
+  cursor: pointer
+  margin-bottom: 10px
+
+.wizard-option
+  display: none

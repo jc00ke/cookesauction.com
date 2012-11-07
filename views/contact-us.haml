@@ -1,35 +1,53 @@
 
-
-%form{ :action => '/contact-us', :method => 'post' }
-  %fieldset
-    %legend
-      Get a hold of us
-      
+#contact_us_accordian
+  %h3 Would you like to hire us?
+  .wizard-option
     %p
-      If you'd like to hire Cooke's, it's best to call Rick at
+      Please call Rick at
       %a{ :href => "tel:+15743159988" }574-315-9988
+
+  %h3 Do you have a question about a sale?
+  .wizard-option
     %p
-      You have a question, comment, concern?
+      Please call Rick at
+      %a{ :href => "tel:+15743159988" }574-315-9988
+
+  %h3 Would you like to unsubscribe from our mailing list?
+  .wizard-option
+    %p
+      Please unsubscribe
+      %a{ :href => "/unsubscribe" }here
+
+  %h3 Do you have an issue with the website?
+  .wizard-option
+    %p Fill out the form below!
+
+    %p.notice
+      This contact form is only used to diagnose issues with the website.
       %br
-      Just want to get a hold of us?
-      %br
-      Fill out the form below!
-      
-    .field
-      %label
-        Name:
-      %input#name{ :type => 'text', :name => 'name', :value => @name }
-      
-    .field
-      %label
-        Email:
-      %input#email{ :type => 'text', :name => 'email' }
-      %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
-      
-    .field#comment_field
-      %label
-        Comment:
-      %textarea#message{ :name => 'message' }= @message
-      
-    #buttons
-      %input{ :type => 'submit', :value => 'Submit' }
+      If you have any other question, please call Rick at
+      %a{ :href => "tel:+15743159988" }574-315-9988
+
+    %form{ :action => '/contact-us', :method => 'post' }
+      %fieldset
+        %legend
+          Website Issues
+
+        .field
+          %label
+            Name:
+          %input#name{ :type => 'text', :name => 'name', :value => @name }
+
+        .field
+          %label
+            Email:
+          %input#email{ :type => 'text', :name => 'email' }
+          %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
+
+        .field#comment_field
+          %label
+            Comment:
+          %textarea#message{ :name => 'message' }= @message
+
+        #buttons
+          %input{ :type => 'submit', :value => 'Submit' }

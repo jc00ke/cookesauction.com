@@ -9,4 +9,10 @@ $(document).ready(function() {
     effect: "fadeIn",
     placeHolder: "/fancybox/blank.gif"
    });
+
+  $('#contact_us_accordian').accordion({
+    collapsible: true,
+    active: false,
+    heightStyle: "content"
+  });
 });
