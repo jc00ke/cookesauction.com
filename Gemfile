@@ -18,7 +18,7 @@ gem "unicorn"
 gem "racksh"
 
 group :development do
-  gem "ruby-debug19"
+  gem "pry-full"
   gem "heroku"
   gem "interactive_editor"
   gem "awesome_print", :require => 'ap'
