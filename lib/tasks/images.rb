@@ -17,7 +17,7 @@ class Images < Thor
     end
   end
 
-  desc "process", "process the images in SOURCE & save them to DESTINATION"
+  desc "process", "process the images in SOURCE & save them to DESTINATION. [start]"
   method_option :src,   :type => :string,   :required => true
   method_option :dest,  :type => :string,   :required => true
   method_option :start,  :type => :numeric
@@ -33,13 +33,13 @@ class Images < Thor
     entries.each_with_index do |photo, idx|
       image = MiniMagick::Image.open(photo)
       image.quality 75
-      
+
       i = idx + start
 
       # full size image
       image.scale "800x800"
       image.write "#{dest}/#{i}.jpg"
-      
+
       # small image
       image.size    "125x125"
       image.thumbnail    "125x125^"
