@@ -46,6 +46,7 @@ class Images < Thor
       image.gravity "center"
       image.extent "125x125"
       image.write "#{dest}/#{i}_small.jpg"
+      print "."
     end
     say "processed #{entries.size} photos"
   end
@@ -77,8 +78,10 @@ class Images < Thor
         :body => File.open(image),
         :public => true
       })
+      print '.'
     end
     Fog::Logger[:warning] = STDOUT
+    say "done"
   end
 end
 
