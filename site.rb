@@ -50,7 +50,7 @@ end
 
 configure :production do
   set :password,      ENV["ADMIN_PASSWORD"]
-  set :cdn,           "http://assets.cookesauction.com"
+  set :cdn,           ENV.fetch("CDN_PREFIX", "//assets.cookesauction.com")
   set :image_prefix,  "#{settings.cdn}/images/sales"
   set :send_to,       "jesse@cookesauction.com"
   set :smtp,          Email.smtp
