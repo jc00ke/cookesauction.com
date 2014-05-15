@@ -18,14 +18,7 @@ gem "unicorn"
 gem "racksh"
 
 group :development do
-  gem "pry-full"
-  gem "heroku"
-  gem "interactive_editor"
-  gem "awesome_print", :require => 'ap'
-  gem "wirble"
-  gem "boson"
-  gem "hirb"
-  gem "bond"
+  #gem "pry-full"
   gem "mini_magick"
   gem "thor"
   gem "mailman"
