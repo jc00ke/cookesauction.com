@@ -32,9 +32,13 @@ class Images < Thor
     entries = Dir.glob("*.{jpg,JPG}").sort
     entries.each_with_index do |photo, idx|
       image = MiniMagick::Image.open(photo)
-      image.quality 75
-
+      image.auto_orient
       i = idx + start
+
+      # write out original
+      image.write "#{dest}/#{i}_original.jpg"
+
+      image.quality 75
 
       # full size image
       image.scale "800x800"
