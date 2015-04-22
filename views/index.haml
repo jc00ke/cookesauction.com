@@ -1,45 +1,43 @@
-.yui-gc
+.col-md-8
+  %h3
+    Welcome to Cooke's!
+  %p
+    Cooke's Auction Service was started in 1968 by
+    Bill &amp; Dorthy Cooke. In 1997, Rick Cooke received
+    Full Honors from the Reppert School of Auctioneering
+    in Decatur, IN, and subsequently took over operations
+    of Cooke's. Rick has been a member of the Indiana
+    Auctioneer's Association since 1998. (AU IN 19700078,
+    IL 041000908) Indiana reciprocates auctioneer licenses
+    with any other state that also licenses.
+  %p
+    Whether you have something to sell, intend to make a purchase,
+    or would like an interesting and enjoyable experience,
+    visit an auction held by Cooke's. If you need to liquidate
+    real estate, antiques, farm equipment, household items,
+    or an entire estate, please consider hiring us. Cooke's
+    will get you a fair price for your merchandise.
+  %p
+    Buyers interested in genuine bargains and unique
+    items should make a point to attend our auctions frequently.
+    Cooke's has gained an excellent reputation for professional
+    auction services, as well as the respect and friendship of both
+    buying and selling public of Northwest Indiana.
 
-  .yui-u.first
-    %h3
-      Welcome to Cooke's!
-    %p
-      Cooke's Auction Service was started in 1968 by
-      Bill &amp; Dorthy Cooke. In 1997, Rick Cooke received
-      Full Honors from the Reppert School of Auctioneering
-      in Decatur, IN, and subsequently took over operations
-      of Cooke's. Rick has been a member of the Indiana
-      Auctioneer's Association since 1998. (AU IN 19700078,
-      IL 041000908) Indiana reciprocates auctioneer licenses
-      with any other state that also licenses.
-    %p
-      Whether you have something to sell, intend to make a purchase,
-      or would like an interesting and enjoyable experience,
-      visit an auction held by Cooke's. If you need to liquidate
-      real estate, antiques, farm equipment, household items,
-      or an entire estate, please consider hiring us. Cooke's
-      will get you a fair price for your merchandise.
-    %p
-      Buyers interested in genuine bargains and unique
-      items should make a point to attend our auctions frequently.
-      Cooke's has gained an excellent reputation for professional
-      auction services, as well as the respect and friendship of both
-      buying and selling public of Northwest Indiana.
-        
-  .yui-u
-    .next-sale
-      - if @next_listing
-        %h3 Next Sale:
-        = partial :"_listing", :locals => { :listing => @next_listing }
-      - else
-        %h3 No sales listed at the moment
-        %p
-          Please sign up for our 
-          %a{ :href => "/signup", :title => 'Email List' }email list 
-          to be notified of our next sale.
-        
-    - if @listings.present?
-      .future-sales
-        %h3 Upcoming Sales:
-        - @listings.each do |listing|
-          = partial :"_listing", :locals => { :listing => listing }
+.col-md-4
+  .next-sale
+    - if @next_listing
+      %h3 Next Sale:
+      = partial :"_listing", :locals => { :listing => @next_listing }
+    - else
+      %h3 No sales listed at the moment
+      %p
+        Please sign up for our
+        %a{ :href => "/signup", :title => 'Email List' }email list
+        to be notified of our next sale.
+
+  - if @listings.present?
+    .future-sales
+      %h3 Upcoming Sales:
+      - @listings.each do |listing|
+        = partial :"_listing", :locals => { :listing => listing }
