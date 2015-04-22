@@ -31,7 +31,6 @@ configure do
 end
 
 configure :development do
-  require 'ap'
   Sinatra::Application.reset!
   use Rack::Reloader
   set :password,  'asdfzxcv'
