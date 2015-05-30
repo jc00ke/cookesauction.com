@@ -35,8 +35,8 @@ configure :development do
   use Rack::Reloader
   set :password,  'asdfzxcv'
 
-  set :cdn,          ""
-  set :image_prefix, "/images/sales"
+  set :cdn,          "https://s3.amazonaws.com/cookes-auction-service"
+  set :image_prefix,  "#{settings.cdn}/images/sales"
   set :send_to,       "jesse@jc00ke.com"
   set :smtp,          { :address => "localhost",
                         :port     => 25,
