@@ -1,6 +1,7 @@
 // Common JavaScript code across your application goes here.
 
 $(document).ready(function() {
+  $.material.init()
   $('#listing_photos a').fancybox();
 
   $("#listing_photos img").lazyload({
