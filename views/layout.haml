@@ -31,20 +31,25 @@
             %em cost
             to hire a good auctioneer; It
             %strong pays!
-          %ul#nav
-            %li
-              %a{ :href => "/" } Home
-            %li
-              %a{ :href => "/testimonials" } Testimonials
-            %li
-              %a{ :href => "/past-sales" } Past sales
-            %li
-              %a{ :href => "/contact-us" } Contact us
-            - if @is_admin
-              %li
-                %a{ :href => "/admin" } Admin
-        #email_signup.row
-          %a{ :href => "/signup", :title => 'Email List' } Signup for our email list
+
+          %div{ :class => "navbar navbar-default c-navbar" }
+            %div{ :class => "navbar-collapse collapse navbar-responsive-collapse" }
+              %ul{ :class => "nav navbar-nav" }
+                %li{ :class => "active" }
+                  %a{ :href => "/" } Home
+                %li
+                  %a{ :href => "/testimonials" } Testimonials
+                %li
+                  %a{ :href => "/past-sales" } Past sales
+                %li
+                  %a{ :href => "/contact-us" } Contact us
+                - if @is_admin
+                  %li
+                    %a{ :href => "/admin" } Admin
+
+
+        .row
+          %a{ :href => "/signup", :class => "btn btn-info"} Signup for our email list
         #content.row
           = styled_flash
           = yield
