@@ -22,3 +22,4 @@ merb_profile_results
 *.tmproj
 *.swp
 public/images/sales
+.envrc
