@@ -182,7 +182,7 @@ post '/contact-us' do
     end
   else
     status 400
-    flash.now[:error] = "Please double check your entries"
+    @error = "Please double check your entries"
     @name, @email, @message = params[:name], params[:your_email], params[:message]
   end
   display :"contact-us"

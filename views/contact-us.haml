@@ -1,53 +1,71 @@
+%div{ :class => "panel-group", :id => "accordion", :role => "tablist", :aria => { :multiselectable => "true" } }
 
-#contact_us_accordian
-  %h3 Would you like to hire us?
-  .wizard-option
-    %p
-      Please call Rick at
-      %a{ :href => "tel:+15743159988" }574-315-9988
+  %div{ :class => "panel panel-default" }
+    %div{ :class => "panel-heading", :role => "tab", :id => "headingOne" }
+      %h4{ :class => "panel-title" }
+        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseOne", :aria => { :expanded => "false", :controls => "collapseOne" } }
+          Would you like to hire us?
+    %div{ :id => "collapseOne", :class => "panel-collapse collapse in", :role => "tabpanel", :aria => { :labelledby => "headingOne" } }
+      %div{ :class => "panel-body" }
+        Please call Rick at
+        %a{ :href => "tel:+15743159988" }574-315-9988
 
-  %h3 Do you have a question about a sale?
-  .wizard-option
-    %p
-      Please call Rick at
-      %a{ :href => "tel:+15743159988" }574-315-9988
+  %div{ :class => "panel panel-default" }
+    %div{ :class => "panel-heading", :role => "tab", :id => "headingTwo" }
+      %h4{ :class => "panel-title" }
+        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseTwo", :aria => { :expanded => "false", :controls => "collapseTwo" } }
+          Do you have a question about one of our auctions?
+    %div{ :id => "collapseTwo", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingTwo" } }
+      %div{ :class => "panel-body" }
+        Please call Rick at
+        %a{ :href => "tel:+15743159988" }574-315-9988
 
-  %h3 Would you like to unsubscribe from our mailing list?
-  .wizard-option
-    %p
-      Please unsubscribe
-      %a{ :href => "/unsubscribe" }here
+  %div{ :class => "panel panel-default" }
+    %div{ :class => "panel-heading", :role => "tab", :id => "headingThree" }
+      %h4{ :class => "panel-title" }
+        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseThree", :aria => { :expanded => "false", :controls => "collapseThree" } }
+          Would you like to unsubscribe from our mailing list?
+    %div{ :id => "collapseThree", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingThree" } }
+      %div{ :class => "panel-body" }
+        Please unsubscribe
+        %a{ :href => "/unsubscribe" }here
 
-  %h3 Do you have an issue with the website?
-  .wizard-option
-    %p Fill out the form below!
+  %div{ :class => "panel panel-default" }
+    %div{ :class => "panel-heading", :role => "tab", :id => "headingFour" }
+      %h4{ :class => "panel-title" }
+        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseFour", :aria => { :expanded => "false", :controls => "collapseFour" } }
+          Do you have an issue with the website?
+    %div{ :id => "collapseFour", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingFour" } }
+      %div{ :class => "panel-body" }
+        - if @error
+          %i.mdi-alert-error.text-danger
+          %span.text-danger= @error
 
-    %p.notice
-      This contact form is only used to diagnose issues with the website.
-      %br
-      If you have any other question, please call Rick at
-      %a{ :href => "tel:+15743159988" }574-315-9988
+        %p.text-info
+          This contact form is only used to diagnose issues with the website.
+        %p
+          If you have any other question, please call Rick at
+          %a{ :href => "tel:+15743159988" }574-315-9988
 
-    %form{ :action => '/contact-us', :method => 'post' }
-      %fieldset
-        %legend
-          Website Issues
+      %form{ :class => "form-horizontal", :method => "post", :action => "/contact-us" }
+        %fieldset
+          .form-group
+            %label{ :for => "inputName", :class => "col-lg-2 control-label" } Name
+            .col-lg-8
+              %input{ :type => "text", :class => "form-control", :id => "inputName", :placeholder => "Name", :value => @name, :name => "name" }
 
-        .field
-          %label
-            Name:
-          %input#name{ :type => 'text', :name => 'name', :value => @name }
+          .form-group
+            %label{ :for => "inputEmail", :class => "col-lg-2 control-label" } Email
+            .col-lg-8
+              %input#email{ :type => 'email', :name => 'email', :class => "form-control", :placeholder => "Email" }
+              %input#your_email{ :type => 'email', :name => 'your_email', :value => @email, :class => "form-control", :placeholder => "Email" }
 
-        .field
-          %label
-            Email:
-          %input#email{ :type => 'text', :name => 'email' }
-          %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
+          .form-group
+            %label{ :for => "textMessage", :class => "col-lg-2 control-label" } Message
+            .col-lg-8
+              %textarea{ :class => "form-control", :rows => "3", :id => "textMessage", :name => "message" }= @message
 
-        .field#comment_field
-          %label
-            Comment:
-          %textarea#message{ :name => 'message' }= @message
+          .form-group
+            .col-lg-8.col-lg-offset-2
+              %button{ :type => "submit", :class => "btn btn-primary"} Submit
 
-        #buttons
-          %input{ :type => 'submit', :value => 'Submit' }
