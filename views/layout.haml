@@ -51,10 +51,8 @@
                 - if @is_admin
                   %li
                     %a{ :href => "/admin" } Admin
-
-
-        .row
-          %a{ :href => "/signup", :class => "btn btn-info"} Signup for our email list
+          .col-lg-4
+            %a{ :href => "/signup", :class => "btn btn-info"} Signup for our email list
         #content.row
           = styled_flash
           = yield
