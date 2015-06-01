@@ -37,35 +37,7 @@
           Do you have an issue with the website?
     %div{ :id => "collapseFour", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingFour" } }
       %div{ :class => "panel-body" }
-        - if @error
-          %i.mdi-alert-error.text-danger
-          %span.text-danger= @error
-
-        %p.text-info
-          This contact form is only used to diagnose issues with the website.
         %p
-          If you have any other question, please call Rick at
-          %a{ :href => "tel:+15743159988" }574-315-9988
-
-      %form{ :class => "form-horizontal", :method => "post", :action => "/contact-us" }
-        %fieldset
-          .form-group
-            %label{ :for => "inputName", :class => "col-lg-2 control-label" } Name
-            .col-lg-8
-              %input{ :type => "text", :class => "form-control", :id => "inputName", :placeholder => "Name", :value => @name, :name => "name" }
-
-          .form-group
-            %label{ :for => "inputEmail", :class => "col-lg-2 control-label" } Email
-            .col-lg-8
-              %input#email{ :type => 'email', :name => 'email', :class => "form-control", :placeholder => "Email" }
-              %input#your_email{ :type => 'email', :name => 'your_email', :value => @email, :class => "form-control", :placeholder => "Email" }
-
-          .form-group
-            %label{ :for => "textMessage", :class => "col-lg-2 control-label" } Message
-            .col-lg-8
-              %textarea{ :class => "form-control", :rows => "3", :id => "textMessage", :name => "message" }= @message
-
-          .form-group
-            .col-lg-8.col-lg-offset-2
-              %button{ :type => "submit", :class => "btn btn-primary"} Submit
+          Please email
+          %a{ :mailto => "info@cookesauction.com" }info@cookesauction.com
 
