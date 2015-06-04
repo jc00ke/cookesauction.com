@@ -37,13 +37,7 @@
         #content.row
           = styled_flash
           = yield
-        #footer.row
-          .right
-            %a{ :href => "/unsubscribe" } Unsubscribe from mailing list
-            %a{ :href => "/privacy" } Privacy
-            %a{ :href => "http://jc00ke.com" } By an n-tier engineer
-          \&reg; Cooke's Auction Service, Inc. &ndash;
-          = Time.now.year
+        = partial(:_footer)
 
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js" }
