@@ -1,9 +1,17 @@
 
 - if listing
-  .hcalendar-Public-Auction.vevent
-    %span.summary= listing.nice_type
-    %a.url{ :href => listing_link_href(listing) }
-      %br
-      %span.dtstart{ :title => listing.dtstart }= listing.starting
-    %br
-    %span.location== #{listing.street_address}, #{listing.city} #{listing.state}
+  .row
+    .col.s12.m7
+      .card.small
+        .card-image
+          - if listing.has_photos?
+            = image_tag(listing.slug, 0)
+          %span.card-title= listing.nice_type
+        .card-content
+          %p
+            %span.dtstart{ :title => listing.dtstart }= listing.starting
+            %br
+            %span.location== #{listing.street_address}, #{listing.city} #{listing.state}
+        .card-action
+          %a{ :href => listing_link_href(listing) }
+            Details
