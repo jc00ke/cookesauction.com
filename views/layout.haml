@@ -6,8 +6,7 @@
     %title= "#{@title} :: Cooke's Auction Service"
 
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" }
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css" }
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css" }
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/master.css", :charset => "utf-8" }
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css", :charset => "utf-8" }
     :javascript
@@ -32,14 +31,9 @@
             to hire a good auctioneer; It
             %strong pays!
 
-          %div{ :class => "navbar navbar-default c-navbar col-lg-8" }
-            .navbar-header
-              %button{ :type => "button", :class => "navbar-toggle", :data => { :toggle => "collapse", :target => ".navbar-responsive-collapse" } }
-                %span.icon-bar
-                %span.icon-bar
-                %span.icon-bar
-            %div{ :class => "navbar-collapse collapse navbar-responsive-collapse" }
-              %ul{ :class => "nav navbar-nav" }
+          %nav
+            .nav-wrapper
+              %ul#slide-out.side-nav
                 %li{ :class => "active" }
                   %a{ :href => "/" } Home
                 %li
@@ -51,7 +45,21 @@
                 - if @is_admin
                   %li
                     %a{ :href => "/admin" } Admin
-          .col-lg-4
+              %a{ :href => "#", :data => { :activates => "slide-out" }, :class => "button-collapse" }
+                %i.mdi-navigation-menu
+              %ul.left.hide-on-med-and-down
+                %li{ :class => "active" }
+                  %a{ :href => "/" } Home
+                %li
+                  %a{ :href => "/testimonials" } Testimonials
+                %li
+                  %a{ :href => "/past-sales" } Past sales
+                %li
+                  %a{ :href => "/contact-us" } Contact us
+                - if @is_admin
+                  %li
+                    %a{ :href => "/admin" } Admin
+          %div
             %a{ :href => "/signup", :class => "btn btn-info btn-raised"} Signup for our email list
         #content.row
           = styled_flash
@@ -65,10 +73,7 @@
           = Time.now.year
 
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" }
-    %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js" }
-    %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js" }
-    %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js" }
-    %script{ :type => "text/javascript", :src  => "//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js" }
+    %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" }
     %script{ :type => "text/javascript", :src  => "/javascripts/application.js" }
