@@ -1,43 +1,30 @@
-%div{ :class => "panel-group", :id => "accordion", :role => "tablist", :aria => { :multiselectable => "true" } }
-
-  %div{ :class => "panel panel-default" }
-    %div{ :class => "panel-heading", :role => "tab", :id => "headingOne" }
-      %h4{ :class => "panel-title" }
-        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseOne", :aria => { :expanded => "false", :controls => "collapseOne" } }
-          Would you like to hire us?
-    %div{ :id => "collapseOne", :class => "panel-collapse collapse in", :role => "tabpanel", :aria => { :labelledby => "headingOne" } }
-      %div{ :class => "panel-body" }
+%ul.collapsible.popout{ :data => { :collapsible => "accordion" } }
+  %li
+    .collapsible-header
+      Would you like to hire us?
+    .collapsible-body
+      %p
         Please call Rick at
         %a{ :href => "tel:+15743159988" }574-315-9988
-
-  %div{ :class => "panel panel-default" }
-    %div{ :class => "panel-heading", :role => "tab", :id => "headingTwo" }
-      %h4{ :class => "panel-title" }
-        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseTwo", :aria => { :expanded => "false", :controls => "collapseTwo" } }
-          Do you have a question about one of our auctions?
-    %div{ :id => "collapseTwo", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingTwo" } }
-      %div{ :class => "panel-body" }
+  %li
+    .collapsible-header
+      Do you have a question about one of our auctions?
+    .collapsible-body
+      %p
         Please call Rick at
         %a{ :href => "tel:+15743159988" }574-315-9988
-
-  %div{ :class => "panel panel-default" }
-    %div{ :class => "panel-heading", :role => "tab", :id => "headingThree" }
-      %h4{ :class => "panel-title" }
-        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseThree", :aria => { :expanded => "false", :controls => "collapseThree" } }
-          Would you like to unsubscribe from our mailing list?
-    %div{ :id => "collapseThree", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingThree" } }
-      %div{ :class => "panel-body" }
+  %li
+    .collapsible-header
+      Would you like to unsubscribe from our mailing list?
+    .collapsible-body
+      %p
         Please unsubscribe
         %a{ :href => "/unsubscribe" }here
-
-  %div{ :class => "panel panel-default" }
-    %div{ :class => "panel-heading", :role => "tab", :id => "headingFour" }
-      %h4{ :class => "panel-title" }
-        %a{ :class => "collapsed", :data => { :toggle => "collapse", :parent => "#accordion" }, :href => "#collapseFour", :aria => { :expanded => "false", :controls => "collapseFour" } }
-          Do you have an issue with the website?
-    %div{ :id => "collapseFour", :class => "panel-collapse collapse", :role => "tabpanel", :aria => { :labelledby => "headingFour" } }
-      %div{ :class => "panel-body" }
-        %p
-          Please email
-          %a{ :mailto => "info@cookesauction.com" }info@cookesauction.com
+  %li
+    .collapsible-header
+      Would you like to hire us?
+    .collapsible-body
+      %p
+        Do you have an issue with the website?
+        %a{ :mailto => "info@cookesauction.com" }info@cookesauction.com
 

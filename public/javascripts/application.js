@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
   $(".button-collapse").sideNav();
+  $('.collapsible').collapsible();
 
   $('#listing_photos a').fancybox();
 
@@ -10,9 +11,4 @@ $(document).ready(function() {
     placeHolder: "/fancybox/blank.gif"
    });
 
-  $('#contact_us_accordian').accordion({
-    collapsible: true,
-    active: false,
-    heightStyle: "content"
-  });
 });
