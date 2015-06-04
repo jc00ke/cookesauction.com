@@ -1,0 +1,28 @@
+%nav
+  .nav-wrapper
+    %ul#slide-out.side-nav
+      %li{ :class => "active" }
+        %a{ :href => "/" } Home
+      %li
+        %a{ :href => "/testimonials" } Testimonials
+      %li
+        %a{ :href => "/past-sales" } Past sales
+      %li
+        %a{ :href => "/contact-us" } Contact us
+      - if @is_admin
+        %li
+          %a{ :href => "/admin" } Admin
+    %a{ :href => "#", :data => { :activates => "slide-out" }, :class => "button-collapse" }
+      %i.mdi-navigation-menu
+    %ul.left.hide-on-med-and-down
+      %li{ :class => "active" }
+        %a{ :href => "/" } Home
+      %li
+        %a{ :href => "/testimonials" } Testimonials
+      %li
+        %a{ :href => "/past-sales" } Past sales
+      %li
+        %a{ :href => "/contact-us" } Contact us
+      - if @is_admin
+        %li
+          %a{ :href => "/admin" } Admin
