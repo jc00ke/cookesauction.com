@@ -76,6 +76,28 @@ end
 helpers do
   include Sinatra::Partials
 
+  def map_params(listing, size)
+    address = escaped_address(listing)
+    {
+      :center => address,
+      :size => size,
+      :markers => "color:blue|label:A|#{address}",
+      :sensor => false
+    }.inject([]){ |m,s|
+      m << "#{s.first}=#{s.last}"
+    }.join('&')
+  end
+
+  def map_pic_src(listing, size="300x270")
+    address = escaped_address(listing)
+    params = map_params(listing, size)
+    "//maps.google.com/maps/api/staticmap?#{address}&#{params}"
+  end
+
+  def map_directions_link(listing)
+    address = escaped_address(listing)
+    "https://maps.google.com/maps?f=d&source=s_d&hl=en&mra=ls&ie=UTF8&z=15&daddr=#{address}"
+  end
 
   def image_url(listing_slug, idx, size=nil)
     "#{settings.image_prefix}/#{listing_slug}/#{idx}#{size}.jpg"
@@ -89,8 +111,8 @@ helpers do
     |
   end
 
-  def escaped_address(l)
-    l.map_location.gsub(/, /, ',').gsub(/ /, "+")
+  def escaped_address(listing)
+    listing.map_location.gsub(/, /, ',').gsub(/ /, "+")
   end
 
   def prep

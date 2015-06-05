@@ -1,14 +1,5 @@
 - @title = @listing.page.title
 
-- address = escaped_address(@listing)
-- params = {  :center => address,
-              :size => "300x270",
-              :markers => "color:blue|label:A|#{address}",
-              :sensor => false}.inject([]){ |m,s| m << "#{s.first}=#{s.last}" }.join('&')
-
-- map_src = "http://maps.google.com/maps/api/staticmap?#{address}&#{params}"
-- directions_link = "http://maps.google.com/maps?f=d&source=s_d&hl=en&mra=ls&ie=UTF8&z=15&daddr=#{address}"
-
 %div{:id => "listing_#{@listing.id}"}
   #hcalendar-Public-Auction.vevent
     .content
@@ -18,8 +9,8 @@
     .location
       %h4= @listing.full_address
       %h5 Click on map for directions
-      %a{ :href => directions_link }
-        %img{ :src => map_src }
+      %a{ :href => map_directions_link(@listing) }
+        %img{ :src => map_pic_src(@listing) }
 
 
   - if @listing.has_photos?
@@ -28,6 +19,6 @@
       - @listing.photosish.each do |idx|
         = image_tag(@listing.slug, idx)
 
-      
+
 %p.disclaimer
   All items are sold as is. All information contained herein was derived from sources believed to be correct but are not guaranteed. All statements made day of sale take precedence over printed material.
