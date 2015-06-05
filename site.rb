@@ -76,10 +76,15 @@ end
 helpers do
   include Sinatra::Partials
 
+
+  def image_url(listing_slug, idx, size=nil)
+    "#{settings.image_prefix}/#{listing_slug}/#{idx}#{size}.jpg"
+  end
+
   def image_tag(listing_slug, idx)
     %Q|
-      <a href="#{settings.image_prefix}/#{listing_slug}/#{idx}.jpg" rel="photos">
-        <img src="#{settings.image_prefix}/#{listing_slug}/#{idx}_small.jpg" alt="listing image #{idx}" />
+      <a href="#{image_url(listing_slug, idx)}" rel="photos">
+        <img src="#{image_url(listing_slug, idx, "_small")}" alt="listing image #{idx}" />
       </a>
     |
   end

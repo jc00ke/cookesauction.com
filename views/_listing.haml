@@ -1,11 +1,11 @@
 
 - if listing
   .row
-    .col.s12.m7
-      .card.small
+    .col
+      .card.med
         .card-image
           - if listing.has_photos?
-            = image_tag(listing.slug, 0)
+            %img{ :src => image_url(listing.slug, 0) }
           %span.card-title= listing.nice_type
         .card-content
           %p
