@@ -287,7 +287,7 @@ end
 
 ## PRIVACY ###########################
 get '/privacy' do
-  markdown :privacy
+  display :privacy
 end
 
 
