@@ -1,12 +1,12 @@
 - @title = @listing.page.title
 
 %div{:id => "listing_#{@listing.id}"}
-  #hcalendar-Public-Auction.vevent
-    .content
+  .row
+    .col.s12.m12.l8
       %h3.summary= @listing.nice_type
       %p.dtstart{ :title => @listing.dtstart }= @listing.starting
       = @listing.page.content_html
-    .location
+    .col.s12.m12.l4
       %h4= @listing.full_address
       %h5 Click on map for directions
       %a{ :href => map_directions_link(@listing) }
@@ -14,10 +14,11 @@
 
 
   - if @listing.has_photos?
-    #listing_photos
-      %h3 Click on a photo below for a larger version
-      - @listing.photosish.each do |idx|
-        = image_tag(@listing.slug, idx)
+    - @listing.photosish.each do |idx|
+      .col.s12.m12.l4
+        .card
+          .card-image
+            %img{ :src => "#{image_url(@listing.slug, idx)}", :alt => "listing image #{idx}", :class => "responsive-image" }
 
 
 %p.disclaimer
