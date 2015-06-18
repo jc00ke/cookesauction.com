@@ -103,14 +103,6 @@ helpers do
     "#{settings.image_prefix}/#{listing_slug}/#{idx}#{size}.jpg"
   end
 
-  def image_tag(listing_slug, idx)
-    %Q|
-      <a href="#{image_url(listing_slug, idx)}" rel="photos">
-        <img src="#{image_url(listing_slug, idx, "_small")}" alt="listing image #{idx}" />
-      </a>
-    |
-  end
-
   def escaped_address(listing)
     listing.map_location.gsub(/, /, ',').gsub(/ /, "+")
   end
