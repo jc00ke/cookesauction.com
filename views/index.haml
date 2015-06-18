@@ -1,4 +1,4 @@
-.col.s8
+.col.s12.m12.l8
   %h3
     Welcome to Cooke's!
   %p
@@ -24,8 +24,8 @@
     auction services, as well as the respect and friendship of both
     buying and selling public of Northwest Indiana.
 
-.col.s4
-  .next-sale
+.col.s12.m12.l4
+  .next-sale.section
     - if @next_listing
       %h3 Next Sale:
       = partial :"_listing", :locals => { :listing => @next_listing }
@@ -37,7 +37,8 @@
         to be notified of our next sale.
 
   - if @listings.present?
-    .future-sales
+    .divider
+    .future-sales.section
       %h3 Upcoming Sales:
       - @listings.each do |listing|
         = partial :"_listing", :locals => { :listing => listing }
