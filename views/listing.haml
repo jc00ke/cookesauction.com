@@ -7,15 +7,17 @@
       %p.dtstart{ :title => @listing.dtstart }= @listing.starting
       = @listing.page.content_html
     .col.s12.m12.l4
-      %h4= @listing.full_address
-      %h5 Click on map for directions
-      %a{ :href => map_directions_link(@listing) }
-        %img{ :src => map_pic_src(@listing) }
-
+      .card.med
+        .card-image
+          %img{ :src => map_pic_src(@listing) }
+        .card-content= @listing.full_address
+        .card-action
+          %a{ :href => map_directions_link(@listing) }
+            Directions
 
   - if @listing.has_photos?
     - @listing.photosish.each do |idx|
-      .col.s12.m12.l4
+      #listing_photos.col.s12.m12.l4
         .card
           .card-image
             %img{ :src => "#{image_url(@listing.slug, idx)}", :alt => "listing image #{idx}", :class => "responsive-image" }
