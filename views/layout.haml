@@ -6,6 +6,10 @@
     %title= "#{@title} :: Cooke's Auction Service"
 
     %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" }
+    :css
+      blockquote {
+        border-left: 5px solid #1B5E20;
+      }
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-22377283-1']);
@@ -20,13 +24,13 @@
     .container
       .row
         #header.row
-          %h1
+          %h1.green-text.text-darken-4
             Cooke&rsquo;s Auction Service, Inc.
-          %h2
+          %h4.green-text.text-darken-3
             It doesn&rsquo;t
             %em cost
             to hire a good auctioneer; It
-            %strong pays!
+            %strong.amber-text.text-darken-2 pays!
 
           = partial(:_nav)
         #content.row
