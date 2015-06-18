@@ -15,13 +15,18 @@
           %a{ :href => map_directions_link(@listing) }
             Directions
 
+  .row
+    .col.s12
+      .card.blue-grey.darken-1
+        .card-content.white-text
+          %p.flow-text
+            All items are sold as is.
+            All information contained herein was derived from sources believed to be correct but are not guaranteed.
+            All statements made day of sale take precedence over printed material.
+
   - if @listing.has_photos?
     - @listing.photosish.each do |idx|
       #listing_photos.col.s12.m12.l4
         .card
           .card-image
             %img{ :src => "#{image_url(@listing.slug, idx)}", :alt => "listing image #{idx}", :class => "responsive-image" }
-
-
-%p.disclaimer
-  All items are sold as is. All information contained herein was derived from sources believed to be correct but are not guaranteed. All statements made day of sale take precedence over printed material.
