@@ -1,18 +1,21 @@
 %h2
   Listings
 - if @listings
-  - @listings.each do |l|
-    %p.listing
-      %a{ :href => "/admin/listings/#{l.id}" }= l.starting_at.strftime("%Y-%m-%d")
-      %br
-      %span= "slug: #{l.slug}"
-      %br
-      %span.visible= "visible: #{l.page.visible}"
-      %br
-      %span= l.street_address
-      %br
-      %span= "#{l.city}, #{l.state} #{l.zip}"
-    %hr
+  %ul.collection
+    - @listings.each do |l|
+      %li.collection-item
+        %h4= l.starting_at.strftime("%Y-%m-%d")
+        %span= "slug: #{l.slug}"
+        %br
+        %span= l.street_address
+        %br
+        %span= "#{l.city}, #{l.state} #{l.zip}"
+        %br
+        %a{ :class => "waves-effect waves-light btn", :href => "/admin/listings/#{l.id}" }
+          %i.material-icons.right= "visibility#{l.page.visible ? "" : "_off"}"
+          Edit
+        %a{ :class => "waves-effect waves-light btn blue", :href => listing_link_href(l), :target => "_blank" } View
+  = paginate @listings
 - else
   %p
     No listings.

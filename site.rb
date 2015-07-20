@@ -298,7 +298,7 @@ end
 
 ## ADMIN ###########################
 get '/admin' do
-  @listings = Listing.desc(:starting_at)
+  @listings = Listing.desc(:starting_at).page(params[:page])
   display :admin_index
 end
 
