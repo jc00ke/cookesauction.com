@@ -5,7 +5,6 @@ require 'haml'
 require 'sass'
 require 'girl_friday'
 $LOAD_PATH.unshift File.expand_path('lib')
-require 'partials'
 require 'models'
 require 'logger'
 require 'pony'
@@ -28,6 +27,7 @@ configure do
   set :email_regexp,  EMAIL_REGEXP
   set :haml,          { :format => :html5 }
   set :markdown,  :layout_engine => :haml
+  set :template_engine, :haml
 end
 
 configure :development do
@@ -74,8 +74,6 @@ end
 
 ## HELPERS ###########################
 helpers do
-  include Sinatra::Partials
-
   def map_params(listing, size)
     address = escaped_address(listing)
     {
