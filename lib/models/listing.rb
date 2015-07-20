@@ -36,6 +36,14 @@ class Listing
 
   before_create :gen_slug
 
+  def public_auction?
+    sale_type == :public_auction
+  end
+
+  def real_estate?
+    sale_type == :real_estate
+  end
+
   def nice_type
     sale_type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
   end
