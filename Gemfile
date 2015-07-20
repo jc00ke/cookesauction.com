@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 ruby "2.1.2"
 
-gem "sinatra", "1.2.0"
+gem "sinatra", "1.2.6"
 gem "sinatra-flash", "0.3.0"
 gem "sinatra-outputbuffer", "0.1.0"
-gem "tilt", "1.2.2"
+gem "tilt", "1.3.0"
 gem "haml", "3.0.25"
 gem "rdiscount", "1.6.8"
 gem "rack-rewrite", "1.0.2"
@@ -21,6 +21,7 @@ gem "unicorn", "3.7.0"
 gem "racksh", "0.9.8"
 gem "sass", "3.2.0"
 gem "kaminari", "0.16.3"
+gem "padrino-helpers", "0.10.0"
 
 group :development do
   #gem "pry-full"
