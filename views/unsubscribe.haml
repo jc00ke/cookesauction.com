@@ -1,18 +1,12 @@
-
-
 %form{ :action => '/unsubscribe', :method => 'post' }
-  %fieldset
-    %legend
-      Unsubscribe
-      
-    %p
-      We&rsquo;re sorry to see you go, but still hope to see you at our next auction!
-      
-    .field
-      %label
-        Email:
-      %input#email{ :type => 'text', :name => 'email' }
-      %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
-      
-    #buttons
-      %input{ :type => 'submit', :value => 'Unsubscribe' }
+  %p
+    We&rsquo;re sorry to see you go, but still hope to see you at our next auction!
+
+  .input-field
+    %label
+      Email:
+    %input#email{ :type => 'email', :name => 'email' }
+    %input#your_email{ :type => 'email', :name => 'your_email', :value => @email }
+
+  #buttons
+    %button{ :class => "btn waves-effect waves-light", :type => "submit" } Unsubscribe
