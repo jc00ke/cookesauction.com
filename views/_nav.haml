@@ -12,7 +12,7 @@
       %li{ :class => active("signup") }
         %a{ :href => "/signup" } Email list
       - if @is_admin
-        %li{ :class => "active"}
+        %li
           %a{ :href => "/admin" } Admin
     %a{ :href => "#", :data => { :activates => "slide-out" }, :class => "button-collapse" }
       %i.mdi-navigation-menu
@@ -28,5 +28,5 @@
       %li{ :class => active("signup") }
         %a{ :href => "/signup" } Email list
       - if @is_admin
-        %li{ :class => "active" }
+        %li
           %a{ :href => "/admin" } Admin
