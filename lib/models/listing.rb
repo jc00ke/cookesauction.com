@@ -9,7 +9,7 @@ class Listing
   field :city
   field :state
   field :zip
-  field :result                 
+  field :result
   field :number_photos,
         :type => Integer,
         :default => 0
@@ -18,13 +18,13 @@ class Listing
         :default => :public_auction
   field :starting_at,
         :type => DateTime
-  field :update_text    
+  field :update_text
   field :previous_id,
         :type => Integer
   field :slug
   field :location,
         :type => Array
-  
+
   index :slug, :unique => true
 
   validates_presence_of :sale_title, :street_address,
@@ -71,13 +71,13 @@ class Listing
   end
 
   def full_address
-    "#{street_address}, #{city}, #{state} #{zip}"   
+    "#{street_address}, #{city}, #{state} #{zip}"
   end
 
   def self.upcoming
     where(:starting_at.gt => Time.now.midnight, "page.visible" => true).asc(:starting_at)
   end
-   
+
   def self.past
     where(:starting_at.lt => Time.now, "page.visible" => true).desc(:starting_at)
   end
