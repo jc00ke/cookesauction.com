@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/flash'
+require 'kaminari/sinatra'
 require 'haml'
 require 'sass'
 require 'girl_friday'
@@ -74,6 +75,8 @@ end
 
 ## HELPERS ###########################
 helpers do
+  include Kaminari::Helpers::SinatraHelpers
+
   def map_params(listing, size)
     address = escaped_address(listing)
     {
