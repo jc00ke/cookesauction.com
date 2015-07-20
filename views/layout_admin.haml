@@ -15,7 +15,7 @@
           = partial("tagline", :engine => :haml)
 
           = partial("admin_nav", :engine => :haml)
-      #content
+      .row
         - if flash[:error]
           .error= flash[:error]
         - if flash[:notice]
