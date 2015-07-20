@@ -1,50 +1,32 @@
-!!! Strict
-%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+!!!
+%html{ :lang => "en" }
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }
-    %title
-      = @title
-      \:: Cooke's Auction Service, Inc.
-    
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css", :charset => "utf-8" }
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "http://ajax.googleapis.com/ajax/libs/yui/2.7.0/build/base/base-min.css", :charset => "utf-8" }
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/stylesheets/anytime.c.css", :charset => "utf-8" }
-    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "/master.css", :charset => "utf-8" }
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1" }
+    %title= "#{@title} :: Cooke's Auction Service"
+
+    %link{ :href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet" }
+    %link{ :rel => "stylesheet", :type => "text/css", :media => "screen", :href => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css" }
+
   %body{ :id => @body_id }
-    #custom-doc
-      #header
-        %h1
-          Cooke&rsquo;s Auction Service, Inc.
-        %h2
-          It doesn&rsquo;t
-          %em
-            cost
-          to hire a good auctioneer; It
-          %strong
-            pays!
-        %ul#nav
-          %li
-            %a{ :href => "/admin" }
-              Admin Home
-          %li
-            %a{ :href => "/admin/listings/new" }
-              New Listing
-          %li
-            %a{ :href => "/" }
-              Homepage
-          %li
-            %a{ :href => "/admin/send_listings" }
-              Send Listings!
-          %li
-            %a{ :href => "/admin/login" }
-              Logout
+    .container
+      .row
+        #header.row
+          %h1.green-text.text-darken-4
+            Cooke&rsquo;s Auction Service, Inc.
+          %h4.green-text.text-darken-3
+            It doesn&rsquo;t
+            %em cost
+            to hire a good auctioneer; It
+            %strong.amber-text.text-darken-2 pays!
+
+          = partial("admin_nav", :engine => :haml)
       #content
         - if flash[:error]
           .error= flash[:error]
         - if flash[:notice]
           .notice= flash[:notice]
         = yield
-        
-    %script{ :type => "text/javascript", :src  => "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" }
-    %script{ :type => "text/javascript", :src  => "/fancybox/jquery.mousewheel-3.0.4.pack.js" }
-    %script{ :type => "text/javascript", :src  => "/fancybox/jquery.fancybox-1.3.4.pack.js" }
+
+    %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" }
+    %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js" }
