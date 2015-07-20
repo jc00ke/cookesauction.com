@@ -20,6 +20,7 @@ gem "girl_friday", "0.9.1"
 gem "unicorn", "3.7.0"
 gem "racksh", "0.9.8"
 gem "sass", "3.2.0"
+gem "kaminari", "0.16.3"
 
 group :development do
   #gem "pry-full"
