@@ -12,13 +12,7 @@
     .container
       .row
         #header.row
-          %h1.green-text.text-darken-4
-            Cooke&rsquo;s Auction Service, Inc.
-          %h4.green-text.text-darken-3
-            It doesn&rsquo;t
-            %em cost
-            to hire a good auctioneer; It
-            %strong.amber-text.text-darken-2 pays!
+          = partial("tagline", :engine => :haml)
 
           = partial("admin_nav", :engine => :haml)
       #content

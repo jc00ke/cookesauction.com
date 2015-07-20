@@ -27,17 +27,12 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+
   %body{ :id => @body_id }
     .container
       .row
         #header.row
-          %h1.green-text.text-darken-4
-            Cooke&rsquo;s Auction Service, Inc.
-          %h4.green-text.text-darken-3
-            It doesn&rsquo;t
-            %em cost
-            to hire a good auctioneer; It
-            %strong.amber-text.text-darken-2 pays!
+          = partial("tagline", :engine => :haml)
 
           = partial("nav", :engine => :haml)
         #content.row
