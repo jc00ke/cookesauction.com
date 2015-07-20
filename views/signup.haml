@@ -1,27 +1,25 @@
-
+:css
+  #email {
+    display: none;
+  }
 
 %form{ :action => '/signup', :method => 'post' }
-  %fieldset
-    %legend
-      Cooke&rsquo;s Newsletter
-      
-    %p
-      Cooke&rsquo;s will send you an email when we update the site or have any other news to share.
-      Please read our
-      %a{ :href => "/privacy" }
-        privacy policy
-      for any concerns. We dislike spam just as much as you, maybe more. Don&rsquo;t worry.
-      
-    .field
-      %label
-        Name:
-      %input#name{ :type => 'text', :name => 'name', :value => @name }
-      
-    .field
-      %label
-        Email:
-      %input#email{ :type => 'text', :name => 'email' }
-      %input#your_email{ :type => 'text', :name => 'your_email', :value => @email }
-      
-    #buttons
-      %input{ :type => 'submit', :value => 'Signup' }
+  %p
+    Cooke&rsquo;s will send you an email when we update the site or have any other news to share.
+    Please read our
+    %a{ :href => "/privacy" } privacy policy
+    for any concerns. We dislike spam just as much as you, maybe more. Don&rsquo;t worry.
+
+  .field
+    %label
+      Name:
+    %input#name{ :type => 'text', :name => 'name', :value => @name }
+
+  .field
+    %label
+      Email:
+    %input#email{ :type => 'email', :name => 'email' }
+    %input#your_email{ :type => 'email', :name => 'your_email', :value => @email }
+
+  #buttons
+    %button{ :class => "btn waves-effect waves-light", :type => "submit" } Signup
