@@ -10,3 +10,4 @@
     - row.each do |listing|
       .col.s12.m12.l4
         = partial :listing, :locals => { :listing => listing }, :engine => :haml
+= paginate @listings

@@ -181,7 +181,7 @@ end
 
 ## HOME PAGE ###########################
 get '/past-sales' do
-  @listings   = Listing.past
+  @listings   = Listing.past.page(params[:page])
   display :"past-sales"
 end
 
