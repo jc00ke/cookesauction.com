@@ -118,6 +118,10 @@ helpers do
     @is_admin = !session[:admin].nil?
   end
 
+  def active(page)
+    "active" if page == @body_id
+  end
+
   def display(view)
     layout = (view.to_s.match(/admin/)) ? :layout_admin : :layout
     haml view, { :layout => layout }
