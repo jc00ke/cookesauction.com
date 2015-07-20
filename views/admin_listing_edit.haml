@@ -1,71 +1,75 @@
 %form{ :action => "#{@action}", :method => 'post' }
-  %fieldset
-    %legend
-      Create/Edit a Sale Listing
+
+  .switch
     %label
-      Page Title
-    %input{ :type => 'text', :name => 'page_title', :value => @listing.page.title }
-    %br/
-    %label
+      Not Visible
+      %input{ :type => 'checkbox', :name => 'page_visible', :checked => @listing.page.visible }
+      %span.lever
       Visible
-    %input{ :type => 'checkbox', :name => 'page_visible', :checked => @listing.page.visible }
-    %br/
-    %label
-      Keywords
-    %textarea{ :name => 'page_keywords', :cols => 100, :rows => 5 }= @listing.page.keywords
-    %br/
-    %label
-      Description
-    %textarea{ :name => 'page_description', :cols => 100, :rows => 5 }= @listing.page.description
-    %br/
-    %label
-      Content
-    %textarea{ :name => 'page_content', :cols => 100, :rows => 20 }= @listing.page.content
-    %br/
-    %label
-      Sale Title
+
+  .input-field
+    %label  Page Title
+    %input{ :type => 'text', :name => 'page_title', :value => @listing.page.title }
+
+  .input-field
+    %label Keywords
+    %textarea{ :name => 'page_keywords', :class => "materialize-textarea" }= @listing.page.keywords
+
+  .input-field
+    %label Description
+    %textarea{ :name => 'page_description', :class => "materialize-textarea" }= @listing.page.description
+
+  .input-field
+    %label Content
+    %textarea{ :name => 'page_content', :class => "materialize-textarea" }= @listing.page.content
+
+  .input-field
+    %label Sale Title
     %input{ :type => 'text', :name => 'sale_title', :value => @listing.sale_title }
-    %br/
-    %label
-      Starting At
+
+  .input-field
+    %label Starting At
     %input#starting_at{ :type => 'text', :name => 'starting_at', :value => @listing.starting_at }
-    %br/
-    %label
-      Latitude
+
+  .input-field
+    %label Latitude
     %input{ :type => 'text', :name => 'latitude', :value => @listing.latitude }
-    %br/
-    %label
-      Longitude
+
+  .input-field
+    %label Longitude
     %input{ :type => 'text', :name => 'longitude', :value => @listing.longitude }
-    %br/
-    %label
-      Street Address
+
+  .input-field
+    %label Street Address
     %input{ :type => 'text', :name => 'street_address', :value => @listing.street_address }
-    %br/
-    %label
-      City
+
+  .input-field
+    %label City
     %input{ :type => 'text', :name => 'city', :value => @listing.city }
-    %br/
-    %label
-      State
+
+  .input-field
+    %label State
     %input{ :type => 'text', :name => 'state', :value => @listing.state }
-    %br/
-    %label
-      Zip
+
+  .input-field
+    %label Zip
     %input{ :type => 'text', :name => 'zip', :value => @listing.zip }
+
+  .input-field
+    %label Number Photos
+    %input{ :type => 'number', :name => 'number_photos', :value => @listing.number_photos }
+
+  .input-field
+    %label Sale Type
     %br/
-    %label
-      Number Photos
-    %input{ :type => 'text', :name => 'number_photos', :value => @listing.number_photos }
-    %br/
-    %label
-      Sale Type
-    %input{ :type => 'text', :name => 'sale_type', :value => @listing.sale_type }
-    %br/
-    %label
-      Update
-    %textarea{ :name => 'update_text', :cols => 100, :rows => 5 }
-    %br
-    %input{ :type => 'submit', :value => 'Submit' }
-    %a{ :href => '/admin' }
-      Cancel
+    %select{ :name => "sale_type", :class => "browser-default" }
+      %option{ :value => "public_auction", :selected => @listing.public_auction? } Public Auction
+      %option{ :value => "real_estate", :selected => @listing.real_estate? } Real Estate
+
+  .input-field
+    %label Update
+    %textarea{ :name => 'update_text', :class => "materialize-textarea" }
+
+  %p
+    %button{ :type => 'submit', :class => "btn waves-effect waves-light" } Submit
+    %a{ :href => '/admin' } Cancel
