@@ -43,7 +43,7 @@
 
           = partial("nav", :engine => :haml)
         #content.row
-          = styled_flash
+          != styled_flash
           = yield
         = partial("footer", :engine => :haml)
 
