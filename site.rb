@@ -185,13 +185,6 @@ get '/past-sales' do
   display :"past-sales"
 end
 
-## STYLES ###########################
-get '/master.css' do
-  content_type 'text/css', :charset => 'utf-8'
-  expires 600, :public, :must_revalidate
-  sass :master
-end
-
 ## CONTACT US ###########################
 post '/contact-us' do
   @title = "Contact Us"
