@@ -406,7 +406,7 @@ get '/:page' do
     display params[:page].intern
   rescue Errno::ENOENT # display can't find the view, which means the page isn't there. Throw a 404
     not_found
-  rescue Exception => e
+  rescue Object
     error
   end
 end
