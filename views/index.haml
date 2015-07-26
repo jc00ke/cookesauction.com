@@ -26,9 +26,9 @@
       buying and selling public of Northwest Indiana.
 
 .col.s12.m12.l4
-  .next-sale.section
+  .next-sale
     - if @next_listing
-      %h3 Next Sale:
+      %h3 Next Sale
       = partial :listing, :locals => { :listing => @next_listing }
     - else
       %h3 No sales listed at the moment
@@ -39,7 +39,7 @@
 
   - if @listings.present?
     .divider
-    .future-sales.section
-      %h3 Upcoming Sales:
+    .future-sales
+      %h3 Upcoming Sales
       - @listings.each do |listing|
         = partial :listing, :locals => { :listing => listing }
