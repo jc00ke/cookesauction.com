@@ -39,13 +39,13 @@
     .container
       .row
         #header.row
-          = partial("tagline", :engine => :haml)
+          = partial(:tagline, :engine => :haml)
 
-          = partial("nav", :engine => :haml)
+          = partial(:nav, :engine => :haml)
         #content.row
           != styled_flash
           = yield
-        = partial("footer", :engine => :haml)
+        = partial(:footer, :engine => :haml)
 
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js" }

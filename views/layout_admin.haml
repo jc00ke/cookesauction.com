@@ -12,9 +12,9 @@
     .container
       .row
         #header.row
-          = partial("tagline", :engine => :haml)
+          = partial(:tagline, :engine => :haml)
 
-          = partial("admin_nav", :engine => :haml)
+          = partial(:admin_nav, :engine => :haml)
       .row
         - if flash[:error]
           .error= flash[:error]
