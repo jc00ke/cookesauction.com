@@ -29,7 +29,7 @@
   .next-sale.section
     - if @next_listing
       %h3 Next Sale:
-      = partial :"_listing", :locals => { :listing => @next_listing }
+      = partial :listing, :locals => { :listing => @next_listing }
     - else
       %h3 No sales listed at the moment
       %p
@@ -42,4 +42,4 @@
     .future-sales.section
       %h3 Upcoming Sales:
       - @listings.each do |listing|
-        = partial :"_listing", :locals => { :listing => listing }
+        = partial :listing, :locals => { :listing => listing }
