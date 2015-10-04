@@ -3,9 +3,12 @@ class Email
   include Mongoid::Timestamps
 
   validates_uniqueness_of :email
+  validates_presence_of :email
+  validates_presence_of :name
+  validates_format_of :email, :with => /.*@.*/
 
-  field :name,                 :required => true
-  field :email,                :required => true, :format => :email_address
+  field :name
+  field :email
 
   class << self
     def queue

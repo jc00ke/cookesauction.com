@@ -25,7 +25,7 @@ class Listing
   field :location,
         :type => Array
 
-  index :slug, :unique => true
+  index({ :slug => 1 }, { :unique => true })
 
   validates_presence_of :sale_title, :street_address,
                         :city, :state
