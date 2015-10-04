@@ -10,16 +10,7 @@ require 'models'
 require 'logger'
 require 'pony'
 
-# MongoDB configuration
-Mongoid.configure do |config|
-  if ENV['MONGOLAB_URI']
-    conn = Mongo::Connection.from_uri(ENV['MONGOLAB_URI'])
-    uri = URI.parse(ENV['MONGOLAB_URI'])
-    config.master = conn.db(uri.path.gsub(/^\//, ''))
-  else
-    config.master = Mongo::Connection.from_uri("mongodb://localhost:27017").db('cookesauction')
-  end
-end
+Mongoid.sessions = { "default" => { :uri => ENV["MONGOLAB_URI"] } }
 
 enable :sessions
 
