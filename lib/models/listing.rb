@@ -99,6 +99,6 @@ class Listing
   end
 
   def self.find_by_slug(year, month, day, previous_id)
-    first :conditions => { :slug => Listing.slug_format(year, month, day, previous_id) }
+    where(:slug => Listing.slug_format(year, month, day, previous_id)).first
   end
 end
