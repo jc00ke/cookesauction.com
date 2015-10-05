@@ -196,59 +196,6 @@ post '/contact-us' do
   display :"contact-us"
 end
 
-## SUBSCRIBE ###########################
-get '/signup' do
-  display :signup
-end
-
-post '/signup' do
-  if valid_email_params?(params.merge(:message => 'asdf'))
-    email = Email.new( :name => params[:name], :email => params[:your_email])
-
-    if email.save
-      flash.now[:notice] = "Thanks for signing up! You'll hear from us next time we post a sale."
-    else
-      flash.now[:error] = "Your information could not be saved. Please try again. #{display_errors(email)}"
-      @name, @email = params[:name], params[:your_email]
-    end
-  else
-    status 400
-    flash.now[:error] = "Please double check your entries"
-    @name, @email = params[:name], params[:your_email]
-  end
-  display :signup
-end
-
-## UNSUBSCRIBE ###########################
-get '/unsubscribe/:id' do
-  begin
-    email = Email.find(params[:id])
-    email.destroy
-    flash.now[:notice] = "Bye! We hope you come back soon!"
-  rescue Mongoid::Errors::DocumentNotFound
-    flash.now[:error] = "Your email could not be found. Try the form below or <a href='/contact-us'>contact us</a> directly."
-    @email = params[:your_email]
-  end
-  @title = "Bye!"
-  display :unsubscribe
-end
-
-get '/unsubscribe' do
-  display :unsubscribe
-end
-
-post '/unsubscribe' do
-  email = Email.first(:conditions => { :email => params[:your_email] })
-  if email
-    email.destroy
-    flash.now[:notice] = "Bye! We hope you come back soon!"
-  elsif
-    flash.now[:error] = "#{params[:your_email]} could not be found. Please try again."
-    @email = params[:your_email]
-  end
-  display :unsubscribe
-end
-
 ## HIRE US ###########################
 get '/hire-us' do
     redirect to('/contact-us')
