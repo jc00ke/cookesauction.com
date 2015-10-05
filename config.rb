@@ -41,11 +41,15 @@
 # end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
+helpers do
 #   def some_helper
 #     "Helping"
 #   end
-# end
+
+  def active(page)
+    "active" if "#{page}.html" == current_resource.path
+  end
+end
 
 set :css_dir, 'stylesheets'
 
