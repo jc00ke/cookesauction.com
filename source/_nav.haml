@@ -7,8 +7,8 @@
         = link_to "Testimonials", "/testimonials"
       %li{ :class => active("past_sales") }
         %a{ :href => "/past-sales" } Past sales
-      %li{ :class => active("contact_us") }
-        %a{ :href => "/contact-us" } Contact us
+      %li{ :class => active("contact-us") }
+        = link_to "Contact us", "/contact-us"
       %li{ :class => active("signup") }
         %a{ :href => "/signup" } Email list
       - if @is_admin
@@ -23,8 +23,8 @@
         = link_to "Testimonials", "/testimonials"
       %li{ :class => active("past_sales") }
         %a{ :href => "/past-sales" } Past sales
-      %li{ :class => active("contact_us") }
-        %a{ :href => "/contact-us" } Contact us
+      %li{ :class => active("contact-us") }
+        = link_to "Contact us", "/contact-us"
       %li{ :class => active("signup") }
         %a{ :href => "/signup" } Email list
       - if @is_admin
