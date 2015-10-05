@@ -2,9 +2,9 @@
   .nav-wrapper
     %ul#slide-out.side-nav
       %li{ :class => active("index") }
-        %a{ :href => "/" } Home
+        = link_to "Home", "/"
       %li{ :class => active("testimonials") }
-        %a{ :href => "/testimonials" } Testimonials
+        = link_to "Testimonials", "/testimonials"
       %li{ :class => active("past_sales") }
         %a{ :href => "/past-sales" } Past sales
       %li{ :class => active("contact_us") }
@@ -18,9 +18,9 @@
       %i.mdi-navigation-menu
     %ul.left.hide-on-med-and-down
       %li{ :class => active("index") }
-        %a{ :href => "/" } Home
+        = link_to "Home", "/"
       %li{ :class => active("testimonials") }
-        %a{ :href => "/testimonials" } Testimonials
+        = link_to "Testimonials", "/testimonials"
       %li{ :class => active("past_sales") }
         %a{ :href => "/past-sales" } Past sales
       %li{ :class => active("contact_us") }
