@@ -2,24 +2,23 @@
 title: Sign up for Cooke's email list
 ---
 
-%form{ :action => '/signup', :method => 'post' }
+%form{ :action => "https://api.elasticemail.com/contact/add?version=2", :method => "post" }
   %p
     Cooke&rsquo;s will send you an email when we update the site or have any other news to share.
     Please read our
     %a{ :href => "/privacy" } privacy policy
     for any concerns. We dislike spam just as much as you, maybe more. Don&rsquo;t worry.
 
-  .input-field
-    %label
-      Name:
-    %input#name{ :type => 'text', :name => 'name', :value => @name }
+  %input{ :type => "hidden", :name =>"publiclistid", :value => "2f3881f9-eba8-44fb-833b-482f2500c729" }
+  %input{ :type => "hidden", :name => "publicaccountid", :value => "668b155a-a5e2-4bf9-854f-7bd7ff3e9543" }
+  %input{ :type => "hidden", :name => "return_url", :value => "http://cookesauction.com/signed-up" }
+  %input{ :type => "hidden", :name => "activation_template", :value => "Listing Subscriber Template" }
+  %input{ :type => "hidden", :name => "type", :value => "3" }
 
   .input-field
     %label
       Email:
     %input#email{ :type => 'email', :name => 'email' }
-    %input#your_email{ :type => 'email', :name => 'your_email', :value => @email }
-
   #buttons
     %button{ :class => "btn waves-effect waves-light", :type => "submit" }
       Signup
