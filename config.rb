@@ -50,6 +50,55 @@ helpers do
   def active(page)
     "active" if "#{page}.html" == current_resource.path
   end
+
+  def map_pic_src(listing, size="300x270")
+    address = escaped_address(listing)
+    params = map_params(listing, size)
+    "//maps.google.com/maps/api/staticmap?#{address}&#{params}"
+  end
+
+  def escaped_address(listing)
+    if location = listing["location"]
+      location.all?(&:present?) ? location.join(',') : full_address(listing)
+    end.gsub(/, /, ',').gsub(/ /, "+")
+  end
+
+  def full_address(listing)
+    "#{listing["street_address"]}, #{listing["city"]}, #{listing["state"]} #{listing["zip"]}"
+  end
+
+  def map_params(listing, size)
+    address = escaped_address(listing)
+    {
+      :center => address,
+      :size => size,
+      :markers => "color:blue|label:A|#{address}",
+      :sensor => false
+    }.inject([]){ |m,s|
+      m << "#{s.first}=#{s.last}"
+    }.join('&')
+  end
+
+  def listing_link_href(listing)
+    "/sale/#{listing["slug"]}"
+  end
+
+  def image_url(listing_slug, idx, size=nil)
+    "http://ds8xlcugsewg4.cloudfront.net/images/sales/#{listing_slug}/#{idx}#{size}.jpg"
+  end
+
+  def listing_has_photos?(listing)
+    listing["number_photos"].to_i > 0
+  end
+
+  def starting(listing)
+    t = Time.parse(listing["starting_at"])
+    t.strftime("%A, %d %b %Y %l:%M %p")
+  end
+
+  def nice_type(listing)
+    listing["type"].split('_').each { |t| t.capitalize! }.join(' ')
+  end
 end
 
 set :css_dir, 'stylesheets'
