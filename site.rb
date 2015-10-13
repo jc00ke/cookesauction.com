@@ -211,7 +211,7 @@ get "/sale/:year-:month-:day-:previous_id" do |year, month, day, previous_id|
 end
 
 get '/sale/:id' do
-  @listing = Listing.first( :conditions => { :id => params[:id] })
+  @listing = Listing.find(params[:id])
   not_found unless @listing
   display :listing
 end
@@ -284,7 +284,7 @@ post '/admin/listings/new' do
 end
 
 get '/admin/listings/:id' do
-  @listing = Listing.first(:conditions => { :id => params[:id] })
+  @listing = Listing.find(params[:id])
   unless @listing
     flash.now[:warning] = "Cannot find sale listing with id #{params[:id]}"
     redirect "/admin"
@@ -293,7 +293,7 @@ get '/admin/listings/:id' do
 end
 
 post '/admin/listings/:id' do
-  @listing = Listing.first(:conditions => { :id => params[:id] })
+  @listing = Listing.find(params[:id])
   @listing.page.title = params[:page_title]
   @listing.page.keywords = params[:page_keywords]
   @listing.page.description = params[:page_description]
@@ -327,7 +327,7 @@ get '/admin/send_listings' do
 end
 
 get "/Sale.cfm" do
-  listing = Listing.first(:conditions => { :previous_id => params[:qSale] })
+  listing = Listing.where(:conditions => { :previous_id => params[:qSale] }).first
   redirect to("/sale/#{listing.slug}"), 301
 end
 
