@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.2"
+ruby "2.2.3"
 
 gem "sinatra", "1.2.6"
 gem "sinatra-flash", "0.3.0"
