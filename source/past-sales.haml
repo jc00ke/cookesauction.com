@@ -1,5 +1,8 @@
 ---
 title: Past Sales
+pagination:
+  for: listings
+  per_page: 15
 ---
 
 %h4 Past Sales
@@ -7,10 +10,35 @@ title: Past Sales
 %p
   Below is an archive of our listings dating back to 2003.
   Please click around to see what we've sold in the past.
-
-- data.listings.each_slice(3) do |row|
+- pagination.each_slice(3) do |row|
   .row
     - row.each do |listing|
       .col.s12.m12.l4
         = partial :listing, :locals => { :listing => listing }
--#= paginate data.listings
+
+- paginated_pages, current_page_number = pagez(pagination)
+%ul.pagination
+  - if pagination.prev_page
+    %li.waves-effect
+      %a{ :href => pagination.prev_page.url, :rel => "previous" }
+        %i.material-icons chevron_left
+  - else
+    %li.disabled
+      %a
+        %i.material-icons chevron_left
+
+
+%ul.pagination
+  - paginated_pages.each do |page_number|
+    %li{ :class => "#{page_number == current_page_number ? "active" : "waves-effect"}" }
+      - url = page_number == 1 ? "/past-sales" : "/past-sales/pages/#{page_number}.html"
+      %a{ :href => url }= page_number
+
+  - if pagination.next_page
+    %li.waves-effect
+      %a{ :href => pagination.next_page.url, :rel => "next" }
+        %i.material-icons chevron_right
+  - else
+    %li.disabled
+      %a
+        %i.material-icons chevron_right

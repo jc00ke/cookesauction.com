@@ -184,6 +184,8 @@ GEM
       middleman-core (>= 3.0.2)
       multi_json (~> 1.0)
       rack-livereload
+    middleman-pagination (1.2.0)
+      middleman-core (~> 3.3)
     middleman-sprockets (3.4.2)
       middleman-core (>= 3.3)
       sprockets (~> 2.12.1)
@@ -243,6 +245,7 @@ DEPENDENCIES
   fog
   middleman (~> 3.4.0)
   middleman-livereload (~> 3.1.0)
+  middleman-pagination
   mini_magick
   thor
   tzinfo-data

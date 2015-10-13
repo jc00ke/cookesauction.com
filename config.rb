@@ -33,6 +33,16 @@
 ###
 activate :directory_indexes
 
+activate :pagination do
+  pageable_resource :listings do |page|
+    page.path == "/past-sales"
+  end
+
+  pageable_set :listings do
+    data.listings
+  end
+end
+
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
@@ -46,6 +56,13 @@ helpers do
 #   def some_helper
 #     "Helping"
 #   end
+
+  def pagez(pagination)
+    p = 1.upto(pagination.page_num).to_a.reverse.take(5).reverse
+    n = pagination.page_num.upto([pagination.page_num + 5, pagination.total_page_num].min).to_a.reverse.take(5).reverse
+    temp = p + n
+    [temp.uniq, pagination.page_num]
+  end
 
   def active(page)
     "active" if "#{page}.html" == current_resource.path
