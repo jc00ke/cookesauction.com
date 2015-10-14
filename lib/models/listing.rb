@@ -53,7 +53,7 @@ class Listing
   end
 
   def dtstart
-    starting_at.strftime("%Y-%m-%dT%H:%M-06:0000")
+    starting_at.strftime("%Y-%m-%dT%H:%M")
   end
 
   def has_photos?
