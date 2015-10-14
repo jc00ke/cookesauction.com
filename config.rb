@@ -1,3 +1,4 @@
+require "listing"
 ###
 # Compass
 ###
@@ -27,6 +28,10 @@
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
+data.listings.each do |listing_hash|
+  listing = Listing.new(listing_hash)
+  proxy "/sale/#{listing.slug}", "/listing.html", :locals => { :listing => listing }, :ignore => true
+end
 
 ###
 # Helpers
@@ -75,13 +80,15 @@ helpers do
   end
 
   def escaped_address(listing)
-    if location = listing["location"]
-      location.all?(&:present?) ? location.join(',') : full_address(listing)
-    end.gsub(/, /, ',').gsub(/ /, "+")
+    if location = listing.location
+      loc = location.all?(&:present?) ? location.join(',') : listing.full_address
+      loc.gsub(/, /, ',').gsub(/ /, "+") if loc
+    end
   end
 
-  def full_address(listing)
-    "#{listing["street_address"]}, #{listing["city"]}, #{listing["state"]} #{listing["zip"]}"
+  def map_directions_link(listing)
+    address = escaped_address(listing)
+    "https://maps.google.com/maps?f=d&source=s_d&hl=en&mra=ls&ie=UTF8&z=15&daddr=#{address}"
   end
 
   def map_params(listing, size)
@@ -97,7 +104,7 @@ helpers do
   end
 
   def listing_link_href(listing)
-    "/sale/#{listing["slug"]}"
+    "/sale/#{listing.slug}"
   end
 
   def image_url(listing_slug, idx, size=nil)
@@ -105,16 +112,7 @@ helpers do
   end
 
   def listing_has_photos?(listing)
-    listing["number_photos"].to_i > 0
-  end
-
-  def starting(listing)
-    t = Time.parse(listing["starting_at"])
-    t.strftime("%A, %d %b %Y %l:%M %p")
-  end
-
-  def nice_type(listing)
-    listing["type"].split('_').each { |t| t.capitalize! }.join(' ')
+    listing.has_photos?
   end
 end
 
