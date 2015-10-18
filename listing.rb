@@ -1,4 +1,7 @@
 require "time"
+require "json"
+require "tzinfo"
+require "kramdown"
 
 class Listing
   PROPERTIES = %w(slug street_address city state zip location number_photos starting_at type title content visible result update_text).freeze
@@ -6,11 +9,24 @@ class Listing
     attr_reader property.intern
   end
 
+  class << self
+    def upcoming
+      now = Time.now
+      all.select { |listing| Time.parse(listing.starting_at) > now }
+    end
+
+    def all
+      file = File.read("data/listings.json")
+      JSON.parse(file).map { |hsh| new(hsh) }
+    end
+  end
+
   def initialize(hsh)
     PROPERTIES.each do |property|
       instance_variable_set("@#{property}", hsh.fetch(property))
     end
     @start_time = Time.parse(self.starting_at)
+    @time_offset = @start_time.strftime("%z")
   end
 
   def id
@@ -34,7 +50,7 @@ class Listing
   end
 
   def dtstart
-    @start_time.strftime("%Y-%m-%dT%H:%M-06:0000")
+    @start_time.strftime("%Y-%m-%dT%H:%M-#{@time_offset}")
   end
 
   def has_photos?
