@@ -53,4 +53,14 @@
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" }
-    %script{ :type => "text/javascript", :src  => "/javascripts/application.js" }
+    :javascript
+      $(document).ready(function() {
+        $(".button-collapse").sideNav();
+        $('.collapsible').collapsible();
+
+        $("#listing_photos img").lazyload({
+          effect: "fadeIn",
+          placeHolder: "/images/blank.gif"
+         });
+
+      });
