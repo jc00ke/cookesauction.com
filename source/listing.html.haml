@@ -4,7 +4,7 @@
   .row
     .col.s12.m12.l8.flow-text
       %h3.summary= listing.nice_type
-      %p.dtstart{ :title => listing.dtstart }= listing.starting
+      %p= listing.starting
       != listing.content_html
     .col.s12.m12.l4
       .card.med

@@ -26,7 +26,6 @@ class Listing
       instance_variable_set("@#{property}", hsh.fetch(property))
     end
     @start_time = Time.parse(self.starting_at)
-    @time_offset = @start_time.strftime("%z")
   end
 
   def id
@@ -47,10 +46,6 @@ class Listing
 
   def starting
     @start_time.strftime("%B %d, %Y %I:%M %p")
-  end
-
-  def dtstart
-    @start_time.strftime("%Y-%m-%dT%H:%M-#{@time_offset}")
   end
 
   def has_photos?
