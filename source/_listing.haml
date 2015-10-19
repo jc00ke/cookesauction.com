@@ -1,0 +1,20 @@
+
+- if listing
+  .row
+    .col
+      .card.med
+        .card-image
+          .listing-image
+            - if listing.has_photos?
+              %img{ :src => image_url(listing.slug, 0) }
+            - else
+              %img{ :src => map_pic_src(listing, "800x600") }
+          %span.card-title= listing.nice_type
+        .card-content
+          %p
+            %span= listing.starting
+            %br
+            %span.location= listing.full_address
+        .card-action
+          %a{ :href => listing_link_href(listing) }
+            Details
