@@ -6,6 +6,7 @@ gem "middleman", "~>3.4.0"
 gem "middleman-pagination"
 gem "middleman-robots"
 gem "middleman-search_engine_sitemap"
+gem "middleman-s3_sync"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
