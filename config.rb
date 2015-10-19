@@ -58,9 +58,9 @@ end
 
 # Methods defined in the helpers block are available in templates
 helpers do
-#   def some_helper
-#     "Helping"
-#   end
+  def upcoming_listings
+    Listing.upcoming
+  end
 
   def pagez(pagination)
     p = 1.upto(pagination.page_num).to_a.reverse.take(5).reverse
