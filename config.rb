@@ -84,7 +84,7 @@ helpers do
   def map_pic_src(listing, size="300x270")
     address = escaped_address(listing)
     params = map_params(listing, size)
-    "//maps.google.com/maps/api/staticmap?#{address}&#{params}"
+    "https://maps.google.com/maps/api/staticmap?#{address}&#{params}"
   end
 
   def escaped_address(listing)
@@ -130,7 +130,7 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
-set :url_root, 'http://cookesauction.com'
+set :url_root, 'https://cookesauction.com'
 
 activate  :search_engine_sitemap,
           process_url: -> (url) { url.chomp('/') },
