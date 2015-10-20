@@ -116,7 +116,7 @@ helpers do
   end
 
   def image_url(listing_slug, idx, size=nil)
-    "http://ds8xlcugsewg4.cloudfront.net/images/sales/#{listing_slug}/#{idx}#{size}.jpg"
+    "https://ds8xlcugsewg4.cloudfront.net/images/sales/#{listing_slug}/#{idx}#{size}.jpg"
   end
 
   def listing_has_photos?(listing)
