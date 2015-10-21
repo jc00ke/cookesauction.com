@@ -6,9 +6,9 @@
         .card-image
           .listing-image
             - if listing.has_photos?
-              %img{ :src => image_url(listing.slug, 0) }
+              %img{ :data => { :original => image_url(listing.slug, 0) }, :height => 320 }
             - else
-              %img{ :src => map_pic_src(listing, "800x600") }
+              %img{ :data => { :original => map_pic_src(listing, "800x600") }, :height => 320 } |
           %span.card-title= listing.nice_type
         .card-content
           %p

@@ -11,7 +11,7 @@ pagination:
   Below is an archive of our listings dating back to 2003.
   Please click around to see what we've sold in the past.
 - pagination.each_slice(3) do |row|
-  .row
+  .row.listing-images
     - row.each do |listing|
       .col.s12.m12.l4
         = partial :listing, :locals => { :listing => Listing.new(listing) }
