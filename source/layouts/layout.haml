@@ -61,6 +61,11 @@
         $(".listing-images img").lazyload({
           effect: "fadeIn",
           placeHolder: "/images/blank.gif"
-         });
+        });
+
+        $("body.index .listing-image img").each(function() {
+          var $el = $(this);
+          $el.attr("src", $el.data("original"));
+        });
 
       });

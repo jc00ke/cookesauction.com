@@ -122,6 +122,10 @@ helpers do
   def listing_has_photos?(listing)
     listing.has_photos?
   end
+
+  def is_home_page?
+    page.path == "/index.html"
+  end
 end
 
 set :css_dir, 'stylesheets'
