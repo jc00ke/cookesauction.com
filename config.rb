@@ -44,7 +44,7 @@ activate :pagination do
   end
 
   pageable_set :listings do
-    data.listings
+    Listing.previous
   end
 end
 

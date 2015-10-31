@@ -14,7 +14,7 @@ pagination:
   .row.listing-images
     - row.each do |listing|
       .col.s12.m12.l4
-        = partial :listing, :locals => { :listing => Listing.new(listing) }
+        = partial :listing, :locals => { :listing => listing }
 
 - paginated_pages, current_page_number = pagez(pagination)
 %ul.pagination

@@ -21,6 +21,12 @@ class Listing
       file = File.read("data/listings.json")
       JSON.parse(file).map { |hsh| new(hsh) }
     end
+
+    def previous
+      now = Time.now
+      all.
+        select { |listing| Time.parse(listing.starting_at) < now }
+    end
   end
 
   def initialize(hsh)
