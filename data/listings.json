@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2015-11-28-1",
+    "street_address": "5474 S 425 W",
+    "city": "La Porte",
+    "state": "IN",
+    "zip": "",
+    "location": [
+      "",
+      ""
+    ],
+    "number_photos": 0,
+    "starting_at": "2015-11-28 12:00",
+    "type": "real_estate",
+    "title": "Public Real Estate Auction",
+    "content": "### Open House\r\n\r\nSunday, November 15, 1-3pm.\r\n\r\nSingle family home on 0.918 acres w/out buildings. Lot size approx 150'x268'.\r\n\r\n### Living Estate of\r\n\r\nLeroy Kaiser \r\n\r\n### Terms of Sale\r\n\r\n$5000 down on sale day, balance due at closing within 30 days.",
+    "visible": true,
+    "result": null,
+    "update_text": null
+  },
+  {
     "slug": "2015-11-21-1",
     "street_address": "2903 Brown St",
     "city": "Portage",
