@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2015-11-21-1",
+    "street_address": "2903 Brown St",
+    "city": "Portage",
+    "state": "IN",
+    "zip": "",
+    "location": [
+      "",
+      ""
+    ],
+    "number_photos": 0,
+    "starting_at": "2015-11-21 13:00",
+    "type": "real_estate",
+    "title": "Public Real Estate Auction",
+    "content": "### Open House\r\n\r\nSunday, November 8, 1-3pm.\r\n\r\n1768 sq ft on 0.93 acres, 4 bedroom, 2 bath, 2 car unattached garage.\r\n\r\n### Estate of\r\n\r\nMary Chambers \r\n\r\n### Terms of Sale\r\n\r\n$5000 down on sale day, balance due at closing within 30 days.",
+    "visible": true,
+    "result": null,
+    "update_text": null
+  },
+  {
     "slug": "2015-10-24-6972",
     "street_address": "4 Fair Street",
     "city": "Valparaiso",
