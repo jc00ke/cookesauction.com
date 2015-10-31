@@ -41,14 +41,13 @@
 
   %body{ :id => "#@body_id", :class => page_classes }
     .container
-      .row
-        #header.row
-          = partial(:tagline)
+      #header.row
+        = partial(:tagline)
 
-          = partial(:nav)
-        #content.row
-          = yield
-        = partial(:footer)
+        = partial(:nav)
+      #content.row
+        = yield
+      = partial(:footer)
 
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" }
     %script{ :type => "text/javascript", :src  => "//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js" }
