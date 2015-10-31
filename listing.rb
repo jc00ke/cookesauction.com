@@ -12,7 +12,9 @@ class Listing
   class << self
     def upcoming
       now = Time.now
-      all.select { |listing| Time.parse(listing.starting_at) > now }
+      all.
+        select { |listing| Time.parse(listing.starting_at) > now }.
+        sort_by { |listing| Time.parse(listing.starting_at) }
     end
 
     def all
