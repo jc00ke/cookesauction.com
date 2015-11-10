@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+lines = STDIN.readlines
+newline = "\\r\\n\\r\\n"
+
+content = lines.each_with_object(Array.new) { |line, array|
+  match = /^(.*): (.*)$/.match(line)
+  next unless match
+  array << "### #{match[1].capitalize}"
+  array << newline
+  array << match[2]
+  array << newline
+}.tap(&:pop)
+
+
+puts content.join('')
