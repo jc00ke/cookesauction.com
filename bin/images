@@ -21,6 +21,7 @@ class Images < Thor
   method_option :src,   :type => :string,   :required => true
   method_option :dest,  :type => :string,   :required => true
   method_option :start,  :type => :numeric
+  method_option :skip_rename, :type => :boolean
   def process
     src = options[:src]
     dest = options[:dest]
@@ -33,23 +34,23 @@ class Images < Thor
     entries.each_with_index do |photo, idx|
       image = MiniMagick::Image.open(photo)
       image.auto_orient
-      i = idx + start
+      name = options[:skip_rename] ? File.basename(photo.downcase, ".jpg") : idx + start
 
       # write out original
-      image.write "#{dest}/#{i}_original.jpg"
+      image.write "#{dest}/#{name}_original.jpg"
 
       image.quality 75
 
       # full size image
       image.scale "800x800"
-      image.write "#{dest}/#{i}.jpg"
+      image.write "#{dest}/#{name}.jpg"
 
       # small image
       image.size    "125x125"
       image.thumbnail    "125x125^"
       image.gravity "center"
       image.extent "125x125"
-      image.write "#{dest}/#{i}_small.jpg"
+      image.write "#{dest}/#{name}_small.jpg"
       print "."
     end
     say "processed #{entries.size} photos"
