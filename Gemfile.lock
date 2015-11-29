@@ -231,6 +231,8 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    rerun (0.11.0)
+      listen (~> 3.0)
     ruby-progressbar (1.7.5)
     sass (3.4.18)
     sprockets (2.12.4)
@@ -270,6 +272,7 @@ DEPENDENCIES
   middleman-s3_sync
   middleman-search_engine_sitemap
   mini_magick
+  rerun
   thor
   tzinfo-data
   wdm (~> 0.1.0)
