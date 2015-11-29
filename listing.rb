@@ -8,6 +8,9 @@ class Listing
   PROPERTIES.each do |property|
     attr_reader property.intern
   end
+  attr_reader :hide_photos
+  attr_reader :inline_image_list
+  attr_reader :card_photo
 
   class << self
     def upcoming
@@ -33,6 +36,9 @@ class Listing
     PROPERTIES.each do |property|
       instance_variable_set("@#{property}", hsh.fetch(property))
     end
+    @hide_photos = !!hsh["hide_photos"]
+    @inline_image_list = hsh.fetch("inline_image_list", [])
+    @card_photo = hsh.fetch("custom_card_photo", 0)
     @start_time = Time.parse(self.starting_at)
   end
 
@@ -62,6 +68,10 @@ class Listing
 
   def photosish
     has_photos? ? (0...number_photos).to_a : []
+  end
+
+  def show_photos?
+    !@hide_photos
   end
 
   def map_location

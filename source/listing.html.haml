@@ -3,9 +3,18 @@
 %div{:id => "listing_#{listing.id}"}
   .row
     .col.s12.m12.l8.flow-text
-      %h3.summary= listing.nice_type
-      %p= listing.starting
-      != listing.content_html
+      %h3.summary.flow-text= listing.nice_type
+      %p.flow-text= listing.starting
+      .flow-text
+        != listing.content_html
+      - unless listing.inline_image_list.empty?
+        %h3 Numbered Lots
+        .listing-images
+          - listing.inline_image_list.each do |image|
+            .card.med
+              .card-image
+                %img{ :data => { :original => "#{image_url(listing.slug, image[:lot_number])}" }, :alt => "listing image #{image[:lot_number]}", :class => "responsive-image" }
+              .card-content= "#{image[:lot_number]}: #{image[:description]}"
     .col.s12.m12.l4
       .card.med
         .card-image
@@ -23,7 +32,7 @@
             All information contained herein was derived from sources believed to be correct but are not guaranteed.
             All statements made day of sale take precedence over printed material.
 
-  - if listing.has_photos?
+  - if listing.has_photos? && listing.show_photos?
     - listing.photosish.each do |idx|
       #listing_photos.col.s6.offset-s3.listing-images
         .card
