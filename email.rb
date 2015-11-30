@@ -7,7 +7,7 @@ class Email
       listings = listingz.map do |l|
         %Q|
           <li>
-            <a href="http://cookesauction.com/sale/#{l.slug}">
+            <a href="https://cookesauction.com/sale/#{l.slug}">
               #{l.starting}
             </a> at #{l.full_address}
           </li>
