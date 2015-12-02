@@ -1,8 +1,8 @@
 [
   {
     "slug": "2015-12-12-1",
-    "street_address": "1502 Linwood Ave",
-    "city": "Valparaiso",
+    "street_address": "5005 W St Rd 2",
+    "city": "La Porte",
     "state": "IN",
     "zip": "",
     "location": [
@@ -14,8 +14,8 @@
     "hide_photos": true,
     "starting_at": "2015-12-12 09:45",
     "type": "public_auction",
-    "title": "Public Gun Auction at Valpo Armory",
-    "content": "### Location\r\n\r\nValparaiso Armory\r\n\r\n### Estate of\r\n\r\nKenny Bokodi\r\n\r\n### Terms of sale\r\n\r\nCheck, cash or credit card accepted.\r\n\r\n### Auctioneer’s note\r\n\r\n3% Buyer’s Premium waived with good check or cash. All statements made day of sale take precedence over printed material.",
+    "title": "Public Auction at Pinola Grange",
+    "content": "### Location\r\n\r\nPinola Grange\r\n\r\n### Estate of\r\n\r\nKenny Bokodi\r\n\r\n### Terms of sale\r\n\r\nCheck, cash or credit card accepted.\r\n\r\n### Auctioneer’s note\r\n\r\n3% Buyer’s Premium waived with good check or cash. All statements made day of sale take precedence over printed material.",
     "visible": true,
     "result": null,
     "update_text": null,
