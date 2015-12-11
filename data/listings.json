@@ -88,7 +88,9 @@
       { "lot_number": 66, "description": "WITHDRAWN" },
       { "lot_number": 67, "description": "WINCHESTER 52 .22 LR, #7442" },
       { "lot_number": 68, "description": "WINCHESTER 06 .22 LR, #60358" },
-      { "lot_number": 69, "description": "WINCHESTER 1903 .22 AUTO, #1903" }
+      { "lot_number": 69, "description": "WINCHESTER 1903 .22 AUTO, #1903" },
+      { "lot_number": 70, "description": "COBALT GUN SAFE" },
+      { "lot_number": 71, "description": "TIMBER RIDGE GUN SAFE" }
     ]
   },
   {
