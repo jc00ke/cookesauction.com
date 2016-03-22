@@ -1,5 +1,26 @@
 [
   {
+    "slug": "2016-04-12-1",
+    "street_address": "12844 Fairbanks St",
+    "city": "Cedar Lake",
+    "state": "IN",
+    "zip": "",
+    "location": [
+      "",
+      ""
+    ],
+    "number_photos": 2,
+    "hide_photos": false,
+    "starting_at": "2016-04-12 18:00",
+    "type": "real_estate",
+    "title": "Public Real Estate Auction",
+    "content": "Level wooded corner building lot, 101’ x 100’ dimensions, sewer, no municipal water, modular allowed, Douglas MacArthur Elementary School, Crown Point High School.\r\n\r\n### Owner\r\n\r\nAmy Kristoff\r\n\r\n### Terms of sale\r\n\r\nCheck, cash or credit card accepted.\r\n\r\n### Auctioneer’s note\r\n\r\n$5000 down day of sale. Cash, cashier’s check, credit card, or personal check with letter of credit accepted. Balance due at closing. Property sold AS IS. All bidders must be preapproved with financing secured for closing within 30 days. All statements made day of sale take precedence over printed material.",
+
+    "visible": true,
+    "result": null,
+    "update_text": null
+  },
+  {
     "slug": "2016-04-02-1",
     "street_address": "574 W. 450 S.",
     "city": "Hebron",
