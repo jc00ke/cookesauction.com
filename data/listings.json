@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2016-5-7-1",
+    "street_address": "832 Cedar Parkway",
+    "city": "Schererville",
+    "state": "IN",
+    "zip": "",
+    "location": [
+      "",
+      ""
+    ],
+    "number_photos": 0,
+    "starting_at": "2016-5-7 9:45",
+    "type": "public_auction",
+    "title": "Public Auction",
+    "content": "### Whole unit auction at AAA U-Locks\r\n\r\nWe will be offering a blind unit auction, in their entirety, as is, where is. We will unlock, 5 minute preview, auctioned off to highest bidder! $100.00 cash deposit will be required and refunded when unit cleared!\r\n\r\n### Terms of Sale\r\n\r\nCash, check or credit card accepted.\r\n\r\n### Auctioneer’s Note\r\n\r\nPartial list only. 3% buyer's premium waived with good check or cash.",
+    "visible": true,
+    "result": null,
+    "update_text": null
+  },
+  {
     "slug": "2016-04-12-1",
     "street_address": "12844 Fairbanks St",
     "city": "Cedar Lake",
