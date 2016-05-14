@@ -29,8 +29,13 @@
       .listing-image img {
         min-height: 320px;
       }
+      #banner {
+        padding: 2px;
+        text-align: center;
+      }
   %body{ :id => "#@body_id", :class => page_classes }
     .container
+      = partial(:banner)
       #header.row
         = partial(:tagline)
 
