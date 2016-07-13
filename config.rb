@@ -84,7 +84,11 @@ helpers do
   def map_pic_src(listing, size="300x270")
     address = escaped_address(listing)
     params = map_params(listing, size)
-    "https://maps.google.com/maps/api/staticmap?#{address}&#{params}"
+    "https://maps.google.com/maps/api/staticmap?#{address}&#{params}&#{google_static_maps_param}"
+  end
+
+  def google_static_maps_param
+    "key=#{ENV["GOOGLE_MAPS_STATIC_KEY"]}"
   end
 
   def escaped_address(listing)
