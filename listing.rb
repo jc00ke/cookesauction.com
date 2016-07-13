@@ -15,7 +15,7 @@ class Listing
   class << self
     def upcoming
       now = Time.now
-      all.
+      visible.
         select { |listing| Time.parse(listing.starting_at) > now }.
         sort_by { |listing| Time.parse(listing.starting_at) }
     end
@@ -23,6 +23,10 @@ class Listing
     def all
       file = File.read("data/listings.json")
       JSON.parse(file).map { |hsh| new(hsh) }
+    end
+
+    def visible
+      all.select(&:visible)
     end
 
     def previous
