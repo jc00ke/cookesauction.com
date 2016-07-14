@@ -51,8 +51,8 @@ end
 activate :s3_sync do |s3|
   s3.bucket = "cookesauction.com"
   s3.region = "us-west-2"
-  s3.aws_access_key_id = ENV["S3_ACCESS_KEY_ID"]
-  s3.aws_secret_access_key = ENV["S3_SECRET_ACCESS_KEY"]
+  s3.aws_access_key_id = `aws configure get aws_access_key_id`.chomp
+  s3.aws_secret_access_key = `aws configure get aws_secret_access_key`.chomp
   s3.delete = false
 end
 
