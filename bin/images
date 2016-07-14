@@ -2,7 +2,6 @@
 
 require "thor"
 require "mini_magick"
-require "fog"
 
 class Images < Thor
 
@@ -54,39 +53,6 @@ class Images < Thor
       print "."
     end
     say "processed #{entries.size} photos"
-  end
-
-  desc "upload", "upload images from SOURCE to DEST"
-  method_option :src,  :type => :string, :required => true
-  method_option :dest, :type => :string, :required => true
-  def upload
-    Fog::Logger[:warning] = nil
-    dest = options[:dest]
-    src = options[:src]
-    check_dir(src)
-
-    connection = Fog::Storage.new({
-      :provider => 'AWS',
-      :aws_access_key_id => ENV['S3_ACCESS_KEY_ID'],
-      :aws_secret_access_key => ENV['S3_SECRET_ACCESS_KEY'],
-      :region => 'us-east-1'
-    })
-
-    directory = connection.directories.create(
-      :key => "cookes-auction-service/images/sales/#{dest}",
-      :public => true
-    )
-    Dir.chdir src
-    Dir.glob("*.jpg").sort.each do |image|
-      directory.files.create({
-        :key => image,
-        :body => File.open(image),
-        :public => true
-      })
-      print '.'
-    end
-    Fog::Logger[:warning] = STDOUT
-    say "done"
   end
 end
 

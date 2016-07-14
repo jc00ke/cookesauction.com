@@ -20,6 +20,5 @@ gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
 group :development do
   gem "mini_magick"
   gem "thor"
-  gem "fog"
   gem "rerun"
 end
