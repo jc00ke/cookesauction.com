@@ -1,3 +1,3 @@
 #!/bin/bash
 
-aws s3 sync $argv[1] "s3://cookes-auction-service/images/sales/$argv[2]" --delete --acl public-read
+aws s3 sync "$1" "s3://cookes-auction-service/images/sales/$2" --delete --acl public-read
