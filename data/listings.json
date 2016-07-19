@@ -1,5 +1,24 @@
 [
   {
+    "slug": "2016-07-30-1",
+    "street_address": "8167 Wicker Ave",
+    "city": "St. John",
+    "state": "IN",
+    "zip": "",
+    "location": [
+      "",
+      ""
+    ],
+    "number_photos": 21,
+    "starting_at": "2016-07-30 09:45",
+    "type": "public_auction",
+    "title": "Public Auction",
+    "content": "### Loansum Jewelry and More - Absolute inventory liquidation!\r\n\r\nTools, musical instruments, vintage & modern collectibles, bicycles, cameras, flat-screen TVs, amplifiers, stereo equipment, 60+ guitars, etc.\r\n\r\n### Owner\r\n\r\nMark Cannon\r\n\r\n### Terms of sale\r\n\r\nCheck, cash or credit card accepted.\r\n\r\n### Auctioneer’s note\r\n\r\nPartial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale take precedence over printed material.",
+    "visible": true,
+    "result": null,
+    "update_text": null
+  },
+  {
     "slug": "2016-08-20-1",
     "street_address": "617 N. Field Drive",
     "city": "Valparaiso",
