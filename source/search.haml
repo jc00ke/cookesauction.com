@@ -18,7 +18,7 @@ title: Search all of our sale listings
     <script type="text/babel">
       var SearchResultLink = React.createClass({
         render: function() {
-          var href = "/sale/" + this.props.id;
+          var href = "/sale/" + this.props.id + "?text=" + encodeURI(this.props.text);
           return  <a className="collection-item" href={href}>{this.props.sale.starting} in {this.props.sale.city}: {this.props.sale.title}</a>;
         }
       });
@@ -31,16 +31,16 @@ title: Search all of our sale listings
 
       var SearchResults = React.createClass({
         render: function() {
-          var createRow = function(result) {
-            var sale = window.indexData[result.ref];
-            return <SearchResultLink id={result.ref} sale={sale} />;
-          };
 
           var results;
           if(this.props.text == undefined) {
             results = "";
           } else if(this.props.results.length > 0) {
-            results = this.props.results.map(createRow);
+            var text = this.props.text;
+            results = this.props.results.map(function(result) {
+              var sale = window.indexData[result.ref];
+              return <SearchResultLink id={result.ref} sale={sale} text={text}/>;
+            });
           } else if(this.props.text != "") {
             results = <NoResults text={this.props.text} />
           }
