@@ -29,6 +29,12 @@ class Listing
       all.select(&:visible)
     end
 
+    def search_data
+      visible.each_with_object(Hash.new) { |listing, hsh|
+        hsh[listing.id] = listing.search_data
+      }.to_json
+    end
+
     def previous
       now = Time.now
       all.
@@ -102,5 +108,15 @@ class Listing
 
   def page_title
     "#{nice_type} on #{starting} in #{city}, #{state}"
+  end
+
+  def search_data
+    {
+      :id       => id,
+      :title    => title,
+      :content  => content.gsub("###", " ").gsub("\n", " ").gsub("\r", " "),
+      :city     => city,
+      :starting => starting
+    }
   end
 end

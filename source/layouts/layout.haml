@@ -74,3 +74,5 @@
           $el.attr("src", $el.data("original"));
         });
       });
+    - if content_for?(:javascript)
+      = yield_content(:javascript)
