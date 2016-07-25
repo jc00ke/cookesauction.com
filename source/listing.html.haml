@@ -25,7 +25,7 @@
     $(document).ready(function() {
       var text = $.getUrlVar("text");
       if(text != undefined) {
-        text = decodeURI(text);
+        text = decodeURIComponent(text);
         $("#listing_content").mark(text, {});
       }
     });

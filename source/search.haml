@@ -18,7 +18,7 @@ title: Search all of our sale listings
     <script type="text/babel">
       var SearchResultLink = React.createClass({
         render: function() {
-          var href = "/sale/" + this.props.id + "?text=" + encodeURI(this.props.text);
+          var href = "/sale/" + this.props.id + "?text=" + encodeURIComponent(this.props.text);
           return  <a className="collection-item" href={href}>{this.props.sale.starting} in {this.props.sale.city}: {this.props.sale.title}</a>;
         }
       });
