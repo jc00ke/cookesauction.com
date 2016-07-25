@@ -69,9 +69,13 @@ title: Search all of our sale listings
         },
 
         onChange: function(e) {
-          e.preventDefault();
-          var results = this.props.index.search(e.target.value);
-          this.setState({results: results, text: e.target.value});
+          var text = e.target.value
+          if(text.length > 2) {
+            var results = this.props.index.search(text);
+            this.setState({results: results, text: text});
+          } else {
+            this.setState({results: [], text: text});
+          }
         },
 
         handleSubmit: function(e) {
@@ -83,7 +87,7 @@ title: Search all of our sale listings
             <div>
               <form onSubmit={this.handleSubmit}>
                 <div className="input-field">
-                  <label>Start typing to search</label>
+                  <label>Start typing to search (more than 2 letters)</label>
                   <input type="text" onChange={this.onChange} value={this.state.text} />
                 </div>
               </form>
