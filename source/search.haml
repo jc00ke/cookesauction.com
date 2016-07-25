@@ -74,6 +74,10 @@ title: Search all of our sale listings
           this.setState({results: results, text: e.target.value});
         },
 
+        handleSubmit: function(e) {
+          e.preventDefault();
+        },
+
         render: function() {
           return (
             <div>
