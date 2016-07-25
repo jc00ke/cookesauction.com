@@ -30,23 +30,22 @@ title: Search all of our sale listings
       });
 
       var SearchResults = React.createClass({
-        render: function() {
-
-          var results;
+        results: function() {
           if(this.props.text == undefined) {
-            results = "";
+            return  "";
           } else if(this.props.results.length > 0) {
             var text = this.props.text;
-            results = this.props.results.map(function(result) {
+            return this.props.results.map(function(result) {
               var sale = window.indexData[result.ref];
               return <SearchResultLink id={result.ref} sale={sale} text={text}/>;
             });
           } else if(this.props.text != "") {
-            results = <NoResults text={this.props.text} />
+            return <NoResults text={this.props.text} />
           }
-
+        },
+        render: function() {
           return  <div className="collection with-header">
-                    {results}
+                    {this.results()}
                   </div>
         }
       });
