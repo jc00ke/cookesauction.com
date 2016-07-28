@@ -31,7 +31,7 @@ title: Search all of our sale listings
 
       var SearchResults = React.createClass({
         results: function() {
-          if(this.props.text == undefined) {
+          if(typeof this.props.text === "undefined") {
             return  "";
           } else if(this.props.results.length > 0) {
             var text = this.props.text;
