@@ -28,8 +28,7 @@ require "listing"
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
-data.listings.each do |listing_hash|
-  listing = Listing.new(listing_hash)
+Listing.visible.each do |listing|
   proxy "/sale/#{listing.slug}", "/listing.html", :locals => { :listing => listing }, :ignore => true
 end
 
