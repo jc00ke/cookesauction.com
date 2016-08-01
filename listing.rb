@@ -1,5 +1,5 @@
 require "time"
-require "json"
+require "yaml"
 require "tzinfo"
 require "kramdown"
 
@@ -21,8 +21,7 @@ class Listing
     end
 
     def all
-      file = File.read("data/listings.json")
-      JSON.parse(file).map { |hsh| new(hsh) }
+      YAML.load_file("data/listings.yml").map { |hsh| new(hsh) }
     end
 
     def visible
