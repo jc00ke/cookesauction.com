@@ -111,11 +111,12 @@ class Listing
 
   def search_data
     {
-      :id       => id,
-      :title    => title,
-      :content  => content.gsub("###", " ").gsub("\n", " ").gsub("\r", " "),
-      :city     => city,
-      :starting => starting
+      :id               => id,
+      :title            => title,
+      :content          => content.gsub("###", " ").gsub("\n", " ").gsub("\r", " "),
+      :city             => city,
+      :starting         => starting,
+      :numbered_lots    => inline_image_list.map { |item| item["description"] }.join(" ")
     }
   end
 end
