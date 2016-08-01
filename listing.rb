@@ -36,7 +36,7 @@ class Listing
 
     def previous
       now = Time.now
-      all.
+      visible.
         select { |listing| Time.parse(listing.starting_at) < now }
     end
   end
