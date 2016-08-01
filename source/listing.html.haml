@@ -43,8 +43,8 @@
           - listing.inline_image_list.each do |image|
             .card.med
               .card-image
-                %img{ :data => { :original => "#{image_url(listing.slug, image[:lot_number])}" }, :alt => "listing image #{image[:lot_number]}", :class => "responsive-image" }
-              .card-content= "#{image[:lot_number]}: #{image[:description]}"
+                %img{ :data => { :original => "#{image_url(listing.slug, image["lot_number"])}" }, :alt => "listing image #{image["lot_number"]}", :class => "responsive-image" }
+              .card-content= "#{image["lot_number"]}: #{image["description"]}"
     .col.s12.m12.l4
       .card.med
         .card-image
