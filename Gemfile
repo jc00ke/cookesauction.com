@@ -21,4 +21,5 @@ group :development do
   gem "mini_magick"
   gem "thor"
   gem "rerun"
+  gem "travis"
 end
