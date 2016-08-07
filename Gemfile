@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem "middleman", "~>3.4.0"
 gem "middleman-pagination"
 gem "middleman-robots"
-gem "middleman-search_engine_sitemap"
+gem "middleman-search_engine_sitemap", "~> 1.3.0"
 gem "middleman-s3_sync"
 
 # Live-reloading plugin
