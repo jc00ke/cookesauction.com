@@ -64,7 +64,7 @@ class Listing
   end
 
   def nice_type
-    type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
+    title or type.to_s.split('_').each { |t| t.capitalize! }.join(' ')
   end
 
   def starting
