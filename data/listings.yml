@@ -1,5 +1,50 @@
 ---
   -
+    slug: "2016-08-27-1"
+    street_address: "295 N St. Rd 2"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 54
+    starting_at: "2016-08-27 09:45"
+    type: "public_auction"
+    title: "Public Liquidation Auction"
+    content: |
+      ### Equipment
+
+      '06 New Holland LS160 loader(782 hrs. w/forks & bucket), '99 Kubota B1700 mower(814 hrs.),
+      Clegg tree spade w/24, 28 & 32 in. blades, 6 ft. cultivator, PTO post hole digger, 3 pt. Lift, etc.
+
+      ### Greenhouses
+
+      36'x19', 48'x12', 96'x28', 80'x15', 96'x29', 145'x30', 96'x21', 96'x16', 96'x8',
+      shade structures­ 96'x24', 48'x40'
+
+      ### Misc
+
+      numerous metal & plastic display racks & retail carts, Tefen fertilizer pumps, inflation
+      fans, chemicals, hanging basket racks, potting pots, rolling benches, plants conveyors, tree and
+      transport carts, pallets of peat moss & potting mix, PTO generator, lighted outdoor store sign,
+      50 gal. Fuel tanks, office equipment, retail shelving, etc.
+
+      ### Owner
+
+      Max Samuelson
+
+      ### Terms of Sale
+
+      Cash, cashier's check, credit card or personal check accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. [Map of grounds (pdf)](/files/2016-08-27-grounds.pdf).
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-08-06-1"
     street_address: "560 S 400 W"
     city: "Hebron"
