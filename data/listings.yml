@@ -1,5 +1,72 @@
 ---
   -
+    slug: "2016-08-20-2"
+    street_address: "617 N. Field Drive"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 136
+    starting_at: "2016-08-20 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      Sofas, occasional tables, coffee & end tables, curio cabinet, wall sectional dressers, Ethan Allen table
+      w/8 chairs, china cabinet, tea cart, oak desk w/chair, platform rocker, formica table w/4 chairs, two
+      single beds, etc
+
+      ### Antique Furniture
+
+      brass bed, Victorian, East Lake & Duncan Phyfe  dressers, 50’s porcelain table, 4 ice cream chairs, oak
+      table w/4 bentwood chairs, 6pcs of old wicker, etc.
+
+      ### Collectibles
+
+      Hummel, Lladro, wood carvings, wall clock, quilts, die cast cars, vintage frames, Philco radio, Handel
+      lamp base, shell-back lawn chairs, silver coins, gold jewelry, etc.
+
+      ### Appliances, Household, Misc
+
+      Hot Point refrigerator, Maytag gas stove, pics, prints & oils, cookware, china, linens, doilies,
+      ballroom gowns, card & poker tables w/chairs, costume jewelry, etc.
+
+      ### Pianos
+
+      Adam Schaaf baby grand piano
+
+      ### Automobile
+
+      2009 Ford Focus, 41k miles
+
+      ### Lawn, Garden, Tools & Misc
+
+      2001 New Holland TC30 w/bucket & mower deck - 1260 hours, Kubota ZD326 zero-turn 425 horsepower mower,
+      lawn vacuum, John Deere 550 roto tiller, 8 foot snow plow, John Deere 45 riding mower, John Deere 3DT 7
+      foot scraper blade, Lincoln 225 Welder, air compressor, push mowers, Craftsman table saw, acetylene
+      tanks w/shop cart, chain falls, storage cabinets, single axle trailer, anvil, block & tackle, ladders
+      and scaffolding, single axle cement mixer, numerous hand and power tools, copper and metal scrap.
+
+      ### Guns
+
+      Custom made 30/06 bolt action w/scope, dated 1940. Savage double barrel  3” chamber, Remington model
+      722 222 cal bolt w/scope, Winchester model 75 22 cal w/scope, Colt police special 22 cal revolver
+
+      ### Owner
+
+      Gruel Living Trust
+
+      ### Auctioneer’s Note
+
+      **Lawn equipment & implements to sell after real estate.** Car & Schaaf piano to sell at 12pm sharp.
+      All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-08-27-1"
     street_address: "295 N St. Rd 2"
     city: "Valparaiso"
