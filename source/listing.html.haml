@@ -64,7 +64,7 @@
 
   - if listing.has_photos? && listing.show_photos?
     - listing.photosish.each do |idx|
-      #listing_photos.col.s8.offset-s2.listing-images
+      #listing_photos.col.s12.m8.offset-m2.listing-images
         .card
           .card-image
             %img{ :data => { :original => "#{image_url(listing.slug, idx)}" }, :alt => "listing image #{idx}", :class => "responsive-image" }
