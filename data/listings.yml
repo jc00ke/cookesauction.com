@@ -1,5 +1,54 @@
 ---
   -
+    slug: "2016-10-08-1"
+    street_address: "2145 Corbin Ct"
+    city: "Schererville"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 35
+    starting_at: "2016-10-08 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      Lane reclining sectional, coffee & end tables, sofa table, full bunk bed, 2 night stands,
+      blanket chest, desk & chair, 2 full beds, 2 six drawer dressers, 5 pc oak bedroom set, oak table w/4
+      chairs, 4 bar stools, 6 pc maple bedroom set, etc.
+
+      ### Household and Misc
+
+      Holiday ornaments, area rugs, Advantage & Bose speakers, Advantage Hiker XT 4600 exercise machine,
+      dog kennel, booster seats, bicycles, Power Wheel scooter, etc.
+
+      ### Lawn, Garden, Tools and Misc
+
+      Hand tools, patio set w/6 chairs & umbrella, bistro set, 2 chairs w/pine table, Craftsman snow blower,
+      etc.
+
+      ### Hot Tub
+
+      6 months old, 2013 Sundance Optima
+
+      ### Owner
+
+      Melody Kikkert & Nigel Flenar
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-10-01-2"
     street_address: "1107 Valparaiso St"
     city: "Valparaiso"
