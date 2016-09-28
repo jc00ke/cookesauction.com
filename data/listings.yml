@@ -1,5 +1,48 @@
 ---
   -
+    slug: "2016-10-01-2"
+    street_address: "1107 Valparaiso St"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 34
+    starting_at: "2016-10-01 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      Sofa couch, pine table w/4 chairs, gun cabinet, long wardrobe, etc.
+
+      ### Household and Misc
+
+      Storage racks, holiday ornaments, cast iron pans, gas fireplace, yard bench, fishing poles, hand and
+      power tools, ladders, etc.
+
+      ### Collectibles
+
+      100+ vintage comic books, Victrola, 2 record cabinets, Victorian lamp, Viewmaster, Fiera glass, cast
+      iron bed, Hanson set, etc.
+
+      ### Owner
+
+      Kathy Pessmeg
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-10-01-1"
     street_address: "1107 Valparaiso St"
     city: "Valparaiso"
