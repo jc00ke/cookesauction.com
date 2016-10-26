@@ -1,5 +1,58 @@
 ---
   -
+    slug: "2016-11-05-1"
+    street_address: "5200 Liverpool Rd"
+    city: "Hobart"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 83
+    starting_at: "2016-11-05 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Vehicles
+
+      ‘05 Ford F350 Super Duty Diesel, 2000 Sahara Jeep, ‘65, ‘70, ‘73, ‘74 Volkswagens, ‘77, ‘78 Corvettes, ‘56 Chevy hardtop, '71 Mustang convertible, ‘57 Chevy 4-door Bel Air, ‘37 Plymouth, ‘65 F150 Jeep, ‘57 Oldsmobile, ‘50 Dodge pickup, ‘82 GMC dump, pair of ‘65 Sunbeam convertibles, ‘60 Jeep w/plow, ‘68 Mustang convertible w/salvage title, ‘37 Plymouth Business Coupe (body only), ‘56 Chevy Bel Air (frame, motor & transmission only), ‘68 Corvette w/salvage title, Ford box truck, ‘80 Honda 750 motorcycle.
+
+      ### Tractors
+
+      ‘50s Oliver 1800, Case 1410, ‘50s Ford w/front hydration blade, ‘40s Farmall and Case, Koehring backhoe & front loader.
+
+      ### Boats & Trailers
+
+      ‘79 Trihull w/trailer, 16’ Tri Sonic, tandem horse trailer, 6’ single axle
+
+      ### Misc
+
+      gas compactor, hydraulic backhoe arm, JD 6’ tiller, New Idea lawnmower, Kawasaki 4x4 (needs work), hydraulic concrete hammer, concrete mixer, Airens S-16 mower, 5’ Bush hog, tractor tires, aluminum ladders & picks, 2 Bobcat buckets, Husky 24” 5th wheel, 24” backhoe bucket, Sears mower w/blower, JD RX75 mower, Yamaha golf cart, South Bend & Sheldon lathes, Bridgeport milling machine, 2 Craftsman drill presses, coat tire machine, Coleman gas generator, welder, table saw & jigs, JD manure spreader, 16’ tandem trailer, tractor disc, 3 hay wagons, 2 blade plow, etc.
+
+      ### Furniture
+
+      Maple hutch, Singer & White sewing machines, occasional chairs, sofa & chairs, curio cabinet, end tables, upright piano, table w/6 chairs, 6’ counter store case, wood stove, oak cabinet w/lead glass doors, Maytag wringer washer
+
+      ### Livestock
+
+      Chickens, guinea pigs, 2 goats, 30 sheep
+
+      ### Owner
+
+      Rafael Cartagena
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-10-08-1"
     street_address: "2145 Corbin Ct"
     city: "Schererville"
