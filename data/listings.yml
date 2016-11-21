@@ -1,5 +1,51 @@
 ---
   -
+    slug: "2016-12-03-1"
+    street_address: "210 Freyer Rd"
+    city: "Michigan City"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 39
+    starting_at: "2016-12-03 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Vehicles
+
+      1936 Lasalle 4 dr hardtop, 1939 Lasalle 2 dr convertible w/parts car, 1957 Lincoln Mark II convertible.
+      Note: all need restoration finished.
+
+      ### Engines and Parts
+
+      360 Chrysler V8, 1938 Cadillac V8, Ford turnpike cruiser V8, 1956 Pontiac frame, 1953 Buick wire wheels, hoods, trunk lids, door skins, carburateurs, bumpers, fenders, chrome parts, radiators, etc.
+
+      ### Shop Tools
+
+      Eagle 9000lb lift, drill & boring press, 2 trany jacks, sand blaster, parts washer, Delta & Protech saws, Dewalt buffer, steel work table, engine puller, floor jacks, pneumatic tools, Craftsman tool bores w/tool, 2 car rotisseries, Solber air compressor, Snap-on battery charger, etc.
+
+      ### Collectibles, Office Equipment, Misc
+
+      Fiberglass lion’s head drinking fountain, chairs, desk, Kenmore fridge, Schwinn bikes, paint supplies, etc.
+
+      ### Owner
+
+      Arunas Koncius
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-11-05-1"
     street_address: "5200 Liverpool Rd"
     city: "Hobart"
