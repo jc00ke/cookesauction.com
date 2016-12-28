@@ -224,8 +224,6 @@ DEPENDENCIES
   rerun
   thor
   travis
-  tzinfo-data
-  wdm (~> 0.1.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
