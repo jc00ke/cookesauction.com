@@ -1,5 +1,54 @@
 ---
   -
+    slug: "2017-05-27-1"
+    street_address: "318 W S Boo Rd."
+    city: "Burns Harbor"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 45
+    starting_at: "2017-05-27 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Tractor
+
+      1950s Case
+
+      ### Trucks
+
+      1991 3/4 ton GMC 2500 (runs on gas or propane,) 1985 Dodge Power Ram w/plow, Swinger motorhome w/440 cubic engine (no title)
+
+      ### Trailers
+
+      3 single axle and mastertow dolly, Northman snow blade
+
+      ### Lawn, Garden, Tools and Misc
+
+      3 hp Johnson outboard, Gravely Lt 42” 0-turn, Huskey log splitter, JD, Toro, Airenss, Wheel Horse, Club Cadet riding mowers, several walk-behind mowers, chainsaws, air compressors, shop vacs, floor jacks, 10hp tractor motor, Poulan Limb saw, chain binders, 3” portable water pump, Miller wire and stick welders, parts bins, acetylene tanks, numerous hand and power tools,etc.
+
+      ### Motorcycles
+
+      JC Penny Pinto, CJ Jawa
+
+      ### Owner
+
+      George Riser
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2016-12-03-1"
     street_address: "210 Freyer Rd"
     city: "Michigan City"
