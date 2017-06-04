@@ -1,5 +1,42 @@
 ---
   -
+    slug: "2017-06-24-1"
+    street_address: "7108 Lenburg Rd"
+    city: "Portage"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 14
+    starting_at: "2017-06-24 12:00"
+    type: "real_estate"
+    title: "Public Real Estate Auction"
+    content: |
+      ### Description
+
+      General office building situated on .5 acres. Building is approx. 1250 sqft., city sewer and water,
+      forced air furnace, half bath, working elevator. Three car garage located on property accessible from
+      Sherwood Ave.
+
+      ### Owner
+
+      Donald Rice Trust
+
+      ### Terms of Sale
+
+      $5000.00 down day of sale! Cash, cashier’s check, credit card or personal check with letter of credit
+      accepted. Balance due at closing. Property sold AS IS. All bidders must be pre-approved with financing
+      secured for closing within 30 days.
+
+      ### Auctioneer's Note
+
+      Sale contingent upon owner’s approval. Not responsible for accidents. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-05-27-1"
     street_address: "318 W S Boo Rd."
     city: "Burns Harbor"
