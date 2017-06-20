@@ -1,5 +1,41 @@
 ---
   -
+    slug: "2017-06-24-2"
+    street_address: "7108 Lenburg Rd"
+    city: "Portage"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 32
+    starting_at: "2017-06-24 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+
+      ### Furniture
+
+      10 Alex Stewart conference chairs & table, office desk & chairs, sofa & occasional chairs, file cabinets
+
+      ### Tools & misc
+
+      hand & power tools, Toro snowblower, fish & camping, bicycles, Craftsman toolbox, snow & water skis,
+      vintage Roper porcelain stove, metal storage shelves, ping pong table, lawn tools, general
+      household goods, landscape bricks, law books, 2 small safes, etc.
+
+      ### Owner
+
+      Donald Rice Trust
+
+      ### Auctioneer's Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-06-24-1"
     street_address: "7108 Lenburg Rd"
     city: "Portage"
