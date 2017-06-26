@@ -1,5 +1,42 @@
 ---
   -
+    slug: "2017-08-05-1"
+    street_address: "1059 N 350 E"
+    city: "Chesterton"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 11
+    starting_at: "2017-08-05 13:00"
+    type: "real_estate"
+    title: "Public Real Estate Auction"
+    content: |
+
+      ### Real Estate
+
+      Ranch style home built in 1978, approx. 2300 sq. ft., located on 5.5 acres features stone fireplace,
+      back deck, 3 bedroom, 2 bath, central air, gas heat, well and septic, 2 car attached garage. Home also
+      has 3 car detached building, approx. 1250 sq. ft. with farmable acreage behind.
+
+      ### Owner
+
+      Patricia Wiesemann
+
+      ### Terms of Real Estate
+
+      $5000.00 down day of sale! Cash, cashier’s check, credit card or personal check with letter of credit
+      accepted. Balance due at closing. Property sold AS IS. All bidders must be pre-approved with
+      financing secured for closing within 30 days.
+
+      ### Auctioneer’s Note
+
+      Sale contingent upon owner’s approval. Not responsible for accidents.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-06-24-2"
     street_address: "7108 Lenburg Rd"
     city: "Portage"
