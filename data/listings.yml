@@ -1,5 +1,62 @@
 ---
   -
+    slug: "2017-07-22-1"
+    street_address: "1502 Linwood Ave"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 211
+    starting_at: "2017-07-22 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+
+      ### Contemporary Furniture
+
+      China & curio cabinets, occasional chairs, foot stools, sofa, table, Chippendale Highboy dresser, numerous accent pieces, etc.
+
+      ### Antique Furniture
+
+      Man of North chairs, slat back rockers, oak fern stands, secretary desks, rustic chairs, drop leaf table, Eastlake dresser, numerous occasional chairs, western foot stool, octagon parlor table, ornate end tables, wicker, painted cupboard, numerous painted pieces, 3 drawer Victorian dresser, 2 oak storage cabinets, sleigh bed, 2 barrister bookcases, Victorian parlor tables & hall mirror, drop front secretary, picture frames, pie safe, oak dressers, etc.
+
+      ### Collectibles
+
+      Panel lamps, stained glass windows, New Haven clock, crocks, cast iron door stops, Matchbox cars, banquet lamps, numerous oils & prints, old fans, cast iron banks, paperweight collection, posters, pastel chalks, copperware, life-sized cast iron bust of Hermes, marble pedestal, turquoise jewelry, kerosine lamps, Pewterware, ash receivers, 6’ totem pole, gumball machine, spinning wheel, cast bookends, vintage safe, etc.
+
+      ### Glassware & Pottery
+
+      Rookwood lamp base, Venetian, St. Claire, Rookwood, Victorian, Fenton, Flo Blue, cut & pressed Noritake, Beleck, Van Briggie, Royal Doulton, Spatterware, Fietsa, etc.
+
+      ### Household & Misc
+
+      tables & chairs, floor lamps, 55” flat screen TV, watches, maple butcher block, 22” peacock stained glass floor lamp, cast iron chairs, benches, ornate fencing, electrical appliances, wall clocks, hand & power tools, pedal car, Trek & Schwinn bikes, etc.
+
+      ### Automobile
+
+      2012 Jeep Grand Cherokee Overland, 71K miles
+
+      ### Oriental Rugs & Quilts
+
+      Numerous rugs and quilts
+
+      ### Owner
+
+      Estate of Thomas Fulk Jr
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer’s Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-08-05-1"
     street_address: "1059 N 350 E"
     city: "Chesterton"
