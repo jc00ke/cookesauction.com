@@ -1,5 +1,54 @@
 ---
   -
+    slug: "2017-08-05-2"
+    street_address: "1059 N 350 E"
+    city: "Chesterton"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 101
+    starting_at: "2017-08-05 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+
+      ### Contemporary Furniture
+
+      5 pc oak bedroom set by Shanley, 2 leather La-Z Boys, occasional chairs, coffee
+      and end tables,
+
+      ### Antique Furniture
+
+      Oak wash stand, parlor table, bench, 48” quarter-sawn, rocker, piano stools, Victorian dresser
+
+      ### Collectibles
+
+      Pathe Record Player, butter churn, oak pump organ, advertising signs, kerosin lamps, cast iron dinner
+      bell, crocks, quilts, Copperware, marbles, milk bottles, post cards, John Deere toys, etc.
+
+      ### Tools & Misc
+
+      Craftsman table saw, lathe, router table, radial arm saw, drill press, power wash, Dewalt mitre saw,
+      MW air compressor, 8 chain saws, floor jacks and vices, numerous hand & power tools, Toro 7/24
+      snowblower, Agri-Fab lawn sweeper & sprayer, scrap metal, lumber, etc.
+
+      ### Owner
+
+      Patricia Wiesemann
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer’s Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-07-22-1"
     street_address: "1502 Linwood Ave"
     city: "Valparaiso"
