@@ -1,5 +1,56 @@
 ---
   -
+    slug: "2017-08-19-1"
+    street_address: "5797 Evergreen Ave"
+    city: "Portage"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 76
+    starting_at: "2017-08-19 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      Henredon table & 6 chairs, 2 glass show cases, 6 drawer dresser w/pine headboard, 2 3-drawer
+      & 1 9-drawer pine dressers, maple butcher’s table, tea cart, bookcases, oak file cabinet, etc.
+
+      ### Collectibles
+
+      Victrola phonograph, Pachinko game, retro lamp, camelback trunk, old cameras & reel-to-reels,
+      records, Westinghouse record player, gumball machine, Nancy Drew books, marbles, glassware,
+      Playboy collectibles & magazines, etc.
+
+
+      ### Tools, Lawn, Garden & Misc
+
+      2007 John Deere x330 mower w/blade, power & hand tools, ladders, bicycles, shop vacs, Poulan chainsaw,
+      etc.
+
+      ### Appliances
+
+      Whirlpool fridge, Frigidaire freezer, Admiral washer & gas dryer, GE gas stove, numerous electrical
+      appliances, etc.
+
+      ### Owner
+
+      Jim Troian
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer’s Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of
+      sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-08-05-2"
     street_address: "1059 N 350 E"
     city: "Chesterton"
