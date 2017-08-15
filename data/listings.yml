@@ -1,5 +1,44 @@
 ---
   -
+    slug: "2017-09-16-1"
+    street_address: "1931 Windy Hill Ct."
+    city: "Lafayette"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 5
+    starting_at: "2017-09-16 13:00"
+    type: "real_estate"
+    title: "Public Real Estate Auction"
+    content: |
+      ### Open House
+
+      Sunday, August 27, 1-3 PM
+
+      ### Details
+
+      Spacious Condo in Saw Mill Run, 1598 sq. ft., built in 1989, 2 bdrms and office, 2 full baths,
+      screened porch, 2 car garage, new garage door, roof & gutters(2015), appliances included.
+
+      ### Owner
+
+      Thomas Fulk Jr.
+
+      ### Terms of Sale
+
+      $5000.00 down day of sale! Cash, cashier’s check, credit card or personal check with letter of credit
+      accepted. Balance due at closing. Property sold AS IS. All bidders must be pre-approved with
+      financing secured for closing within 30 days.
+
+      ### Auctioneer’s Note
+
+      Sale contingent upon owner’s approval. Not responsible for accidents.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-08-19-1"
     street_address: "5797 Evergreen Ave"
     city: "Portage"
