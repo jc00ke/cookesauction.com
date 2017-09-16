@@ -1,5 +1,110 @@
 ---
   -
+    slug: "2017-10-08-1"
+    street_address: "1059 N 350 E"
+    city: "Chesterton"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 34
+    starting_at: "2017-10-08 13:00"
+    type: "real_estate"
+    title: "Public Real Estate Auction"
+    content: |
+      ### Open House
+
+      Sunday, September 24, 1-3 PM
+
+      ### Details
+
+      Ranch style home built in 1978, approx. 2300 sq ft on 5.5 acres, features stone fireplace,
+      back deck, 3 bdr, 2 bth, central air, gas heat, well and septic, 2 car attached garage. Home also
+      has 3 car detached building, approx 1250 sq ft with farmable acreage behind home.
+
+      ### Owner
+
+      Patricia Wiesemann
+
+      ### Terms of Sale
+
+      $10,000.00 down day of sale! Cash,
+      cashier’s check, credit card or personal check with letter of credit accepted. Balance due at
+      closing. Property sold AS IS. All bidders MUST be pre-approved with financing secured for
+      closing within 30 days.
+
+      ### Auctioneer’s Note
+
+      Sale contingent upon owner’s approval. Not responsible for accidents.
+    visible: true
+    result: null
+    update_text: null
+  -
+    slug: "2017-09-23-1"
+    street_address: "5302 N Calumet Ave"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 128
+    starting_at: "2017-09-23 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Antique Furniture
+
+      Lane cedar chest, 5 drawer dresser w/mirror, 10’ pine harvest table & bench, oak kitchen table, etc.
+
+      ### Contemporary Furniture
+
+      Electric lift chair, Laz-E-Boy, numerous occasional chairs, coffee & end tables, knick-knack shelf,
+      table w/6 chairs, couch & love sofa, bookshelves, drop-front secretary, oak desk, hideabed sofa,
+      4/6/9 drawer dressers, jewelry caddy, side board, 3 & 5 piece bedroom sets, etc.
+
+      ### Household, Appliances & Misc
+
+      electrical appliances, 4 Samsung flatscreen TVs, ONKYO stereo w/cabinet,
+      Invacare hospital bed w/wheel chair, etc.
+
+      ### Collectibles
+
+      1931 Mills 25c lionhead slot machine, Shawnee Puss & Boots and Dutch Boy cookie jars, Roseville,
+      Carnival glass, post cards, costume jewelry, steamer trunk, Crosley Stack-o-Matic record player,
+      milk cans, etc.
+
+      ### Automobiles
+
+      2002 Lincoln Towncar, signature series, 1 owner, 66k miles
+
+      ### Tractors
+
+      1970 580k gas backhoe frontloader w/cab, Harry Ferguson T20 1955? w/rebuilt engine
+
+      ### Tools, Lawn, Garden, etc
+
+      Hand & power, Craftsman Weedeater & Lawn Seeder, Track Vac w/B&G motor, Toro S-200 blower,
+      Baldor electric irrigation pump, etc.
+
+      ### Owner
+
+      Theodor & Lila Nehmelman Trust
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer’s Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-08-26-1"
     street_address: "1502 Linwood Ave"
     city: "Valparaiso"
