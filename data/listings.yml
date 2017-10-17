@@ -1,5 +1,51 @@
 ---
   -
+    slug: "2017-10-28-2"
+    street_address: "11836 Woodmar Place"
+    city: "Cedar Lake"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 149
+    starting_at: "2017-10-28 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Vehicles
+
+      2002 & 2003 Ford F250 diesel pickup trucks, 1976 Pacemaker 26ft boat w/tandem trailer
+
+      ### Equipment
+
+      New Holland Skid Steer LX885 Turbo, Grasshopper 721D 0-turn mower, Ramrod 750 Mini Skid & Taskmaster,
+      backhoe, Towmaster trailer, 3 cycle diesel light plant, wire & mig welders, 20ft working barge, two 7ft
+      Western snow plows, Rock N Dumpster, two 36ft concrete saws, power trowells, Hotsy power washer, plasma
+      cutter, Hilti & Dewalt core drills, vibrating concrete screed, Craftsman Pro toolbox, scaffolding &
+      picks, Nikon & Spectra laser stations, four Honda generators, Life Size exercise equipment, etc.
+
+      ### Everything Else
+
+      Furniture, appliances, concrete tools, equipment & forms, three 20ft shipping containers, Holstein
+      corn roaster, two Magicator 8 burner stoves, 145ft custom slot car track by Chris Dadds, etc.
+
+      ### Owner
+
+      John and Sharon Burt
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer’s Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash. All statements made day of sale
+      take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-10-07-1"
     street_address: "243 E 600 N"
     city: "Valparaiso"
@@ -65,7 +111,7 @@
     location:
       - ""
       - ""
-    number_photos: 18
+    number_photos: 37
     starting_at: "2017-10-28 13:00"
     type: "real_estate"
     title: "Public Real Estate Auction"
