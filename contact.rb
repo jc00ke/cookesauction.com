@@ -32,7 +32,7 @@ class Contractor
   end
 
   def has_enough_info?
-    @fax.size > 0 && @email.size > 0
+    @fax.size > 0 || @email.size > 0
   end
 end
 
