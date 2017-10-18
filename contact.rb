@@ -6,8 +6,8 @@ class Contractor
 
   def initialize(name, email, fax)
     @name = name
-    @email = email
-    @fax = fax
+    @email = prep_email(email)
+    @fax = prep_fax(fax)
     @cname = clean_name(name)
   end
 
@@ -32,7 +32,26 @@ class Contractor
   end
 
   def has_enough_info?
-    @fax.size > 0 || @email.size > 0
+    fax? || email?
+  end
+
+  def prep_fax(fax)
+    return nil if fax.empty?
+    return fax if fax.start_with?("1")
+    "1#{fax}"
+  end
+
+  def prep_email(email)
+    return nil if email.empty?
+    email
+  end
+
+  def fax?
+    !!@fax && @fax.size > 0
+  end
+
+  def email?
+    !!@email && @email.size > 0
   end
 end
 
