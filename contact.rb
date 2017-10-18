@@ -67,6 +67,13 @@ doc.css("table").each do |table|
   contractors << contractor if contractor.has_enough_info?
 end
 
+info = Set.new
 contractors.each do |c|
-  puts [c.fax, c.email, c.name].inspect
+  if c.email?
+    info << c.email
+  else
+    info << "#{c.fax}@hellofax.com"
+  end
 end
+
+puts info.to_a.join(", ")
