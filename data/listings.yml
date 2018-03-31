@@ -1,5 +1,39 @@
 ---
   -
+    slug: "2018-04-07-1"
+    street_address: "832 Cedar Parkway"
+    city: "Schererville"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 0
+    starting_at: "2018-04-07 9:45"
+    type: "public_auction"
+    title: "Absolute Public Auction"
+    content: |
+      ### Whole unit auction at AAA U-Locks
+
+      We will be offering a blind unit auction, in their entirety, as is, where is.
+      We will unlock, 5 minute preview, auctioned off to highest bidder!
+      $100.00 cash deposit will be required and refunded when unit cleared!
+
+      ### Owner
+
+      AAA U-Locks
+
+      ### Terms of Sale
+
+      Cash, check or credit card accepted.
+
+      ### Auctioneer’s Note
+
+      There will be approx 40 units offered.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2017-11-04-1"
     street_address: "5002 St Rd 2"
     city: "La Porte"
