@@ -1,4 +1,5 @@
 require "listing"
+require "google_maps_url_signer"
 ###
 # Compass
 ###
@@ -83,7 +84,9 @@ helpers do
   def map_pic_src(listing, size="300x270")
     address = escaped_address(listing)
     params = map_params(listing, size)
-    "https://maps.google.com/maps/api/staticmap?#{address}&#{params}&#{google_static_maps_param}"
+    private_key = ENV.fetch("GOOGLE_MAPS_SIGNING_KEY")
+    url = "https://maps.google.com/maps/api/staticmap?#{address}&#{params}&#{google_static_maps_param}"
+    GoogleMapsUrlSigner.sign(url, private_key)
   end
 
   def google_static_maps_param
