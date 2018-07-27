@@ -1,5 +1,52 @@
 ---
   -
+    slug: "2018-08-04-1"
+    street_address: "6185 Broughton Ave"
+    city: "Portage"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 49
+    starting_at: "2018-08-04 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      Oak table w/6 chairs & matching cabinet, oak server, leather La-Z Boy,
+      6’ oak desk, curio cabinet, 2 oak dressers, pine wardrobe, 2 bookcases,
+      coffee & end tables, occasional chairs, 4pc wicker set, 4 bentwood
+      chairs w/matching table, wrought iron patio set, 5’ raised panel
+      bar w/4 stools, etc.
+
+      ### Collectibles & Misc
+
+      art glass, crystal, wicker bassinet, camelback trunk, silver plated
+      items, 15 light lily lamp, mounted fish, etc.
+
+      ### Tools, Lawn and Garden
+
+      Craftsman mower & snowblower, Coleman lanterns, shop vac, hand & power
+      tools, Rangemaster grill, etc.
+
+      ### Vehicles
+
+      2012 Ford Focus, 1 owner, 38K miles. 6’ & 8’ Acorn chair lifts
+
+      ### Owner
+
+      Donald Mulligan
+
+      ### Auctioneer’s Note
+
+      Partial list only. 3% Buyer’s Premium waived with good check or cash.
+      All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2018-06-23-1"
     street_address: "205 Sylvan Ct"
     city: "Valparaiso"
