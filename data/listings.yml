@@ -1,5 +1,59 @@
 ---
   -
+    slug: "2018-08-11-1"
+    street_address: "5005 W St Rt 2"
+    city: "La Porte"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 0
+    starting_at: "2018-08-11 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      2 Hideabed sofas, 4 La-Z Boy recliners, 3 tables w/chairs, 2pc pine bed
+      w/matching dresser, sofas & loveseats, entertainment centers, mahogany
+      dresser w/mirror, 4 pc pine bedroom set, occasional chairs, 4 & 10
+      drawer dressers, corner cupboard, etc.
+
+      ### Household, Appliances and Misc
+
+      TVs, stereos, table & 5 lamps, electrical appliances, pics & prints, etc.
+
+      ### Tools, Lawn and Garden
+
+      John Deere 400 garden tractor w/60” deck & snow blade, Husqvarna W4815
+      walk-behind lawn mower w/Kawasaki 15hp, Ariens 5 1/2hp self propelled lawn
+      mower, lawn chairs, water skis & wakeboards, Schwinn & Huffy bikes, etc.
+
+      ### Automobile
+
+      2005 Chevy Colorado LS 4x4 w/66,500k miles
+
+      ### Boat
+
+      2001 Tige 20i Precision Water Sports tow boat, 500 hours, w/tandem trailer
+
+      ### Assisted Living Equipment
+
+      Acorn chair lift
+
+      ### Owners
+
+      Various consigners
+
+      ### Auctioneer’s Note
+
+      Partial list only. 7% sales tax, 4% fee for credit card. All statements
+      made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2018-08-04-1"
     street_address: "6185 Broughton Ave"
     city: "Portage"
