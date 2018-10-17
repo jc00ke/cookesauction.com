@@ -1,3 +1,7 @@
 #!/bin/bash
 
-aws s3 sync "$1" "s3://cookes-auction-service/images/sales/$2" --delete --acl public-read
+aws s3 sync \
+  "$1" \
+  "s3://com.cookesauction.cdn/images/sales/$2" \
+  --delete \
+  --acl public-read
