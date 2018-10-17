@@ -1,5 +1,65 @@
 ---
   -
+    slug: "2018-10-27-1"
+    street_address: "744 Meridian Rd"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 95
+    starting_at: "2018-10-27 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      4pc queen bed set, single & double beds, kitchen table w/4 chairs,
+      Broyhill dining table w/6 chairs, La-Z Boy recliner, sofa & loveseat,
+      coffee & end tables, Bassett oak Arts & Crafts 10-drawer dresser,
+      drafting table, etc.
+
+      ### Guns + Fishing & Camping Gear
+
+      Remington 870 Express Magnum w/scope, baby Browning 25 cal auto w/case,
+      Mathews compound bow, ice shanty, fly rod & memorabilia, golf clubs,
+      Mongoose mountain bike
+
+      ### Collectibles & Misc
+
+      Crown Royal throne chair, Hubley cast iron fire truck & door stop,
+      banks, Disney mugs, Gucci watch, Fiera glass, signed Tony Stewart 1/24
+      scale 24ct gold race car, leaded floral lamp, Pendleton blankets, etc.
+
+      ### Appliances, Household & Misc
+
+      GE fridge, crock pots, deep fryers, Bissell & Hoover vacs,
+      Bose surround sound, etc.
+
+      ### Lawn & Garden
+
+      2014 Cub Cadet LX 54” 23hp w/~100hrs, Cub Cadet 2X 524 SWE 2-stage
+      snowblower, Pulan 488T leaf blower, John Deere lawn cart, Pulan chainsaw,
+      Pit Boss smoker grill, Brinkmann smoker, gas grill, etc.
+
+      ### Tools & Misc
+
+      Hitachi 12” miter w/Master Force stand, Rigid shop vac, Coleman furnace,
+      Campbell Hausfeld air compressor, etc.
+
+      ### Owner
+
+      Matthew Herko
+
+      ### Auctioneer’s Note
+
+      Partial listing only. 4% fee for credit card. All statements
+      made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2018-08-11-1"
     street_address: "5005 W St Rt 2"
     city: "La Porte"
