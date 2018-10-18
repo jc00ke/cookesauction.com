@@ -122,7 +122,7 @@ helpers do
   end
 
   def image_url(listing_slug, idx, size=nil)
-    "https://s3.amazonaws.com/cookes-auction-service/images/sales/#{listing_slug}/#{idx}#{size}.jpg"
+    "https://d301i0hwowplau.cloudfront.net/images/sales/#{listing_slug}/#{idx}#{size}.jpg"
   end
 
   def listing_has_photos?(listing)
