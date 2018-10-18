@@ -48,14 +48,6 @@ activate :pagination do
   end
 end
 
-activate :s3_sync do |s3|
-  s3.bucket = "com.cookesauction"
-  s3.region = "us-west-2"
-  s3.aws_access_key_id = ENV["AWS_ACCESS_KEY_ID"]
-  s3.aws_secret_access_key = ENV["AWS_SECRET_ACCESS_KEY"]
-  s3.delete = false
-end
-
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
