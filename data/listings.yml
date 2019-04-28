@@ -1,5 +1,54 @@
 ---
   -
+    slug: "2019-05-11-1"
+    street_address: "12245 W 41st Ave"
+    city: "Gary"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 37
+    starting_at: "2019-05-11 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      Sofa couch, 2 Pride lift chairs, coffee & end tables, occasional chairs,
+      accent cabinet, maple dining set, 4pc queen bedroom set, armoire, hope chest,
+      desk w/hutch, single bed w/headboard & 2 matching dressers, bookcases, etc.
+
+      ### Household and Misc
+    
+      Table and floor lamps, fireplace set, 54" TV, large wall mirror, pics, prints,
+      numerous kitchen items, Maytag dishwasher, linens and doilies, treadmill,
+      area rugs, lawn chairs & picnic table, fans, etc.
+
+
+      ### Collectibles & Misc
+
+      Costume jewelry, RCA record player, oval picture frames, etc.
+
+      ### Tools, Lawn, Garden and Misc
+      
+      John Deere LT155 riding mower, hand and garden tools, Go-Go 3-wheel electric
+      scooter, Bruno truck lift, gun cabinet, garden hoses, trimmers, Craftsman
+      blower, etc.
+
+      ### Estate of
+
+      Steve Barnes
+
+      ### Auctioneer’s Note
+
+      Partial listing only, many items, too numerous to list. Many boxes
+      still to unpack. 4% fee for credit card. All statements
+      made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2018-10-27-1"
     street_address: "744 Meridian Rd"
     city: "Valparaiso"
