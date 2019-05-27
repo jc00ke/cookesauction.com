@@ -1,5 +1,70 @@
 ---
   -
+    slug: "2019-06-08-1"
+    street_address: "27 Donavan Dr"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 138
+    starting_at: "2019-06-08 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Directions
+
+      From Rt 30 & Hayes Leonard Rd go North 1/4 mile to NW Hills Dr, turn Left
+      to dead end. Watch for Cooke's Auction signs.
+
+      ### Contemporary Furniture
+
+      Oak 4 drawer file cabinet, bookcases, Arts and Crafts-style bed, small oak
+      rolltop desk, harvest table w/4 chairs, 2 oak curved glass china cabinets,
+      oak, desk, hat racks, etc.
+
+      ### Antique Furniture
+      
+      Oak bed, walnut 3 drawer dresser, maple 3 drawer dresser, 4 drawer maple dresser
+      w/mirror, Young Republic Hoosier cab, Victorian record cabinet, oak wash stand,
+      drum table, 2 blanket chest, 3 stack bookcase, oak office chair, Victorian head
+      and foot board, oak dressing mirror & 4 drawer oak dresser w/mirror.
+
+      ### Collectibles & Misc
+
+      Cane collection, clocks, silver plated items, International Sterling sets,
+      butter churn, table lamps, knives, kerosene lamps, Rudolf Valentino movie poster,
+      numerous old photos, prints books, Indian & Chinese collectibles, Silverstone
+      radio, railroad locks, Brownie cameras, shells & gemstones, Skookum doll,
+      American Ringer, primitive tolls, copper boiler, wicker baby buggy, 78 & 45
+      records, copper boiler, numerous black memorabilia, quilts, vintage bottle caps.
+
+      Upright player piano, approximately 200 piano rolls, portable organ, 2 Hamilton
+      record players, Baldwin upright organ, Buddy L trucks, 2 cast iron whistle-stop
+      signs, ship anchor, parking meter, water pump, homemade electric chair, etc.
+
+      ### Glassware, Household and Misc
+    
+      Czech cut glass bowl, crystal, beer steins, jade, Vaseline, costume jewelry,
+      Roseville, holiday ornaments, etc.
+
+      ### Tools, Lawn, Garden and Misc
+      
+      2 4.75hp Weed Eater mowers, hand & power tools, Whirlpool dryer, CharBroil grill, etc.
+
+      ### Owner
+
+      Withheld by request
+
+      ### Auctioneer's Note
+
+      Partial listing only, many items, too numerous to list. 
+      4% fee for credit card. All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2019-05-11-1"
     street_address: "2245 W 41st Ave"
     city: "Gary"
