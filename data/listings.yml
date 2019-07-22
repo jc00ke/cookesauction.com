@@ -34,6 +34,69 @@
     result: null
     update_text: null
   -
+    slug: "2019-08-03-2"
+    street_address: "1401 W 2nd Street"
+    city: "Hobart"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 78
+    starting_at: "2019-08-03 9:45"
+    type: "public_auction"
+    title: "Public Personal Property Auction"
+    content: |
+      ### Contemporary Furniture
+      
+      Day bed, roll top desk, occasional chairs, 2 tables
+
+      ### Collectibles
+
+      Transistor radios, early German lantern, costume jewelry, lighters,
+      purses, hub caps, 45 records, Prestige flatware, post cards, Billy King
+      autograph, etc.
+
+      ### Camera Equipment
+      
+      Revere 555 and 718 projectors, Ricoh 35mm, key stone, DeJUR, Ampex AM, FM,
+      reel-to-reel, misc camera equipment.
+
+      ### Instruments
+      
+      Cornet, trumpet, marching French horn, alto, tuba, flugehorn, baritone, 
+      slide trombone, clarinet, numerous mouthpieces and stands.
+
+      ### Tools, Lawn and Garden
+      
+      Hand and power tools, 2 bench grinders, weed trimmer, edger, leaf blower, etc.
+
+      ### Appliances
+      
+      50s Kenmore gas stove, GE humidifier, kerosene heaters, 5-in-1 Air Wolf, ThyssenKrupp
+      stairlift 11' 4" and 9' 9".
+
+      ### Automobile, Boat, Fishing and Guns
+      
+      1978 Cadillac Deville Elegance, 2nd owner, garage kept, 76K miles. 16ft Sea Nymph aluminum
+      boat w/25HP Johnson and trailer, Biminti top.
+
+      Rods, reels, tackle boxes, anchors, Eagle fish locator, Atlantis underwater camera,
+      Remington 22cal semi auto, Pumpmaster and Crossman air rifles, ammo, etc.
+
+      ### Owner
+
+      Estate of Richard E. Shultz
+
+      ### Terms of Sale
+
+      Partial listing only, many items, too numerous to list.
+      4% fee for credit card. All statements made day of sale take
+      precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2019-08-03-1"
     street_address: "1401 W 2nd Street"
     city: "Hobart"
@@ -43,9 +106,9 @@
       - ""
       - ""
     number_photos: 26
-    starting_at: "2019-08-03 9:45"
+    starting_at: "2019-08-03 12:00"
     type: "real_estate"
-    title: "Real Estate and Personal Property"
+    title: "Real Estate Auction"
     content: |
       ### Open House
       July 14, 1-3pm
@@ -61,7 +124,7 @@
 
       ### Owner
 
-      Richard E. Shultz Estate
+      Estate of Richard E. Shultz
 
       ### Terms of Sale
 
