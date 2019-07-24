@@ -1,6 +1,6 @@
 ---
   -
-    slug: "2019-08-10-1"
+    slug: "2019-08-24-1"
     street_address: "9964 Pheasant Lane"
     city: "St. John"
     state: "IN"
@@ -9,10 +9,14 @@
       - ""
       - ""
     number_photos: 3
-    starting_at: "2019-08-10 13:00"
+    starting_at: "2019-08-24 13:00"
     type: "real_estate"
     title: "Public Real Estate Auction"
     content: |
+      ### Note
+      
+      This auction was previously scheduled for August 10.
+
       ### Open House
       July 28, 1-3pm
 
