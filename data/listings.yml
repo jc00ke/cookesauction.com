@@ -1,5 +1,60 @@
 ---
   -
+    slug: "2019-09-28-1"
+    street_address: "424 W 100 N"
+    city: "Valparaiso"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 66
+    starting_at: "2019-09-28 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+      
+      Lay-Z Boy recliner & 2 reclining sofas, computer desk, 2 upright storage cabinets, wood office desk, etc.
+
+      ### Household, Appliances & Misc
+      
+      Kenmore washer & dryer, gas stove. GE fridge, misc electrical appliances, table & floor lamps, Royal vacuum, 2 flat screen TVs, etc.
+
+      ### Lawn, Garden & Misc
+      
+      1987 1720 Hydro Cub Cadet, Husky tractor w/20hp engine, 3 20” push mowers, Echo trimmer, Remington electric pole saw, Husqvarna 445 chainsaw & 125B leaf blower, misc lawn tools, etc.
+
+      ### Exercise Equipment
+      
+      NordicTrack E 7.0, Total Gym, Invacare Linak hospital bed, camping, fishing, hunting, etc.
+
+      ### Tools & Misc
+      
+      Craftsman upright toolbox, Craftsman air compressor, Craftsman table saw, hand & power tools, extension & step ladders, etc.
+
+      ### Estate Of
+
+      Donald Kalamir
+
+      ### Terms of Sale
+
+      $10,000.00 down day of sale. Cash, cashier’s check, credit card
+      or personal check with letter of credit accepted.
+      Balance due at closing. Property sold AS IS. All bidders must be
+      pre-approved with financing secured for closing within 30 days.
+
+      ### Terms of Sale
+      
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only. 4% fee for credit card. All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2019-08-24-1"
     street_address: "9964 Pheasant Lane"
     city: "St. John"
