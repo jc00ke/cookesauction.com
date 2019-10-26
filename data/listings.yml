@@ -1,5 +1,41 @@
 ---
   -
+    slug: "2019-11-23-1"
+    street_address: "5075 Hayes St"
+    city: "Gary"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 42
+    starting_at: "2019-11-23 13:00"
+    type: "real_estate"
+    title: "Public Real Estate and Personal Property Auction"
+    content: |
+      ### Open House
+      November 10, 1-3pm
+
+      ### Details
+
+      Brick Cape Cod single family home built in 1958 located in Fern Oaks subdivision.
+      Home is approx  2081sq ft and features 4 bdrms., 1 1/2 baths, 1 car garage and 2 fireplaces.
+      Home(#12,13) and lots 24,25,26,27 all sold in its entirety!
+
+      ### Owner
+
+      Patricia Hale Trust
+
+      ### Terms of Sale
+
+      $10,000.00 down day of sale. Cash, cashier's check, credit card
+      or personal check with letter of credit accepted.
+      Balance due at closing. Property sold AS IS. All bidders must be
+      pre-approved with financing secured for closing within 30 days.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2019-11-09-1"
     street_address: "8290E State Road 120"
     city: "Howe"
