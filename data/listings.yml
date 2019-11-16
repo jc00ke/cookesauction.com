@@ -1,5 +1,106 @@
 ---
   -
+    slug: "2019-11-23-2"
+    street_address: "5075 Hayes St"
+    city: "Gary"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 203
+    starting_at: "2019-11-23 09:45"
+    type: "public_auction"
+    title: "Public Estate Auction"
+    content: |
+      ### Contemporary Furniture
+
+      2 Laz-E-Boy rockers, 3 rocking chairs, sofa, coffee & end tables, several
+      book cases, maple desk w/chair, 6 & 7 drawer dressers, single & double beds,
+      sleigh bed, 2 computer desks, several occasional chairs, pine hutch, drop-leaf
+      table w/4 chairs, round Formica w/4 chairs, etc.
+
+      ### Antique Furniture
+
+      5 old hickory chairs, large 3 door oak china cabinet, Duncan Phyfe drum table,
+      mahogany drop-front secretary, 2 oak wash stands, mahogany tea cart, Lane cedar
+      chest, pitcher & bowl wash stand, numerous accent pieces, etc.
+
+      ### Attention Collectors!
+
+      Over 200 Precious Moments & 100 Department 56 all new in original boxes, 3 steamer trunks,
+      oak kitchen clock, dolls, dollhouse, The Jackie doll, quilts, 1960's Sears bike,
+      Thomas Kincaid plates, costume jewelry, glassware, Fenton, Carnival, Royal Dalton,
+      Belleek, Wedgewood, crystal, etc.
+
+      ### Appliances & Household
+
+      Whirlpool fridge, washer & dryer, Kenmore upright freezer, Singer sewing machine
+      w/cabinet, humidifier, stereos, fans, misc electrial appliances, etc.
+
+      ### Tools, Lawn & Garden
+
+      Craftsman tool bench, misc hand & power tools, step & extension ladders, etc.
+
+      ### Miscellaneous
+
+      Pics, prints, oils, records, books, CDs; Canon, Vivitar & Nikon 35mm cameras,
+      NordicTrack GX 2.5 exercise bike, art & craft supplies, large amount of Xmas decor,
+      fur coat, cast iron trivets & fry pans, etc.
+
+      ### Medical
+
+      Inogen GS-100 oxygen concentrator & 10-300 w/batteries, carry case & backpack. Like new.
+
+      ### Estate
+
+      Patricia Hale Trust
+
+      ### Auctioneer's Note
+
+      2 rings simultaneously, partial list only.
+      4% fee for credit card.
+      All statements made day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
+    slug: "2019-11-23-1"
+    street_address: "5075 Hayes St"
+    city: "Gary"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 42
+    starting_at: "2019-11-23 13:00"
+    type: "real_estate"
+    title: "Public Real Estate Auction"
+    content: |
+      ### Open House
+      November 10, 1-3pm
+
+      ### Details
+
+      Brick Cape Cod single family home built in 1958 located in Fern Oaks subdivision.
+      Home is approx  2081sq ft and features 4 bdrms., 1 1/2 baths, 1 car garage and 2 fireplaces.
+      Home(#12,13) and lots 24,25,26,27 all sold in its entirety!
+
+      ### Estate
+
+      Patricia Hale Trust
+
+      ### Terms of Sale
+
+      $10,000.00 down day of sale. Cash, cashier's check, credit card
+      or personal check with letter of credit accepted.
+      Balance due at closing. Property sold AS IS. All bidders must be
+      pre-approved with financing secured for closing within 30 days.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2019-11-16-1"
     street_address: "832 Cedar Parkway"
     city: "Schererville"
@@ -31,42 +132,6 @@
 
       Partial list only. 4% Buyer’s premium waived with good check or
       cash. All statements made day of sale take precedence over printed material.
-    visible: true
-    result: null
-    update_text: null
-  -
-    slug: "2019-11-23-1"
-    street_address: "5075 Hayes St"
-    city: "Gary"
-    state: "IN"
-    zip: ""
-    location:
-      - ""
-      - ""
-    number_photos: 42
-    starting_at: "2019-11-23 13:00"
-    type: "real_estate"
-    title: "Public Real Estate and Personal Property Auction"
-    content: |
-      ### Open House
-      November 10, 1-3pm
-
-      ### Details
-
-      Brick Cape Cod single family home built in 1958 located in Fern Oaks subdivision.
-      Home is approx  2081sq ft and features 4 bdrms., 1 1/2 baths, 1 car garage and 2 fireplaces.
-      Home(#12,13) and lots 24,25,26,27 all sold in its entirety!
-
-      ### Owner
-
-      Patricia Hale Trust
-
-      ### Terms of Sale
-
-      $10,000.00 down day of sale. Cash, cashier's check, credit card
-      or personal check with letter of credit accepted.
-      Balance due at closing. Property sold AS IS. All bidders must be
-      pre-approved with financing secured for closing within 30 days.
     visible: true
     result: null
     update_text: null
@@ -8590,7 +8655,7 @@
       water cooler, Tappan gas stove, Hoover 18.0 vacuum sweeper, Weslo
       treadmill, Sentury cabinet safe, 760 Pumpmaster pellet gun, 3 gal. crock,
       table & floor lamps, pics, prints, oils, numerous knick knacks, numerous
-      kitchen & elec. applianced, etc.
+      kitchen & elec. appliances, etc.
 
       ### Tools, Lawn & Garden
       Vogal Sang wood stove, MTD Gold Series 5
