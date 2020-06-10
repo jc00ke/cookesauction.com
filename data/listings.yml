@@ -1,5 +1,66 @@
 ---
   -
+    slug: "2020-06-20-1"
+    street_address: "408 Fairview Ave"
+    city: "Crown Point"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 0
+    starting_at: "2020-06-20 09:45"
+    type: "public_auction"
+    title: "Public Estate Auction"
+    content: |
+      ### Contemporary Furniture
+
+      2 Lexington oak desks w/bookcase, 2 two-drawer file cabinets, pine table w/2 chairs,
+      pair occasional chairs, 2 La-Z-Boy recliners, king hickory sofa, 2 double beds,
+      2 single beds w/nightstands, 3, 4 & 6 drawer dressers, end tables, jewelry armoire,
+      pair of swivel rockers, desk w/chair, 1960s 9pc wrought iron patio set,
+      cavalier cedar chest, etc.
+
+      ### Collectibles
+
+      arctic air fan, costume jewelry, kerosene lamps, Lincoln bust, picnic basket & cooler jug, etc.
+
+      ### Appliances & Household
+
+      Whirlpool & Galaxy fridges, Maytag W&D, Kenmore sewing machine & chair,
+      2cu ft safe, auto-mobility scooter, etc.
+
+      ### Tools, Lawn & Garden
+
+      Craftsman 22" snow blower, Toro 6.5hp mower, Scott’s spreader, weed trimmers,
+      ladders, misc hand & power tools, gas heater, etc.
+
+      ### Vehicles
+
+      2002 Lincoln Town Car: 118k miles, Shoprider Streamer chair & transporter, Drive F22 walker
+
+      ### Electronics
+
+      Model 1485 Sears amp & 6 speakers, Eico Model 324 signal generator, Eico model 377 waveform,
+      Eico model 950B capacitor bridge tester, Hickok Model 800K tube tester, 35mm camera lens set, etc.
+
+      ### Guns
+
+      Glenfield Model 60 22cal long, Crosman 761XL pellet gun.
+
+      ### Owner
+
+      Jane Forsythe
+
+      ### Auctioneer's Note
+
+      Partial list only.
+      4% fee for credit card.
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2019-11-23-2"
     street_address: "5075 Hayes St"
     city: "Gary"
