@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    kramdown (2.2.1)
+      rexml
+    mini_magick (4.10.1)
+    rexml (3.2.4)
+    thor (1.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  kramdown
+  mini_magick
+  thor
+
+BUNDLED WITH
+   2.1.4
