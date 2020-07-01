@@ -1,5 +1,51 @@
 ---
   -
+    slug: "2020-07-11-1"
+    street_address: "5185 Meadow Ave"
+    city: "Portage"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 47
+    starting_at: "2020-07-11 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### Contemporary Furniture
+
+      4pc oak bedroom set, 2 La-Z-Boy chairs, sofa, recliner, computer desk & chair,
+      Lane cedar chest, bookcases, end tables, Chiwa cab, etc.
+
+      ### Household & Misc
+
+      Magic Chef microwave & stand, misc electric appliances, glassware, golf clubs,
+      stereo receiver turntable & speakers, Mongoose bike, numerous child’s toys
+      & puzzles, etc.
+
+      ### Tools, Lawn & Garden
+
+      Swisher 27" 11 gross torque snowblower, Craftsman rear-tine rototiller, shredder,
+      4hp air compressor, tool chest, hand & power tools, etc.
+
+      ### Hunting & Fishing Equipment
+
+      Misc nets, baskets, etc.
+
+      ### Owner Estate Of
+
+      Gertrude Ritchie
+
+      ### Auctioneer's Note
+
+      Partial list only.
+      4% fee for credit card.
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2020-06-20-1"
     street_address: "408 Fairview Ave"
     city: "Crown Point"
