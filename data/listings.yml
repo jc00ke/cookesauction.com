@@ -1,5 +1,42 @@
 ---
   -
+    slug: "2020-09-12-1"
+    street_address: "306 N Calumet"
+    city: "Chesterton"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 24
+    starting_at: "2020-09-12 09:45"
+    type: "real_estate"
+    title: "Public Auction Real Estate & Personal Property"
+    content: |
+      ### Sale times
+
+      Personal property starts at 9:45AM, real estate at 1PM.
+      
+      ### Details
+
+      Single family home built in 1884. Approx 1123 sq ft w/2 bedrooms,
+      1 bath, 1 car detached garage. Sits on 100'x125' lot, zoned B-2.
+
+      ### Owner
+
+      Catherine Gibbs
+
+      ### Terms of Real Estate
+
+      $10,000.00 down day of sale. Cash, cashier's check,
+      credit card or personal check w/letter of credit accepted.
+      Balance due at closing. Property sold AS IS.
+      All bidders must be pre-approved with financing secured for closing withing 30 days.
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2020-07-11-1"
     street_address: "5185 Meadow Ave"
     city: "Portage"
