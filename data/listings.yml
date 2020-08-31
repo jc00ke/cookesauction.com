@@ -1,5 +1,83 @@
 ---
   -
+    slug: "2020-09-12-2"
+    street_address: "306 N Calumet"
+    city: "Chesterton"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 165
+    starting_at: "2020-09-12 09:45"
+    type: "real_estate"
+    title: "Public Auction - Personal Property"
+    content: |
+      ### Antique furniture
+
+      Oak lion head Morris chair, 54" 1/4 sawn arts and crafts style table with three chairs,
+      round Eastlake oak table, Oak drop leaf, oval ornate coffee table, three drawer file cabinet,
+      4 bookcases , 4 6’ drop leaf coffee table Pine, three drawer marble top Victorian dresser,
+      4 oak captain chairs, ornate wall mirror, Eastlake beveled mirror, etc.
+
+      ### Collectibles
+
+      Pittsburgh hunter dog, reverse painted lamp, Miller filigree panel lamp, 24" leaded floral chandelier,
+      leaded miniature Wisteria lamp, 56" x 18" framed beveled and jeweled transom window,
+      peacock leaded shade, vintage Schwab safe, clocks, old file meat cleavers, lantern, antler flatware,
+      brass bookends, lodge sword, old ammo boxes, pocket and wrist watches,
+      125th anniversary Romeo and Juliet cigar humidor, cigar mold and pipes,
+      sterling and silverplate flatware, pocket knives, Levi jackets, RR Whistle signs.
+
+      ### Hunting & fishing
+
+      6 rifle scopes, Meade spotting scope, duck calls, binoculars, small arms primers,
+      gun cases and supplies, fishing lures, tackle boxes, Montague bamboo fly rod,
+      Meade Astro telescope.
+
+      ### Stereo equipment
+
+      Marantz 2130 tuner, 3800 control console, 510 amplifier,
+      4 JBL 4311 speakers and 2 Model 150 amps.
+
+      ### Appliances
+
+      Kitchenaid, Tappan glass stove, Kenmore washer, Whirlpool dryer
+
+      ### Lawn & garden
+
+      Trim Rite edger, Toro mower, Earthquake tiller, MTO chipper shredder, yard cart,
+      gas-powered log splitter, numerous lawn tools.
+
+      ### Tools
+
+      ASME and ANSI 2 ton engine crane, Viking arc welder, Miller Cricket welder,
+      Honda power washer, acetylene tanks, Craftsman table saw, tool boxes and storage cabinets,
+      numerous hand and power tools, Snap-on Mac, Starritt, et.
+
+      ### Vehicles
+
+      912 Porsche project car with matching number engine, 1988 GMC half ton with winch,
+      1966 Harley-Davidson, single axle utility trailer, truck bed trailer with cap,
+      motorcycle work lift, five truespoke wire wheels, NOS system (new in box)
+
+      ### Owner
+
+      Catherine Gibbs
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted.
+
+      ### Auctioneer's Note
+
+      Partial list only.
+      4% fee for credit card.
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2020-09-12-1"
     street_address: "306 N Calumet"
     city: "Chesterton"
@@ -9,18 +87,14 @@
       - ""
       - ""
     number_photos: 24
-    starting_at: "2020-09-12 09:45"
+    starting_at: "2020-09-12 13:00"
     type: "real_estate"
-    title: "Public Auction Real Estate & Personal Property"
+    title: "Public Auction -  Real Estate"
     content: |
-      ### Sale times
-
-      Personal property starts at 9:45AM, real estate at 1PM.
-
       ### Open House
 
       Sunday, August 30, 1-3pm
-      
+
       ### Details
 
       Single family home built in 1884. Approx 1123 sq ft w/2 bedrooms,
@@ -624,7 +698,7 @@
 
       ### Lawn, Garden & Misc
 
-      1987 1720 Hydro Cub Cadet, Husky tractor w/20hp engine, 3 20” push mowers, Echo trimmer, Remington electric pole saw, Husqvarna 445 chainsaw & 125B leaf blower, misc lawn tools, etc.
+      1987 1720 Hydro Cub Cadet, Husky tractor w/20hp engine, 3 20" push mowers, Echo trimmer, Remington electric pole saw, Husqvarna 445 chainsaw & 125B leaf blower, misc lawn tools, etc.
 
       ### Exercise Equipment
 
