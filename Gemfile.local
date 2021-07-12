@@ -5,4 +5,5 @@ group :development do
   gem "kramdown"
   gem "mini_magick"
   gem "thor"
+  gem "solargraph"
 end
