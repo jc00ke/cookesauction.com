@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-* Ruby 2.3.3
+* Ruby 2.7.2
 * Bundler
 * awscli
   * `aws configure` see [instructions](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
