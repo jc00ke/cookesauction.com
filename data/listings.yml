@@ -1,5 +1,57 @@
 ---
   -
+    slug: "2021-08-14-1"
+    street_address: "5005 W St Rd 2"
+    city: "La Porte"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 138
+    starting_at: "2021-08-14 09:45"
+    type: "public_auction"
+    title: "Public Estate Auction"
+    content: |
+      ### Antique/Contemporary Furniture
+
+      Hoosier cabinet, oak cupboard, nightstand & coat rack, office & roll
+      top desks, ornate hall mirror, cedar chest, 5 pc. Oak bedroom set, brass
+      bed, recliner, sofa, etc.
+
+      ### Collectibles & Glassware
+
+      brass vault gate, dry fuel fired steam engines, kerosene, table & floor
+      lamps, vintage ironing & wash boards, radios, toasters, cameras, glass jars, 50s
+      toys, air horns, mini Ruby pot belly stove, wicker baby stroller, oak wall phone, Edison
+      phonograph, postcards, Singer sewing machine, porcelain drinking fountain, bicycle
+      sharpening stone, brass hand rails, wrought iron oak leaf & acorn pillars, Evinrude boat
+      motor & stand, etc.
+
+      ### Pianos
+
+      Steinway baby grand, Starck player, 200+ piano rolls
+      Tools, Lawn & Garden: Power Mate 5hp generator, chain binders, shop vac, floor jacks,
+      appliance dolly, numerous hand & power tools, Toro mower & snowblower, 2 wheel horse
+      tractor(needs work), push mowers, bikes, animal traps, etc.
+
+      ### Owner
+
+      George Rogers Estate
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted. 4% Buyer's Premium waived with check or cash.
+
+      ### Auctioneer's Note
+
+      Partial listing only. Numerous boxes to be unpacked!
+
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2020-09-12-2"
     street_address: "306 N Calumet"
     city: "Chesterton"
