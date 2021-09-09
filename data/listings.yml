@@ -1,5 +1,55 @@
 ---
   -
+    slug: "2021-09-18-1"
+    street_address: "12903 81st Ave"
+    city: "Dyer"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 57
+    starting_at: "2021-09-18 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### VEHICLES, TRAILER, EQUIP.
+
+      1994 Ford E 350 1 ton van(134k), 1999 Cargo Express tandem
+      w/5k lbs. axles, Knudson gutter machine model 1700C
+
+      ### COLLECTIBLES & MISC
+      3 -True view masters, vintage onyx ash receiver w/lighter, 4 qt. lass
+      butter churn, Norman Rockwell plates, Longaberger pottery dinnerware(service/12), oak
+      chair, octagon marble table, etc.
+      
+      ### TOOLS
+      Werner scaffolding planks, Simpson anchor system, Craftsman air compressor,
+      Paslode nailer, Milwaukee sawz all, Poulon chain saw, ladder stabilizers, hammer drill,
+      brake & shears, roto zip, Sears & rigid table saw, Mikita 7 1⁄4 saw, aluminum, extension,
+      trussel & misc. ladders, picks, jacks & stands, saw horses, Power-Vee, rigid plumbing
+      tools, numerous hand & power tools
+      
+      ### LAWN, GARDEN, CAMPING
+      yard sprinklers, hoses, lawn tools, fishing poles, life jackets, water skies, etc.
+
+      ### Owner
+
+      Jim DeJong
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted. 4% Buyer's Premium waived with check or cash.
+
+      ### Auctioneer's Note
+
+      Partial listing only.
+
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2021-08-14-1"
     street_address: "5005 W St Rd 2"
     city: "La Porte"
