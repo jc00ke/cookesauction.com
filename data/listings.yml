@@ -1,5 +1,62 @@
 ---
   -
+    slug: "2021-09-25-1"
+    street_address: "616 C St"
+    city: "La Porte"
+    state: "IN"
+    zip: ""
+    location:
+      - ""
+      - ""
+    number_photos: 91
+    starting_at: "2021-09-25 09:45"
+    type: "public_auction"
+    title: "Public Auction"
+    content: |
+      ### LOCATION
+      Historic Link Mansion
+
+      ### Antique Furniture
+
+      Eastlake & oak rockers, walnut drop leaf table, phone stand,
+      Victorian parlor chairs, octagon end table, sewing table, fern stand, sofas, occasional
+      chairs, gold gilded mirrors, Lane cedar chest, vanity w/mirror, etc.
+
+      ### Contemporary Furniture
+
+      Sofa chairs, curio cabinets, brass & pine head boards, etc.
+
+      ### Collectibles & Misc
+
+      Howard Miller grandfather clock, Lionel trains & accessories, crocks, onyx bridge lamp,
+      brass student lamp, composite dolls, wicker baby buggy, 1921
+      reconstruction & LP Co. maps, cameras, porcelain figurines & wood carvings, 60s salon
+      chair, Victron & GE fans, radios & car parts, baseball mitt, wooden nail kegs, Fairbanks
+      floor scale, LP Theater wall sconce, pottery, glassware, deer & long pronged antelope
+      mounts, numerous books, oil paintings & prints, etc.
+
+      ### Lawn, Garden, Tools & Misc
+
+      Craftsman, Brute & Toro mowers, Earth tiller/cultivator,
+      Lincoln 225 welder, Craftsman snowblower, numerous hand & power tools, etc.
+
+      ### Owner
+
+      Kevin & Lorie Reed
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted. 4% Buyer's Premium waived with check or cash.
+
+      ### Auctioneer's Note
+
+      Partial listing only.
+
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2021-09-18-1"
     street_address: "12903 81st Ave"
     city: "Dyer"
