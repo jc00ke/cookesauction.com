@@ -1,5 +1,40 @@
 ---
   -
+    slug: "2021-11-13-1"
+    street_address: "832 Cedar Parkway"
+    city: "Schererville"
+    state: "IN"
+    zip: "46375"
+    location:
+      - ""
+      - ""
+    number_photos: 0
+    starting_at: "2021-11-13 09:45"
+    type: "public_auction"
+    title: "Blind Storage Unit Auction"
+    content: |
+      ### LOCATION
+      AAA U-Locks
+
+      We will be offering a blind unit auction, in their entirety, as is, where is.
+      We will unlock, 5 minute preview, auctioned off to highest bidder!
+      $100.00 cash deposit will be required and refunded when unit is cleared!
+
+      ### Owner
+
+      AAA U-Locks
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted. 4% Buyer's Premium waived with check or cash.
+
+      ### Auctioneer's Note
+
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2021-09-25-1"
     street_address: "616 C Street"
     city: "La Porte"
