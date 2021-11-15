@@ -1,5 +1,56 @@
 ---
   -
+    slug: "2021-11-20-1"
+    street_address: "1611 E. 36TH AVE."
+    city: "Hobart"
+    state: "IN"
+    zip: "46342"
+    location:
+      - ""
+      - ""
+    number_photos: 121
+    starting_at: "2021-11-20 09:45"
+    type: "public_auction"
+    title: "Public Estate Auction"
+    content: |
+      ### RV
+
+      1999 Itasca Sunflyer 35ft., V-10 Triton motor, 48k, nice condition
+
+      ### Tools
+
+      Chicago 6500 generator, Campbell Hausfeld & Craftsman compressors,
+      Century wire & stick welders,acetylene torches & tanks, Central
+      Machine 3.5 cubic ft. cement mixers, Craftsman tool boxes, Kohler
+      2600 psi power washer, Pro Tech & Craftsman miter & table saws,
+      bench grinder, drill press, 6 ton hydraulic press, 14" cut off saw,
+      gas & propane heaters, floor jacks & stands, pneumatic belt sanders
+      & ratchets, Starrett measuring tools, battery chargers,
+      numerous hand & power tools, etc.
+
+      ### Misc
+
+      Craftsman 20hp tractor w/snow blower/wheel weights, Cool Living air
+      conditioner, Poulan & Remington chainsaws, 45 watt solar power kit,
+      Adams 65,000 BTU overhead furnace, Janitrol air cond. condenser,
+      Cen-Tech 5 in 1 power pack, appliance dolly, shop lights,
+      chain falls, new Greyhound 11hp motor, c & bar clamps, etc.
+
+      ### Owner
+
+      Estate of Jim Johnson
+
+      ### Terms of Sale
+
+      Check, cash or credit card accepted. 4% Buyer's Premium waived with check or cash.
+
+      ### Auctioneer's Note
+
+      All statements made on the day of sale take precedence over printed material.
+    visible: true
+    result: null
+    update_text: null
+  -
     slug: "2021-11-13-1"
     street_address: "832 Cedar Parkway"
     city: "Schererville"
