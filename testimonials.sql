@@ -1,3 +1,10 @@
-select 'list' as component, "Testimonials" as title, TRUE as wrap;
+SELECT
+    'list' AS component,
+    "Testimonials" AS title,
+    TRUE AS wrap;
 
-select author as title, content as description from testimonials;
+SELECT
+    author AS title,
+    content AS description
+FROM
+    testimonials;

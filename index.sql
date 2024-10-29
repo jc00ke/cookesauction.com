@@ -1,3 +1,11 @@
-select 'list' as component, "Cooke's Auction Service" as title;
+SELECT
+    'list' AS component,
+    "Cooke's Auction Service" AS title;
 
-select title, content from sales where datetime(starting_at) > datetime("2023-01-01");
+SELECT
+    title,
+    content
+FROM
+    sales
+WHERE
+    datetime(starting_at) > datetime("2023-01-01");
