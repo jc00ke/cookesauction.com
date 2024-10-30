@@ -6,4 +6,12 @@ defmodule CookesAuctionWeb.PageController do
     # so skip the default app layout.
     render(conn, :home, layout: false)
   end
+
+  def testimonials(conn, _params) do
+    testimonials = CookesAuction.Content.list_testimonials()
+
+    conn
+    |> assign(:testimonials, testimonials)
+    |> render(:testimonials, layout: false)
+  end
 end

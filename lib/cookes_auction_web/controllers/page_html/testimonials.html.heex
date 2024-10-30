@@ -1,0 +1,10 @@
+<%= for testimonial <- @testimonials do %>
+  <blockquote>
+    <p>
+      <%= testimonial.content %>
+    </p>
+  </blockquote>
+  <cite>
+    <%= testimonial.author %>
+  </cite>
+<% end %>
