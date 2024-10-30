@@ -1,4 +1,4 @@
-defmodule CookesAuction.Repo.Migrations.AddTestimonialsTable do
+defmodule CookesAuction.Repo.Migrations.CreateTestimonials do
   use Ecto.Migration
 
   def change do
@@ -6,7 +6,7 @@ defmodule CookesAuction.Repo.Migrations.AddTestimonialsTable do
       add :author, :string, default: "Anonymous"
       add :content, :string, null: false
 
-      timestamps()
+      timestamps(type: :utc_datetime)
     end
   end
 end

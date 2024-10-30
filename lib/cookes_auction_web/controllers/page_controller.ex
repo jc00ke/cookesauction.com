@@ -8,7 +8,7 @@ defmodule CookesAuctionWeb.PageController do
   end
 
   def testimonials(conn, _params) do
-    testimonials = CookesAuction.Content.list_testimonials()
+    testimonials = CookesAuction.list_testimonials()
 
     conn
     |> assign(:testimonials, testimonials)
