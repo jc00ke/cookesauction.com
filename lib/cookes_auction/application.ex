@@ -8,8 +8,6 @@ defmodule CookesAuction.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      CookesAuctionWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:cookes_auction, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: CookesAuction.PubSub},
       # Start a worker by calling: CookesAuction.Worker.start_link(arg)
       # {CookesAuction.Worker, arg},

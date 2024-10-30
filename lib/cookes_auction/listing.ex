@@ -21,17 +21,17 @@ defmodule CookesAuction.Listing do
 
   def load_from_yaml(path) do
     YamlElixir.read_from_file!(path)
-    |> Enum.into(%{}, &from_map/1)
+    |> Enum.map(&from_map/1)
   end
 
   def from_map(map) do
     atom_map = Map.new(map, fn {key, value} -> {String.to_existing_atom(key), value} end)
 
-    {atom_map.slug,
-     struct!(__MODULE__, %{
-       atom_map
-       | content: Earmark.as_html!(atom_map.content),
-         starting_at: NaiveDateTime.from_iso8601!(atom_map.starting_at)
-     })}
+    struct!(__MODULE__, %{
+      atom_map
+      | content: Earmark.as_html!(atom_map.content),
+        starting_at: NaiveDateTime.from_iso8601!(atom_map.starting_at)
+    })
+    |> Map.put(:hide_photos, Map.get(atom_map, :hide_photos, false))
   end
 end

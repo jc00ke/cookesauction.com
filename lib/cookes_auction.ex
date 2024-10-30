@@ -10,9 +10,7 @@ defmodule CookesAuction do
   @listings_path "priv/listings.yml"
   @external_resource @listings_path
 
-  @content CookesAuction.Listing.load_from_yaml(@listings_path)
+  @listings CookesAuction.Listing.load_from_yaml(@listings_path)
 
-  def list_listings, do: Map.values(@content)
-
-  def get_listing!(slug), do: Map.fetch!(@content, slug)
+  def all_listings, do: @listings
 end
