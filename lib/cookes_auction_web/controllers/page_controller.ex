@@ -4,14 +4,15 @@ defmodule CookesAuctionWeb.PageController do
   def home(conn, _params) do
     # The home page is often custom made,
     # so skip the default app layout.
-    render(conn, :home, layout: false)
+    render(conn, :home)
   end
 
   def testimonials(conn, _params) do
     testimonials = CookesAuction.list_testimonials()
 
     conn
+    |> assign(:page_title, "Testimonials for Cooke's Auction Service")
     |> assign(:testimonials, testimonials)
-    |> render(:testimonials, layout: false)
+    |> render(:testimonials)
   end
 end

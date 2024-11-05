@@ -1,10 +1,10 @@
 <%= for testimonial <- @testimonials do %>
-  <blockquote>
-    <p>
+  <blockquote class="px-1.5 my-12 mx-0 border-l-4 border-l-green-700">
+    <p class="mb-4">
       <%= testimonial.content %>
     </p>
+    <cite class="text-sm">
+      <%= testimonial.author %>
+    </cite>
   </blockquote>
-  <cite>
-    <%= testimonial.author %>
-  </cite>
 <% end %>

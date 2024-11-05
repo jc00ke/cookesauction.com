@@ -3,3 +3,7 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+body {
+  font-family: system-ui, sans-serif;
+  font-weight: normal;
+}
