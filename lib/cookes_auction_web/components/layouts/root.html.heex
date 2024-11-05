@@ -13,5 +13,18 @@
   </head>
   <body class="bg-white">
     <%= @inner_content %>
+
+    <footer class="bg-white">
+      <div class="py-12 px-6 mx-auto max-w-7xl md:flex md:justify-between md:items-center lg:px-8">
+        <div class="flex gap-x-6 justify-center md:order-1">
+          Rick Cooke, Head Auctioneer
+          <p class="text-gray-400">IN. (AU1-970-0078)</p>
+        </div>
+        <p class="mt-8 text-center text-gray-600 md:order-2 md:mt-0 text-sm/6">
+          &copy; 2024 Cooke's Auction Service, Inc. All rights reserved.
+          <a href={~p"/privacy"}>Privacy</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
