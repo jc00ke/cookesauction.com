@@ -2,9 +2,13 @@ defmodule CookesAuctionWeb.PageController do
   use CookesAuctionWeb, :controller
 
   def home(conn, _params) do
-    # The home page is often custom made,
-    # so skip the default app layout.
     render(conn, :home)
+  end
+
+  def privacy(conn, _params) do
+    conn
+    |> assign(:page_title, "Privacy Policy")
+    |> render(:privacy)
   end
 
   def testimonials(conn, _params) do

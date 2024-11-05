@@ -18,6 +18,7 @@ defmodule CookesAuctionWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/privacy", PageController, :privacy
     get "/testimonials", PageController, :testimonials
   end
 
