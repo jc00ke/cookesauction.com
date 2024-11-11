@@ -29,12 +29,10 @@ defmodule CookesAuctionWeb.PageController do
   end
 
   def testimonials(conn, _params) do
-    testimonials = CookesAuction.list_testimonials()
-
     conn
     |> assign(:current_page, :testimonials)
     |> assign(:page_title, "Testimonials for Cooke's Auction Service")
-    |> assign(:testimonials, testimonials)
+    |> assign(:testimonials, CookesAuction.list_testimonials())
     |> render(:testimonials)
   end
 end
