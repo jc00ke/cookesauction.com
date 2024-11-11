@@ -1,6 +1,13 @@
 defmodule CookesAuctionWeb.PageController do
   use CookesAuctionWeb, :controller
 
+  def contact_us(conn, _params) do
+    conn
+    |> assign(:current_page, :contact_us)
+    |> assign(:page_title, "Contact Cooke's")
+    |> render(:contact_us)
+  end
+
   def home(conn, _params) do
     conn
     |> assign(:current_page, :home)
