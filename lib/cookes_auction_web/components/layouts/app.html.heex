@@ -1,20 +1,2 @@
-<header class="px-4 sm:px-6 lg:px-8">
-  <div class="flex justify-between items-center py-3 text-sm border-b border-zinc-100">
-    <h1 class="text-2xl text-green-900">
-      <a href={~p"/"}>Cooke’s Auction Service, Inc.</a>
-    </h1>
-    <h4 class="text-green-700">
-      It doesn’t <span class="italic">cost</span>
-      to hire a good auctioneer; It <span class="font-bold text-amber-500">pays!</span>
-    </h4>
-    <div class="flex gap-4 items-center font-semibold leading-6 text-zinc-900">
-      <.navigation current_page={@current_page} />
-    </div>
-  </div>
-</header>
-<main class="py-20 px-4 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-2xl">
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
-  </div>
-</main>
+<.flash_group flash={@flash} />
+<%= @inner_content %>
