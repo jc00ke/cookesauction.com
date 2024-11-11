@@ -41,53 +41,7 @@
           It doesn&rsquo;t <em>cost</em>
           to hire a good auctioneer; It <strong class="amber-text text-darken-2">pays!</strong>
         </h4>
-        <nav class="green lighten-1">
-          <div class="nav-wrapper">
-            <ul class="side-nav" id="slide-out">
-              <li class="active">
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/testimonials">Testimonials</a>
-              </li>
-              <li>
-                <a href="/past-sales">Past sales</a>
-              </li>
-              <li>
-                <a href="/contact-us">Contact us</a>
-              </li>
-              <li>
-                <a href="/signup">Email list</a>
-              </li>
-              <li>
-                <a href="/search">Search</a>
-              </li>
-            </ul>
-            <a class="button-collapse" data-activates="slide-out" href="#">
-              <i class="mdi-navigation-menu"></i>
-            </a>
-            <ul class="left hide-on-med-and-down">
-              <li class="active">
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/testimonials">Testimonials</a>
-              </li>
-              <li>
-                <a href="/past-sales">Past sales</a>
-              </li>
-              <li>
-                <a href="/contact-us">Contact us</a>
-              </li>
-              <li>
-                <a href="/signup">Email list</a>
-              </li>
-              <li>
-                <a href="/search">Search</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <.navigation current_page={@current_page} />
       </div>
       <div class="row" id="content">
         <%= @inner_content %>

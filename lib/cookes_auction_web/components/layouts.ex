@@ -16,6 +16,7 @@ defmodule CookesAuctionWeb.Layouts do
 
   def navigation(assigns) do
     links = [
+      {"Home", :home, ~p"/"},
       {"Testimonials", :testimonials, ~p"/testimonials"},
       {"Past Sales", :past_sales, ~p"/"},
       {"Search", :search, ~p"/"},
@@ -24,16 +25,34 @@ defmodule CookesAuctionWeb.Layouts do
     ]
 
     assigns = assign(assigns, links: links)
+    dbg(assigns)
 
     ~H"""
-    <%= for {name, id, path} <- @links do %>
-      <a
-        class={"hover:text-amber-600 p-2 #{if @current_page == id, do: "text-white bg-green-600 hover:underline hover:text-white"}"}
-        href={path}
-      >
-        <%= name %>
-      </a>
-    <% end %>
+    <nav class="green lighten-1">
+      <div class="nav-wrapper">
+        <ul class="side-nav" id="slide-out">
+          <%= for {name, id, path} <- @links do %>
+            <li class={if @current_page == id, do: "active"}>
+              <.link navigate={path}>
+                <%= name %>
+              </.link>
+            </li>
+          <% end %>
+        </ul>
+        <a class="button-collapse" data-activates="slide-out" href="#">
+          <i class="mdi-navigation-menu"></i>
+        </a>
+        <ul class="left hide-on-med-and-down">
+          <%= for {name, id, path} <- @links do %>
+            <li class={if @current_page == id, do: "active"}>
+              <.link navigate={path}>
+                <%= name %>
+              </.link>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     """
   end
 end
