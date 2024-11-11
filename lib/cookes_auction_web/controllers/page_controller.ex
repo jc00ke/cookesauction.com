@@ -14,6 +14,13 @@ defmodule CookesAuctionWeb.PageController do
     |> render(:privacy)
   end
 
+  def signup(conn, _params) do
+    conn
+    |> assign(:current_page, :signup)
+    |> assign(:page_title, "Sign up for Cooke's email list")
+    |> render(:signup)
+  end
+
   def testimonials(conn, _params) do
     testimonials = CookesAuction.list_testimonials()
 
