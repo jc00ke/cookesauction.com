@@ -20,8 +20,8 @@ defmodule CookesAuctionWeb.Layouts do
       {"Testimonials", :testimonials, ~p"/testimonials"},
       {"Past Sales", :past_sales, ~p"/"},
       {"Search", :search, ~p"/"},
-      {"Email List", :email_list, ~p"/"},
-      {"Contact", :past_sales, ~p"/"}
+      {"Email List", :email_list, ~p"/signup"},
+      {"Contact", :contact_us, ~p"/contact-us"}
     ]
 
     assigns = assign(assigns, links: links)
