@@ -40,6 +40,22 @@ defmodule CookesAuction do
   end
 
   @doc """
+  Returns a sale by slug.
+
+  ## Examples
+
+    iex> get_sale_by_slug!("some-slug")
+    %Sale{}
+
+    iex> get_sale_by_slug!("doesn't exist")
+    ** Ecto.NoResultsError{}
+  """
+  def get_sale_by_slug!(slug) do
+    from(s in Sale, where: s.slug == ^slug)
+    |> Repo.one!()
+  end
+
+  @doc """
   Returns the list of testimonials.
 
   ## Examples

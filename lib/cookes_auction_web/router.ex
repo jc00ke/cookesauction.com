@@ -23,6 +23,8 @@ defmodule CookesAuctionWeb.Router do
     get "/privacy", PageController, :privacy
     get "/signup", PageController, :signup
     get "/testimonials", PageController, :testimonials
+
+    get "/sale/:slug", SaleController, :show
   end
 
   # Other scopes may use custom stacks.
