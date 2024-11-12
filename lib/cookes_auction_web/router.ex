@@ -19,6 +19,7 @@ defmodule CookesAuctionWeb.Router do
 
     get "/", PageController, :home
     get "/contact-us", PageController, :contact_us
+    get "/past-sales", PageController, :past_sales
     get "/privacy", PageController, :privacy
     get "/signup", PageController, :signup
     get "/testimonials", PageController, :testimonials

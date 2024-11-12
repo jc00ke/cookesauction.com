@@ -14,6 +14,14 @@ defmodule CookesAuctionWeb.PageController do
     |> render(:home)
   end
 
+  def past_sales(conn, _params) do
+    conn
+    |> assign(:current_page, :past_sales)
+    |> assign(:page_title, "Past Sales")
+    |> assign(:past_sales, CookesAuction.past_sales())
+    |> render(:past_sales)
+  end
+
   def privacy(conn, _params) do
     conn
     |> assign(:current_page, :privacy)

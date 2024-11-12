@@ -6,6 +6,7 @@ defmodule CookesAuction do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
+  import Ecto.Query
 
   alias CookesAuction.Content.Testimonial
   alias CookesAuction.Sales.Sale
@@ -21,6 +22,21 @@ defmodule CookesAuction do
   """
   def list_sales do
     Repo.all(Sale)
+  end
+
+  @doc """
+  Returns the list of past sales.
+
+  ## Examples
+
+    iex> past_sales()
+    [%Sale{}]
+  """
+  def past_sales do
+    today = NaiveDateTime.utc_now()
+
+    from(s in Sale, order_by: [desc: s.id], where: s.starting_at < ^today)
+    |> Repo.all()
   end
 
   @doc """
