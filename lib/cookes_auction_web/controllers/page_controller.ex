@@ -31,7 +31,7 @@ defmodule CookesAuctionWeb.PageController do
 
   def signup(conn, _params) do
     conn
-    |> assign(:current_page, :signup)
+    |> assign(:current_page, :email_list)
     |> assign(:page_title, "Sign up for Cooke's email list")
     |> render(:signup)
   end
