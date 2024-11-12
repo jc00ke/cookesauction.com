@@ -25,7 +25,6 @@ defmodule CookesAuctionWeb.Layouts do
     ]
 
     assigns = assign(assigns, links: links)
-    dbg(assigns)
 
     ~H"""
     <nav class="green lighten-1">
