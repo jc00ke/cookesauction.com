@@ -66,4 +66,30 @@ defmodule CookesAuction do
   def list_testimonials do
     Repo.all(Testimonial)
   end
+
+  def directions_url(sale) do
+    address_query =
+      address_query(sale)
+      |> URI.encode_query()
+
+    "https://maps.google.com/maps?f=d&source=s_d&hl=en&mra=ls&ie=UTF8&z=15"
+    |> URI.parse()
+    |> URI.append_query(address_query)
+    |> URI.to_string()
+  end
+
+  def full_address(%Sale{} = sale) do
+    "#{sale.street_address}, #{sale.city}, #{sale.state} #{sale.zip}"
+  end
+
+  defp address_query(%Sale{location: nil} = sale) do
+    %{"daddr" => full_address(sale)}
+  end
+
+  defp address_query(%Sale{location: location} = sale) when is_list(location) do
+    %{"daddr" => Enum.join(sale.location, ",")}
+  end
+
+  def show_photos?(%Sale{hide_photos: false, number_photos: n}) when n > 0, do: true
+  def show_photos?(%Sale{}), do: false
 end

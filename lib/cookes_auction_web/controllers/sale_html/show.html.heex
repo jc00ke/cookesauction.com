@@ -1,96 +1,45 @@
 <div id="listing_2021-11-20-1">
   <div class="row">
-    <div class="col s12 m12 l8 flow-text">
-      <h3 class="summary flow-text">Public Estate Auction</h3>
-      <p class="flow-text">November 20, 2021 09:45 AM</p>
+    <div class="col">
+      <h3 class="summary flow-text"><%= @sale.title %></h3>
+      <p class="flow-text"><%= Calendar.strftime(@sale.starting_at, "%B %d %Y %I:%M %p") %></p>
+      <p class="flow-text">
+        <%= CookesAuction.full_address(@sale) %> -
+        <.link href={CookesAuction.directions_url(@sale)} target="_blank">Directions</.link>
+      </p>
       <div class="flow-text" id="listing_content">
-        <h3 id="rv">RV</h3>
-
-        <p>1999 Itasca Sunflyer 35ft., V-10 Triton motor, 48k, nice condition</p>
-
-        <h3 id="tools">Tools</h3>
-
-        <p>Chicago 6500 generator, Campbell Hausfeld &amp; Craftsman compressors,
-          Century wire &amp; stick welders,acetylene torches &amp; tanks, Central
-          Machine 3.5 cubic ft. cement mixers, Craftsman tool boxes, Kohler
-          2600 psi power washer, Pro Tech &amp; Craftsman miter &amp; table saws,
-          bench grinder, drill press, 6 ton hydraulic press, 14” cut off saw,
-          gas &amp; propane heaters, floor jacks &amp; stands, pneumatic belt sanders
-          &amp; ratchets, Starrett measuring tools, battery chargers,
-          numerous hand &amp; power tools, etc.</p>
-
-        <h3 id="misc">Misc</h3>
-
-        <p>Craftsman 20hp tractor w/snow blower/wheel weights, Cool Living air
-          conditioner, Poulan &amp; Remington chainsaws, 45 watt solar power kit,
-          Adams 65,000 BTU overhead furnace, Janitrol air cond. condenser,
-          Cen-Tech 5 in 1 power pack, appliance dolly, shop lights,
-          chain falls, new Greyhound 11hp motor, c &amp; bar clamps, etc.</p>
-
-        <h3 id="owner">Owner</h3>
-
-        <p>Estate of Jim Johnson</p>
-
-        <h3 id="terms-of-sale">Terms of Sale</h3>
-
-        <p>Check, cash or credit card accepted. 4% Buyer’s Premium waived with check or cash.</p>
-
-        <h3 id="auctioneers-note">Auctioneer’s Note</h3>
-
-        <p>All statements made on the day of sale take precedence over printed material.</p>
+        <%= raw(Earmark.as_html!(@sale.content)) %>
       </div>
     </div>
-    <div class="col s12 m12 l4">
-      <div class="card med">
-        <div class="card-image">
-          <img src="https://maps.google.com/maps/api/staticmap?1611+E.+36TH+AVE.,Hobart,IN+46342&amp;center=1611+E.+36TH+AVE.,Hobart,IN+46342&amp;size=300x270&amp;markers=color:blue|label:A|1611+E.+36TH+AVE.,Hobart,IN+46342&amp;sensor=false&amp;key=AIzaSyAAoESaGwlLU_seZaQ2sE0zJc1MzC0VsH0&amp;signature=p5OI3VnKF_nGkE68ta_GL7V96_E=" />
-        </div>
-        <div class="card-content">1611 E. 36TH AVE., Hobart, IN 46342</div>
-        <div class="card-action">
-          <a href="https://maps.google.com/maps?f=d&amp;source=s_d&amp;hl=en&amp;mra=ls&amp;ie=UTF8&amp;z=15&amp;daddr=1611+E.+36TH+AVE.,Hobart,IN+46342">
-            Directions
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <p class="flow-text">
-            All items are sold as is.
-            All information contained herein was derived from sources believed to be correct but are not guaranteed.
-            All statements made day of sale take precedence over printed material.
-          </p>
+    <div class="row">
+      <div class="col s12">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <p class="flow-text">
+              All items are sold as is.
+              All information contained herein was derived from sources believed to be correct but are not guaranteed.
+              All statements made day of sale take precedence over printed material.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col s12 m8 offset-m2 listing-images" id="listing_photos">
-    <div class="card">
-      <div class="card-image">
-        <img
-          loading="lazy"
-          alt="listing image 0"
-          class="responsive-image"
-          data-original="https://d301i0hwowplau.cloudfront.net/images/sales/2021-11-20-1/0.jpg"
-          src="https://d301i0hwowplau.cloudfront.net/images/sales/2021-11-20-1/0.jpg"
-          style="display: inline;"
-        />
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-image">
-        <img
-          loading="lazy"
-          alt="listing image 1"
-          class="responsive-image"
-          data-original="https://d301i0hwowplau.cloudfront.net/images/sales/2021-11-20-1/1.jpg"
-          src="https://d301i0hwowplau.cloudfront.net/images/sales/2021-11-20-1/1.jpg"
-          style="display: inline;"
-        />
-      </div>
-    </div>
+    <%= if CookesAuction.show_photos?(@sale) do %>
+      <%= for idx <- Enum.to_list(0..@sale.number_photos) do %>
+        <div class="card">
+          <div class="card-image">
+            <img
+              loading="lazy"
+              alt={"listing image #{idx}"}
+              class="responsive-image"
+              src={"https://d301i0hwowplau.cloudfront.net/images/sales/#{@sale.slug}/#{idx}.jpg"}
+              style="display: inline;"
+            />
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
