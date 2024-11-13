@@ -4,25 +4,20 @@
   Please click around to see what we've sold in the past.
 </p>
 
-<div>
+<ul class="collection">
   <%= for sale <- @past_sales do %>
-    <div class="card med">
-      <div class="card-content">
-        <p>
-          <span>
-            <%= Calendar.strftime(sale.starting_at, "%B %d %Y %I:%M %p") %>
-          </span>
-          <br />
-          <span class="location">
-            <%= sale.street_address %>, <%= sale.city %>, <%= sale.state %> <%= sale.zip %>
-          </span>
-        </p>
-      </div>
-      <div class="card-action">
-        <.link navigate={~p"/sale/#{sale.slug}"}>
-          <span class="title"><%= sale.title %></span>
-        </.link>
-      </div>
-    </div>
+    <li class="collection-item">
+      <span class="title"><%= sale.title %></span>
+      on
+      <span>
+        <%= CookesAuction.formatted_starting_at(sale) %>
+      </span>
+      <br />
+      <span class="location">
+        <%= CookesAuction.full_address(sale) %>
+      </span>
+      <br />
+      <.link class="collection-item" href={~p"/sale/#{sale.slug}"}>Details</.link>
+    </li>
   <% end %>
-</div>
+</ul>
