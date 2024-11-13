@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h3 class="summary flow-text"><%= @sale.title %></h3>
-      <p class="flow-text"><%= Calendar.strftime(@sale.starting_at, "%B %d %Y %I:%M %p") %></p>
+      <p class="flow-text"><%= CookesAuction.formatted_starting_at(@sale) %></p>
       <p class="flow-text">
         <%= CookesAuction.full_address(@sale) %> -
         <.link href={CookesAuction.directions_url(@sale)} target="_blank">Directions</.link>

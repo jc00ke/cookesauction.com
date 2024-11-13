@@ -92,4 +92,8 @@ defmodule CookesAuction do
 
   def show_photos?(%Sale{hide_photos: false, number_photos: n}) when n > 0, do: true
   def show_photos?(%Sale{}), do: false
+
+  def formatted_starting_at(%Sale{starting_at: starting_at}) do
+    Calendar.strftime(starting_at, "%B %d %Y %I:%M %p")
+  end
 end
