@@ -16,3 +16,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## Fly.io
+
+  * [SFTP](https://fly.io/docs/elixir/advanced-guides/sqlite3/#copying-an-existing-database-to-a-fly-volume)
+  * [iex into a running app](https://fly.io/docs/elixir/the-basics/iex-into-running-app/)
