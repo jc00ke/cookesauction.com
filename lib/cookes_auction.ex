@@ -105,10 +105,7 @@ defmodule CookesAuction do
       results as (
         select
           id,
-          row_number() over (
-            ORDER BY
-              bm25 (sales_fts) desc
-          ) as row_number
+          rank
         from
           sales_fts
         where
@@ -120,7 +117,7 @@ defmodule CookesAuction do
       sales
       join results on sales.id = results.id
     order by
-      results.row_number ASC;
+      results.rank ASC;
   """
   def search_sales(query) do
     fts_query =
@@ -128,7 +125,7 @@ defmodule CookesAuction do
         where: fragment("sales_fts match ?", ^query),
         select: %{
           id: f.id,
-          row_number: fragment("row_number() over (order by bm25 (sales_fts) desc)")
+          rank: f.rank
         }
       )
 
@@ -136,7 +133,7 @@ defmodule CookesAuction do
       from(s in Sale,
         join: f in subquery(fts_query),
         on: s.id == f.id,
-        order_by: [asc: f.row_number],
+        order_by: [asc: f.rank],
         select: s
       )
 
