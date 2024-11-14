@@ -1,7 +1,7 @@
 <form action="https://api.elasticemail.com/contact/add?version=2" method="post">
   <p>
     Cooke’s will send you an email when we update the site or have any other news to share.
-    Please read our <a href="/privacy">privacy policy</a>
+    Please read our <.link href={~p"/privacy"}>privacy policy</.link>
     for any concerns. We dislike spam just as much as you, maybe more. Don’t worry.
   </p>
   <input name="publiclistid" type="hidden" value="2f3881f9-eba8-44fb-833b-482f2500c729" />
@@ -11,13 +11,13 @@
   <input name="type" type="hidden" value="3" />
   <div class="input-field">
     <label>
-      Email:
+      Email
     </label>
-    <input id="email" name="email" type="email" />
+    <input id="email" name="email" type="email" class="validate" required />
   </div>
   <div id="buttons">
     <button class="btn waves-effect waves-light" type="submit">
-      Signup <i class="material-icons right">send</i>
+      Sign Up <i class="material-icons right">send</i>
     </button>
   </div>
 </form>
