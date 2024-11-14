@@ -40,6 +40,21 @@ defmodule CookesAuction do
   end
 
   @doc """
+  Returns the list of upcoming sales.
+
+  ## Examples
+
+    iex> upcoming_sales()
+    [%Sale{}]
+  """
+  def upcoming_sales do
+    today = NaiveDateTime.utc_now() |> NaiveDateTime.beginning_of_day()
+
+    from(s in Sale, order_by: [desc: s.id], where: s.starting_at >= ^today)
+    |> Repo.all()
+  end
+
+  @doc """
   Returns a sale by slug.
 
   ## Examples

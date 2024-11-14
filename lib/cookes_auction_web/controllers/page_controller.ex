@@ -11,6 +11,7 @@ defmodule CookesAuctionWeb.PageController do
   def home(conn, _params) do
     conn
     |> assign(:current_page, :home)
+    |> assign(:upcoming_sales, CookesAuction.upcoming_sales())
     |> render(:home)
   end
 

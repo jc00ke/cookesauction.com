@@ -33,11 +33,32 @@
 <div class="col s12 m12 l4">
   <div class="next-sale">
     <div class="future-sales">
-      <h3>No sales listed at the moment</h3>
-      <p>
-        Please sign up for our <.link navigate={~p"/signup"}>email list</.link>
-        to be notified of our next sale.
-      </p>
+      <%= if @upcoming_sales == [] do %>
+        <h3>No sales listed at the moment</h3>
+        <p>
+          Please sign up for our <.link href={~p"/signup"}>email list</.link>
+          to be notified of our next sale.
+        </p>
+      <% else %>
+        <h3>Upcoming sales</h3>
+        <ul class="collection">
+          <%= for sale <- @upcoming_sales do %>
+            <li class="collection-item">
+              <span class="title"><%= sale.title %></span>
+              on
+              <span>
+                <%= CookesAuction.formatted_starting_at(sale) %>
+              </span>
+              <br />
+              <span class="location">
+                <%= CookesAuction.full_address(sale) %>
+              </span>
+              <br />
+              <.link class="collection-item" href={~p"/sale/#{sale.slug}"}>Details</.link>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
