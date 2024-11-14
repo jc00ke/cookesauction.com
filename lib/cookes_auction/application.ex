@@ -11,8 +11,7 @@ defmodule CookesAuction.Application do
       CookesAuctionWeb.Telemetry,
       CookesAuction.Repo,
       {Ecto.Migrator,
-        repos: Application.fetch_env!(:cookes_auction, :ecto_repos),
-        skip: skip_migrations?()},
+       repos: Application.fetch_env!(:cookes_auction, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:cookes_auction, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: CookesAuction.PubSub},
       # Start a worker by calling: CookesAuction.Worker.start_link(arg)

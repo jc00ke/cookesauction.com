@@ -23,7 +23,35 @@ defmodule CookesAuction.Sales.Sale do
   @doc false
   def changeset(sale, attrs) do
     sale
-    |> cast(attrs, [:slug, :street_address, :city, :state, :zip, :location, :number_photos, :starting_at, :type, :title, :content, :visible, :hide_photos])
-    |> validate_required([:slug, :street_address, :city, :state, :zip, :location, :number_photos, :starting_at, :type, :title, :content, :visible, :hide_photos])
+    |> cast(attrs, [
+      :slug,
+      :street_address,
+      :city,
+      :state,
+      :zip,
+      :location,
+      :number_photos,
+      :starting_at,
+      :type,
+      :title,
+      :content,
+      :visible,
+      :hide_photos
+    ])
+    |> validate_required([
+      :slug,
+      :street_address,
+      :city,
+      :state,
+      :zip,
+      :location,
+      :number_photos,
+      :starting_at,
+      :type,
+      :title,
+      :content,
+      :visible,
+      :hide_photos
+    ])
   end
 end
