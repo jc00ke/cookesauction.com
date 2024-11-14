@@ -66,4 +66,18 @@ defmodule CookesAuctionWeb.PageController do
     |> assign(:sales, sales)
     |> render(:search)
   end
+
+  def bill_cooke(conn, _params) do
+    conn
+    |> assign(:current_page, nil)
+    |> assign(:page_title, "Memorial statement for Bill Cooke")
+    |> render(:bill_cooke)
+  end
+
+  def pat_lambright(conn, _params) do
+    conn
+    |> assign(:current_page, nil)
+    |> assign(:page_title, "Memorial statement for Pat Lambright")
+    |> render(:pat_lambright)
+  end
 end

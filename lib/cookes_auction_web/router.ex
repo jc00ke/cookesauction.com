@@ -25,6 +25,9 @@ defmodule CookesAuctionWeb.Router do
     get "/signed-up", PageController, :signed_up
     get "/testimonials", PageController, :testimonials
 
+    get "/bill-cooke", PageController, :bill_cooke
+    get "/pat-lambright", PageController, :pat_lambright
+
     get "/sale/:slug", SaleController, :show
     get "/search", PageController, :search
   end
