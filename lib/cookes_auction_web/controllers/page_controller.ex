@@ -36,6 +36,13 @@ defmodule CookesAuctionWeb.PageController do
     |> render(:signup)
   end
 
+  def signed_up(conn, _params) do
+    conn
+    |> assign(:current_page, :signed_up)
+    |> assign(:page_title, "Thank you for subscribing!")
+    |> render(:signed_up)
+  end
+
   def testimonials(conn, _params) do
     conn
     |> assign(:current_page, :testimonials)
@@ -52,13 +59,10 @@ defmodule CookesAuctionWeb.PageController do
         q -> CookesAuction.search_sales(q)
       end
 
-    href = %URI{path: ~p"/search", fragment: ":~:text=#{params["q"]}"}
-
     conn
     |> assign(:current_page, :search)
     |> assign(:page_title, "Search")
     |> assign(:q, params["q"])
-    |> assign(:href, href)
     |> assign(:sales, sales)
     |> render(:search)
   end
