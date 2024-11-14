@@ -32,6 +32,8 @@ defmodule CookesAuctionWeb.Router do
     get "/search", PageController, :search
   end
 
+  get "/sitemap.xml", CookesAuctionWeb.SitemapController, :index
+
   # Other scopes may use custom stacks.
   # scope "/api", CookesAuctionWeb do
   #   pipe_through :api
