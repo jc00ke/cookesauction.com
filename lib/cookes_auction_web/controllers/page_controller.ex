@@ -43,4 +43,23 @@ defmodule CookesAuctionWeb.PageController do
     |> assign(:testimonials, CookesAuction.list_testimonials())
     |> render(:testimonials)
   end
+
+  def search(conn, params) do
+    sales =
+      case params["q"] do
+        nil -> []
+        "" -> []
+        q -> CookesAuction.search_sales(q)
+      end
+
+    href = %URI{path: ~p"/search", fragment: ":~:text=#{params["q"]}"}
+
+    conn
+    |> assign(:current_page, :search)
+    |> assign(:page_title, "Search")
+    |> assign(:q, params["q"])
+    |> assign(:href, href)
+    |> assign(:sales, sales)
+    |> render(:search)
+  end
 end

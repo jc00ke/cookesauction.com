@@ -19,7 +19,7 @@ defmodule CookesAuctionWeb.Layouts do
       {"Home", :home, ~p"/"},
       {"Testimonials", :testimonials, ~p"/testimonials"},
       {"Past Sales", :past_sales, ~p"/past-sales"},
-      {"Search", :search, ~p"/"},
+      {"Search", :search, ~p"/search"},
       {"Email List", :email_list, ~p"/signup"},
       {"Contact", :contact_us, ~p"/contact-us"}
     ]

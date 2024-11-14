@@ -96,4 +96,50 @@ defmodule CookesAuction do
   def formatted_starting_at(%Sale{starting_at: starting_at}) do
     Calendar.strftime(starting_at, "%B %d %Y %I:%M %p")
   end
+
+  @doc """
+    iex> search_sales("Ford")
+    [%Sale{}, ...]
+
+    with
+      results as (
+        select
+          id,
+          row_number() over (
+            ORDER BY
+              bm25 (sales_fts) desc
+          ) as row_number
+        from
+          sales_fts
+        where
+          sales_fts match ?
+      )
+    select
+      sales.*
+    from
+      sales
+      join results on sales.id = results.id
+    order by
+      results.row_number ASC;
+  """
+  def search_sales(query) do
+    fts_query =
+      from(f in "sales_fts",
+        where: fragment("sales_fts match ?", ^query),
+        select: %{
+          id: f.id,
+          row_number: fragment("row_number() over (order by bm25 (sales_fts) desc)")
+        }
+      )
+
+    sales_query =
+      from(s in Sale,
+        join: f in subquery(fts_query),
+        on: s.id == f.id,
+        order_by: [asc: f.row_number],
+        select: s
+      )
+
+    Repo.all(sales_query)
+  end
 end

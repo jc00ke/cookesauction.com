@@ -25,6 +25,7 @@ defmodule CookesAuctionWeb.Router do
     get "/testimonials", PageController, :testimonials
 
     get "/sale/:slug", SaleController, :show
+    get "/search", PageController, :search
   end
 
   # Other scopes may use custom stacks.
