@@ -11,6 +11,14 @@ config :cookes_auction,
   ecto_repos: [CookesAuction.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+# Configure your database
+config :cookes_auction, CookesAuction.Repo,
+  database: Path.expand("../cookes_auction.db", __DIR__),
+  pool_size: 5,
+  read_only: true,
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true
+
 # Configures the endpoint
 config :cookes_auction, CookesAuctionWeb.Endpoint,
   url: [host: "localhost"],

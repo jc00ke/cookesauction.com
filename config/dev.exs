@@ -1,13 +1,5 @@
 import Config
 
-# Configure your database
-config :cookes_auction, CookesAuction.Repo,
-  database: Path.expand("../cookes_auction.db", __DIR__),
-  pool_size: 5,
-  read_only: true,
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
