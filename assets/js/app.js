@@ -48,14 +48,4 @@ window.liveSocket = liveSocket;
 $(document).ready(function () {
   $(".button-collapse").sideNav();
   $(".collapsible").collapsible();
-
-  $(".listing-images img").lazyload({
-    effect: "fadeIn",
-    placeHolder: "/images/blank.gif",
-  });
-
-  $("body.index .listing-image img").each(function () {
-    const $el = $(this);
-    $el.attr("src", $el.data("original"));
-  });
 });
