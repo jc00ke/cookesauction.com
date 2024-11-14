@@ -1,0 +1,42 @@
+<div class="row">
+  <form class="col s12" method="GET" action={~p"/search"}>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="q" name="q" type="text" class="validate" value={@q} required />
+        <label for="q">Search</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+      Search <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+
+<ul class="collection">
+  <%= for sale <- @sales do %>
+    <li class="collection-item">
+      <span class="title"><%= sale.title %></span>
+      on
+      <span>
+        <%= CookesAuction.formatted_starting_at(sale) %>
+      </span>
+      <br />
+      <span class="location">
+        <%= CookesAuction.full_address(sale) %>
+      </span>
+      <br />
+      <.link
+        class="collection-item"
+        href={
+          %URI{
+            path: ~p"/sale/#{sale.slug}",
+            fragment: ":~:#{URI.encode_query(%{text: @q}, :rfc3986)}"
+          }
+        }
+        rel="noopener"
+      >
+        Details
+      </.link>
+    </li>
+  <% end %>
+</ul>

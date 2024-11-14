@@ -1,0 +1,14 @@
+<div class="flow-text">
+  <%= for testimonial <- @testimonials do %>
+    <blockquote>
+      <p>
+        <%= testimonial.content %>
+      </p>
+      <small>
+        <cite>
+          <%= testimonial.author %>
+        </cite>
+      </small>
+    </blockquote>
+  <% end %>
+</div>

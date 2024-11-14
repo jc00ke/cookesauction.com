@@ -1,9 +1,0 @@
-# vi: ft=ruby
-source "https://rubygems.org"
-
-group :development do
-  gem "kramdown"
-  gem "mini_magick"
-  gem "thor"
-  gem "solargraph"
-end

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc><%= url(@conn, ~p"/") %></loc>
+    <lastmod><%= NaiveDateTime.utc_now() |> NaiveDateTime.to_iso8601() %></lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/testimonials") %></loc>
+    <lastmod>2023-10-02T20:21:52+00:00</lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/past-sales") %></loc>
+    <loc>https://cookesauction.com/past-sales</loc>
+    <lastmod><%= NaiveDateTime.utc_now() |> NaiveDateTime.to_iso8601() %></lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/search") %></loc>
+    <lastmod>2024-11-12T20:21:52+00:00</lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/signup") %></loc>
+    <lastmod>2023-10-02T20:21:52+00:00</lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/contact-us") %></loc>
+    <loc>https://cookesauction.com/contact-us</loc>
+    <lastmod>2023-10-02T20:21:52+00:00</lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/privacy") %></loc>
+    <lastmod>2023-10-02T20:21:52+00:00</lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/bill-cooke") %></loc>
+    <lastmod>2023-10-02T20:21:52+00:00</lastmod>
+  </url>
+  <url>
+    <loc><%= url(@conn, ~p"/pat-lambright") %></loc>
+    <lastmod>2023-10-02T20:21:52+00:00</lastmod>
+  </url>
+<%= for sale <- @sales do %>
+  <url>
+    <loc><%= url(@conn, ~p"/sale/#{sale.slug}") %></loc>
+    <lastmod><%= NaiveDateTime.to_iso8601(sale.updated_at) %></lastmod>
+  </url>
+<% end %>
+</urlset>
