@@ -33,7 +33,7 @@ defmodule CookesAuction do
     [%Sale{}]
   """
   def past_sales do
-    today = NaiveDateTime.utc_now()
+    today = NaiveDateTime.utc_now() |> NaiveDateTime.beginning_of_day()
 
     from(s in Sale, order_by: [desc: s.id], where: s.starting_at < ^today)
     |> Repo.all()
