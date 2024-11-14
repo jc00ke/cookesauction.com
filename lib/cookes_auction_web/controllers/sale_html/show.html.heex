@@ -27,7 +27,7 @@
   </div>
   <div class="col s12 m8 offset-m2 listing-images" id="listing_photos">
     <%= if CookesAuction.show_photos?(@sale) do %>
-      <%= for idx <- Enum.to_list(0..@sale.number_photos) do %>
+      <%= for idx <- Enum.to_list(0..@sale.number_photos - 1) do %>
         <div class="card">
           <div class="card-image">
             <img
