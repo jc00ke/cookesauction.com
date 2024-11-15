@@ -29,22 +29,13 @@ defmodule CookesAuctionWeb.Layouts do
     ~H"""
     <nav class="green lighten-1">
       <div class="nav-wrapper">
-        <ul class="side-nav" id="slide-out">
-          <%= for {name, id, path} <- @links do %>
-            <li class={if @current_page == id, do: "active"}>
-              <.link navigate={path}>
-                <%= name %>
-              </.link>
-            </li>
-          <% end %>
-        </ul>
-        <a class="button-collapse" data-activates="slide-out" href="#">
-          <i class="mdi-navigation-menu"></i>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
         </a>
-        <ul class="left hide-on-med-and-down">
+        <ul class="hide-on-med-and-down">
           <%= for {name, id, path} <- @links do %>
             <li class={if @current_page == id, do: "active"}>
-              <.link navigate={path}>
+              <.link href={path}>
                 <%= name %>
               </.link>
             </li>
@@ -52,6 +43,16 @@ defmodule CookesAuctionWeb.Layouts do
         </ul>
       </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <%= for {name, id, path} <- @links do %>
+        <li class={if @current_page == id, do: "active"}>
+          <.link href={path}>
+            <%= name %>
+          </.link>
+        </li>
+      <% end %>
+    </ul>
     """
   end
 end
