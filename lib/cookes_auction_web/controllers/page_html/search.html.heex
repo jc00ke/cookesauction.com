@@ -30,7 +30,7 @@
         href={
           %URI{
             path: ~p"/sale/#{sale.slug}",
-            fragment: ":~:#{URI.encode_query(%{text: @q}, :rfc3986)}"
+            query: URI.encode_query(%{"q" => @q})
           }
         }
         rel="noopener"

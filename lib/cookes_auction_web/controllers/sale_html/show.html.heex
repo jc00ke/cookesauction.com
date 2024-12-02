@@ -8,7 +8,7 @@
         <.link href={CookesAuction.directions_url(@sale)} target="_blank">Directions</.link>
       </p>
       <div id="listing_content">
-        <%= raw(Earmark.as_html!(@sale.content)) %>
+        <%= content(@sale, @q) %>
       </div>
     </div>
     <div class="row">
