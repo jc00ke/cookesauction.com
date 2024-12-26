@@ -17,6 +17,11 @@ config :cookes_auction, CookesAuctionWeb.Endpoint,
   secret_key_base: "C+SUVeEzn/BeOhFclMb9AvnWXi/CAKM+rB/jV/glhEY93jnZI+pXn8BcRjBHN5Ou",
   server: false
 
+config :cookes_auction,
+  elastic_email_req_options: [
+    plug: {Req.Test, CookesAuction.Email}
+  ]
+
 # Print only warnings and errors during test
 config :logger, level: :warning
 
