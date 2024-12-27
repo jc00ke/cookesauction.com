@@ -20,6 +20,12 @@ if System.get_env("PHX_SERVER") do
   config :cookes_auction, CookesAuctionWeb.Endpoint, server: true
 end
 
+if config_env() == :dev do
+  config :cookes_auction, CookesAuction.Email,
+    elastic_email_username: System.fetch_env!("ELASTIC_EMAIL_USERNAME"),
+    elastic_email_api_key: System.fetch_env!("ELASTIC_EMAIL_API_KEY")
+end
+
 if config_env() == :prod do
   database_path =
     System.get_env("DATABASE_PATH") ||

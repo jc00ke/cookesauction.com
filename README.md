@@ -7,7 +7,13 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+To send emails:
+
+```
+> mix email --test # sends the latest past sale to the test list
+> mix email        # sends upcoming sales to the test list
+> mix email --prod # sends upcoming sales to the prod list
+```
 
 ## Learn more
 

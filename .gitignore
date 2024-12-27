@@ -37,5 +37,6 @@ npm-debug.log
 
 # Database files
 *.db-*
+*_test.db
 
 /rel/

@@ -59,6 +59,9 @@ config :cookes_auction, CookesAuctionWeb.Endpoint,
     ]
   ]
 
+config :cookes_auction,
+  elastic_email_req_options: []
+
 # Enable dev routes for dashboard and mailbox
 config :cookes_auction, dev_routes: true
 
