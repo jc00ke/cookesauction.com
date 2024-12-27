@@ -15,6 +15,14 @@ To send emails:
 > mix email --prod # sends upcoming sales to the prod list
 ```
 
+To process images:
+
+```
+> mix images --src ~/path/to/images # defaults to putting processed files in :src/upload
+> mix images --src ~/path/to/images --dest ~/path/to/destination
+```
+
+
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/

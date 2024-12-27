@@ -56,7 +56,8 @@ defmodule CookesAuction.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:earmark, "~> 1.4"},
-      {:req, "~> 0.5"}
+      {:req, "~> 0.5"},
+      {:image, "~> 0.55.2", only: :dev}
     ]
   end
 
