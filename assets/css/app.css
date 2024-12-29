@@ -3,21 +3,16 @@
 /* @import "tailwindcss/utilities"; */
 
 /* This file is for your main application CSS */
-blockquote {
-  border-left: 5px solid #1b5e20;
-}
-.flash.error {
-  color: #f44336;
-}
 .listing-image {
   height: 320px;
   overflow: hidden;
 }
+
 .listing-image img {
   min-height: 320px;
 }
-#banner {
-  display: none;
-  padding: 2px;
-  text-align: center;
+
+.center {
+  display: grid;
+  place-items: center;
 }

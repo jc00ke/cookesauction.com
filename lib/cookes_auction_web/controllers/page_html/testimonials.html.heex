@@ -1,14 +1,12 @@
 <div>
   <%= for testimonial <- @testimonials do %>
     <blockquote>
-      <p>
-        <%= testimonial.content %>
-      </p>
-      <small>
+      <%= testimonial.content %>
+      <footer>
         <cite>
           <%= testimonial.author %>
         </cite>
-      </small>
+      </footer>
     </blockquote>
   <% end %>
 </div>

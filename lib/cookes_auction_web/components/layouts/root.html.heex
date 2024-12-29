@@ -3,58 +3,50 @@
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="csrf-token" content={get_csrf_token()} />
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
     <title>Welcome to Cooke's Auction Service</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://d301i0hwowplau.cloudfront.net" crossorigin />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.green.min.css"
     />
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-    </script>
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
   </head>
   <body>
     <div class="container">
-      <div class="row" id="header">
-        <h1 class="green-text text-darken-4">
+      <header>
+        <h1>
           Cooke&rsquo;s Auction Service, Inc.
         </h1>
-        <h4 class="green-text text-darken-3">
-          It doesn&rsquo;t <em>cost</em>
-          to hire a good auctioneer; It <strong class="amber-text text-darken-2">pays!</strong>
+        <h4>
+          It doesn&rsquo;t <em>cost</em> to hire a good auctioneer; It <strong>pays!</strong>
         </h4>
         <.navigation current_page={@current_page} />
-      </div>
-      <div class="row" id="content">
+      </header>
+      <main>
         <%= @inner_content %>
-      </div>
-      <footer class="page-footer row green lighten-1">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">
-                Rick Cooke, Head Auctioneer
-              </h5>
-              <p class="grey-text text-lighten-4">
-                IN. (AU1-970-0078)
-              </p>
-            </div>
+      </main>
+      <footer>
+        <div class="grid">
+          <div>
+            <h5>
+              Rick Cooke, Head Auctioneer
+            </h5>
+            <p>
+              IN. (AU1-970-0078)
+            </p>
           </div>
         </div>
-        <div class="footer-copyright">
-          <div class="container">
-            &copy; <%= Date.utc_today().year %> Cooke's Auction Service, Inc.
-            <a class="grey-text text-lighten-3 right" href="/privacy">Privacy</a>
-          </div>
+        <div>
+          &copy; <%= Date.utc_today().year %> Cooke's Auction Service, Inc.
+          <a href="/privacy">Privacy</a>
         </div>
       </footer>
     </div>

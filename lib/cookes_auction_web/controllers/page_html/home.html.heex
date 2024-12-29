@@ -1,64 +1,66 @@
-<div class="col s12 m12 l8">
-  <h3>
-    Welcome to Cooke's!
-  </h3>
-  <div class="row">
-    <p>
-      Cooke's Auction Service was started in 1968 by
-      Bill &amp; Dorthy Cooke. In 1997, Rick Cooke received
-      Full Honors from the Reppert School of Auctioneering
-      in Decatur, IN, and subsequently took over operations
-      of Cooke's. Rick has been a member of the Indiana
-      Auctioneer's Association since 1998. (AU IN 19700078,
-      IL 041000908) Indiana reciprocates auctioneer licenses
-      with any other state that also licenses.
-    </p>
-    <p>
-      Whether you have something to sell, intend to make a purchase,
-      or would like an interesting and enjoyable experience,
-      visit an auction held by Cooke's. If you need to liquidate
-      real estate, antiques, farm equipment, household items,
-      or an entire estate, please consider hiring us. Cooke's
-      will get you a fair price for your merchandise.
-    </p>
-    <p>
-      Buyers interested in genuine bargains and unique
-      items should make a point to attend our auctions frequently.
-      Cooke's has gained an excellent reputation for professional
-      auction services, as well as the respect and friendship of both
-      buying and selling public of Northwest Indiana.
-    </p>
+<div class="grid">
+  <div>
+    <h3>
+      Welcome to Cooke's!
+    </h3>
+    <div>
+      <p>
+        Cooke's Auction Service was started in 1968 by
+        Bill &amp; Dorthy Cooke. In 1997, Rick Cooke received
+        Full Honors from the Reppert School of Auctioneering
+        in Decatur, IN, and subsequently took over operations
+        of Cooke's. Rick has been a member of the Indiana
+        Auctioneer's Association since 1998. (AU IN 19700078,
+        IL 041000908) Indiana reciprocates auctioneer licenses
+        with any other state that also licenses.
+      </p>
+      <p>
+        Whether you have something to sell, intend to make a purchase,
+        or would like an interesting and enjoyable experience,
+        visit an auction held by Cooke's. If you need to liquidate
+        real estate, antiques, farm equipment, household items,
+        or an entire estate, please consider hiring us. Cooke's
+        will get you a fair price for your merchandise.
+      </p>
+      <p>
+        Buyers interested in genuine bargains and unique
+        items should make a point to attend our auctions frequently.
+        Cooke's has gained an excellent reputation for professional
+        auction services, as well as the respect and friendship of both
+        buying and selling public of Northwest Indiana.
+      </p>
+    </div>
   </div>
-</div>
-<div class="col s12 m12 l4">
-  <div class="next-sale">
-    <div class="future-sales">
-      <%= if @upcoming_sales == [] do %>
-        <h3>No sales listed at the moment</h3>
-        <p>
-          Please sign up for our <.link href={~p"/signup"}>email list</.link>
-          to be notified of our next sale.
-        </p>
-      <% else %>
-        <h3>Upcoming sales</h3>
-        <ul class="collection">
-          <%= for sale <- @upcoming_sales do %>
-            <li class="collection-item">
-              <span class="title"><%= sale.title %></span>
-              on
-              <span>
-                <%= CookesAuction.formatted_starting_at(sale) %>
-              </span>
-              <br />
-              <span class="location">
-                <%= CookesAuction.full_address(sale) %>
-              </span>
-              <br />
-              <.link class="collection-item" href={~p"/sale/#{sale.slug}"}>Details</.link>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
+  <div>
+    <div>
+      <div>
+        <%= if @upcoming_sales == [] do %>
+          <h3>No sales listed at the moment</h3>
+          <p>
+            Please sign up for our <.link href={~p"/signup"}>email list</.link>
+            to be notified of our next sale.
+          </p>
+        <% else %>
+          <h3>Upcoming sales</h3>
+          <ul>
+            <%= for sale <- @upcoming_sales do %>
+              <li>
+                <span><%= sale.title %></span>
+                on
+                <span>
+                  <%= CookesAuction.formatted_starting_at(sale) %>
+                </span>
+                <br />
+                <span>
+                  <%= CookesAuction.full_address(sale) %>
+                </span>
+                <br />
+                <.link href={~p"/sale/#{sale.slug}"}>Details</.link>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

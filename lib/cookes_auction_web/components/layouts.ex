@@ -27,32 +27,15 @@ defmodule CookesAuctionWeb.Layouts do
     assigns = assign(assigns, links: links)
 
     ~H"""
-    <nav class="green lighten-1">
-      <div class="nav-wrapper">
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-          <i class="material-icons">menu</i>
-        </a>
-        <ul class="hide-on-med-and-down">
-          <%= for {name, id, path} <- @links do %>
-            <li class={if @current_page == id, do: "active"}>
-              <.link href={path}>
-                <%= name %>
-              </.link>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-
-    <ul class="sidenav" id="mobile-demo">
-      <%= for {name, id, path} <- @links do %>
-        <li class={if @current_page == id, do: "active"}>
-          <.link href={path}>
+    <nav>
+      <ul>
+        <li :for={{name, id, path} <- @links}>
+          <.link href={path} class={if @current_page != id, do: "secondary"}>
             <%= name %>
           </.link>
         </li>
-      <% end %>
-    </ul>
+      </ul>
+    </nav>
     """
   end
 end

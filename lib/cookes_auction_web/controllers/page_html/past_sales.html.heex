@@ -4,20 +4,12 @@
   Please click around to see what we've sold in the past.
 </p>
 
-<ul class="collection">
-  <%= for sale <- @past_sales do %>
-    <li class="collection-item">
-      <span class="title"><%= sale.title %></span>
-      on
-      <span>
-        <%= CookesAuction.formatted_starting_at(sale) %>
-      </span>
-      <br />
-      <span class="location">
-        <%= CookesAuction.full_address(sale) %>
-      </span>
-      <br />
-      <.link class="collection-item" href={~p"/sale/#{sale.slug}"}>Details</.link>
-    </li>
-  <% end %>
-</ul>
+<article :for={sale <- @past_sales}>
+  <header>
+    <h3><%= sale.title %></h3>
+  </header>
+  <%= CookesAuction.full_address(sale) %> at <%= CookesAuction.formatted_starting_at(sale) %>
+  <footer>
+    <.link href={~p"/sale/#{sale.slug}"}>Details</.link>
+  </footer>
+</article>
