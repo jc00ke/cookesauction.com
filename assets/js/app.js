@@ -44,11 +44,3 @@ liveSocket.connect();
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket;
-
-document.addEventListener("DOMContentLoaded", function () {
-  const sidebarElements = document.querySelectorAll(".sidenav");
-  const _sidebars = M.Sidenav.init(sidebarElements, {});
-
-  const collapsibleElements = document.querySelectorAll(".collapsible");
-  const _collapsibles = M.Collapsible.init(collapsibleElements, {});
-});
