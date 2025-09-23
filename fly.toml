@@ -10,7 +10,7 @@ kill_signal = 'SIGTERM'
 [build]
 
 [env]
-  DATABASE_PATH = '/mnt/name/cookes_auction-2025-09-22-01.db'
+  DATABASE_PATH = '/mnt/name/cookes_auction-2025-09-23-01.db'
   PHX_HOST = 'cookesauction-com.fly.dev'
   PORT = '8080'
 
