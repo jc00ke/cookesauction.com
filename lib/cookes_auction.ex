@@ -71,6 +71,22 @@ defmodule CookesAuction do
   end
 
   @doc """
+  Returns a sale by id.
+
+  ## Examples
+
+    iex> get_sale!(1)
+    %Sale{}
+
+    iex> get_sale!(0)
+    ** Ecto.NoResultsError{}
+  """
+  def get_sale!(id) do
+    from(s in Sale, where: s.id == ^id)
+    |> Repo.one!()
+  end
+
+  @doc """
   Returns the list of testimonials.
 
   ## Examples
@@ -148,7 +164,8 @@ defmodule CookesAuction do
       from(s in Sale,
         join: f in subquery(fts_query),
         on: s.id == f.id,
-        order_by: [asc: f.rank],
+        where: s.visible,
+        order_by: [desc: s.id],
         select: s
       )
 
