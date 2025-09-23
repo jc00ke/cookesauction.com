@@ -13,6 +13,7 @@ To send emails:
 > mix cookes.email --test # sends the latest past sale to the test list
 > mix cookes.email        # sends upcoming sales to the test list
 > mix cookes.email --prod # sends upcoming sales to the prod list
+> mix cookes.email --note "Adds this note to the top of the email"
 ```
 
 To process images:

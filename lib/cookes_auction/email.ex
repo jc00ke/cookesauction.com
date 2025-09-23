@@ -13,7 +13,7 @@ defmodule CookesAuction.Email do
       "from_name" => "Jesse Cooke",
       "api_key" => api_key(opts),
       "subject" => "Upcoming Sales at Cooke's Auction Service",
-      "body_html" => body(sales),
+      "body_html" => body(sales, opts[:note]),
       "reply_to" => "info@cookesauction.com",
       "reply_to_name" => "Jesse Cooke",
       "lists" => list
@@ -47,10 +47,11 @@ defmodule CookesAuction.Email do
     )
   end
 
-  def body(sales) do
-    assigns = %{sales: sales, uri: URI.new!("https://cookesauction.com")}
+  def body(sales, note \\ nil) do
+    assigns = %{sales: sales, uri: URI.new!("https://cookesauction.com"), note: note}
 
     ~H"""
+    <p :if={@note}><%= @note %></p>
     <p>Here are our upcoming sales:</p>
     <ul :for={sale <- @sales}>
       <li>

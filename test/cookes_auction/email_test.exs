@@ -23,6 +23,7 @@ defmodule CookesAuction.EmailTest do
       assert body =~ "reply_to=info%40cookesauction.com"
       assert body =~ "reply_to_name=Jesse+Cooke"
       assert body =~ "lists=an-list"
+      assert body =~ "an-note"
       Req.Test.text(conn, "success")
     end)
 
@@ -30,7 +31,8 @@ defmodule CookesAuction.EmailTest do
       Email.send_emails([sale],
         username: "an-username",
         api_key: "an-api_key",
-        list: "an-list"
+        list: "an-list",
+        note: "an-note"
       )
 
     assert resp.body == "success"
@@ -43,5 +45,15 @@ defmodule CookesAuction.EmailTest do
     assert body =~ CookesAuction.full_address(sale)
     assert body =~ CookesAuction.formatted_starting_at(sale)
     assert body =~ "{unsubscribe}"
+  end
+
+  test "body/2 renders the body with an optional note" do
+    sale = %Sale{slug: "an-slug", starting_at: ~N[2029-12-25 09:30:00]}
+    body = Email.body([sale], "an note")
+    assert body =~ sale.slug
+    assert body =~ CookesAuction.full_address(sale)
+    assert body =~ CookesAuction.formatted_starting_at(sale)
+    assert body =~ "{unsubscribe}"
+    assert body =~ "an note"
   end
 end

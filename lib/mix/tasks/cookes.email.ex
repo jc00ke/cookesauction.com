@@ -12,7 +12,9 @@ defmodule Mix.Tasks.Cookes.Email do
 
   @impl Mix.Task
   def run(argv) do
-    {opts, _args, _invalid} = OptionParser.parse(argv, strict: [prod: :boolean, test: :boolean])
+    {opts, _args, _invalid} =
+      OptionParser.parse(argv, strict: [prod: :boolean, test: :boolean, note: :string])
+
     list = if opts[:prod], do: "Auction Listings Subscribers", else: "test"
 
     sales =
@@ -22,7 +24,7 @@ defmodule Mix.Tasks.Cookes.Email do
 
     shell = Mix.shell()
 
-    case CookesAuction.Email.send_emails(sales, list: list) do
+    case CookesAuction.Email.send_emails(sales, list: list, note: opts[:note]) do
       {:ok, resp} -> shell.info(resp.body)
       {:error, msg} when is_binary(msg) -> shell.error(msg)
       {:error, resp} -> IO.inspect(resp) |> shell.error()
