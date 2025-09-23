@@ -1,7 +1,8 @@
-defmodule Mix.Tasks.Fts do
+defmodule Mix.Tasks.Cookes.Fts do
   @moduledoc """
   Inserts sale content into the full-text search index.
   """
+  @shortdoc "Inserts sale content into FTS"
 
   use Mix.Task
 

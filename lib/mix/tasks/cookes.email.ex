@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.Email do
+defmodule Mix.Tasks.Cookes.Email do
   @moduledoc """
   Loads upcoming sales and sends them off to Elastic Email.
 

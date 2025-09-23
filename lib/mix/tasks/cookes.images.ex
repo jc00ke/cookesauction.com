@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.Images do
+defmodule Mix.Tasks.Cookes.Images do
   @moduledoc """
   Creates the upload-ready images and directory based
   on a path to a directory of images.

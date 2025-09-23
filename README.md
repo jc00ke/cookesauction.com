@@ -10,16 +10,22 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 To send emails:
 
 ```
-> mix email --test # sends the latest past sale to the test list
-> mix email        # sends upcoming sales to the test list
-> mix email --prod # sends upcoming sales to the prod list
+> mix cookes.email --test # sends the latest past sale to the test list
+> mix cookes.email        # sends upcoming sales to the test list
+> mix cookes.email --prod # sends upcoming sales to the prod list
 ```
 
 To process images:
 
 ```
-> mix images --src ~/path/to/images # defaults to putting processed files in :src/upload
-> mix images --src ~/path/to/images --dest ~/path/to/destination
+> mix cookes.images --src ~/path/to/images # defaults to putting processed files in :src/upload
+> mix cookes.images --src ~/path/to/images --dest ~/path/to/destination
+```
+
+To insert a sale into the FTS index:
+
+```
+> mix cookes.fts --sale 123 # the sale ID
 ```
 
 
